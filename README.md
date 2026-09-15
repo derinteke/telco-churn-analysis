@@ -106,7 +106,7 @@ telco-churn-analysis/
 ## 🚀 Getting started
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/derinteke/telco-churn-analysis.git
 cd telco-churn-analysis
 
 python -m venv venv
