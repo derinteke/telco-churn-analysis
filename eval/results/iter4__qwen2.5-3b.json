@@ -1,0 +1,217 @@
+{
+ "summary": {
+  "model": "qwen2.5:3b",
+  "tag": "iter4",
+  "repeats": 2,
+  "case_pass_rate": 0.417,
+  "check_pass_rate": 0.714,
+  "median_seconds": 13.45,
+  "prompt_temperature": 0.2
+ },
+ "records": [
+  {
+   "case": "offer_9237-HQITU",
+   "repeat": 0,
+   "seconds": 20.5,
+   "error": null,
+   "checks": {
+    "called_recommend_campaigns": true,
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "no_invented_codes": true,
+    "states_probability": true
+   },
+   "passed": true,
+   "tools": [
+    "predict_churn",
+    "recommend_campaigns"
+   ],
+   "answer": "9237-HQITU müşteri yüksek riskli ve 84% tahmini kaybedilme olasılığıyla değerlendirildi. Kaybın artığının en önemli sebepleri:\n\n- Kontrat tipi: Aylık (Month-to-month)\n- Yeni müşteri (fazlalık bakiye yok)\n- İnternet hizmeti: Fiber optic\n- Online Güvenlik eklentisi bulunmamaktadır\n\nBu müşteriyi korumak için aşağıdaki kampanyalar önerilmiştir:\n\n1. **RET-LOCK12 (Kamu Alanı: retention_campaigns.md)**\n   - Müşterinin 12 aylık maaşında %15 indirim kazanabileceğini söyler.\n   - Seçim koşulları yok.\n\n2. **RET-SECURE (Kamu Alanı: retention_campaigns.md)**\n   - 6 aylık ücretsiz Online Güvenlik ve Teknoloji Destek eklentisi ve daha sonra 6 aylık %50 indirimli 6 aylık destek için müşteriye sunulur.\n   - Seçim koşulları yok.\n\nBu kampanyaların her biri, müşterinin risk seviyesini düşürebilecek risk faktörlerine uygun olarak önerilmiştir. Her kampanya ayrı ayrı onaylanmalıdır."
+  },
+  {
+   "case": "offer_9237-HQITU",
+   "repeat": 1,
+   "seconds": 18.2,
+   "error": null,
+   "checks": {
+    "called_recommend_campaigns": true,
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "no_invented_codes": true,
+    "states_probability": true
+   },
+   "passed": true,
+   "tools": [
+    "predict_churn",
+    "recommend_campaigns"
+   ],
+   "answer": "9237-HQITU müşteri yüksek riskli ve 84% tahmini kaybedilme olasılığıyla değerlendirildi. Kaybın artırmaları:\n\n- Kontrat tipi: Aylık (Month-to-month)\n- Yeni müşteri (fazlalık bakiye yok)\n- İnternet hizmeti: Fiber optic\n- Online Güvenlik eklentisi bulunmuyor\n\nKaybın azaltıcıları bulunmamaktadır.\n\nÖnerilen kampanyalar:\n\n1. **RET-LOCK12 (Kamu Alışverişu 12 Aylık Kontrat Upgrade)**\n   - Müşteri alacakları için %15 indirim 12 aylık olarak\n   - Kayıt: retention_campaigns.md\n\n2. **RET-SECURE (Güvenlik ve Destek Eklentisi İndirgenen Fiyatlandırma)**\n   - Online Güvenlik + Teknoloji Destek ücretsiz 6 aylık, ardından 50% indirimli 6 aylık\n   - Kayıt: retention_campaigns.md\n\nBu kampanyaların koşullarını kontrol etmekte zorlanmayacaksınız. Her iki kampanya da önerilen ve belirtilen kodlarla uygulanacaktır."
+  },
+  {
+   "case": "offer_7590-VHVEG",
+   "repeat": 0,
+   "seconds": 14.3,
+   "error": null,
+   "checks": {
+    "called_recommend_campaigns": true,
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "no_invented_codes": true,
+    "states_probability": true
+   },
+   "passed": true,
+   "tools": [
+    "predict_churn",
+    "recommend_campaigns"
+   ],
+   "answer": "Customer 7590-VHVEG is at high risk (84% churn probability). The main drivers are:\n- New customer with few bills so far.\n- Contract type: Month-to-month.\n- Tenure (months): 1 month.\n\nTo address these risks, I recommend offering two campaigns:\n\n1. **RET-LOCK12**: Upgrade to one-year contract with a 15% discount on the monthly fee for 12 months. This campaign fits because:\n   - The customer is in a Month-to-month contract.\n   - They are new and have not yet had many bills.\n\n2. **RET-NEWBIE**: First-year care package, including a welcome call, free month, and free speed upgrade for the first three months. This fits because:\n   - The customer has only been with us for one month (tenure: 1 month).\n\nPlease offer these campaigns as recommended."
+  },
+  {
+   "case": "offer_7590-VHVEG",
+   "repeat": 1,
+   "seconds": 13.3,
+   "error": null,
+   "checks": {
+    "called_recommend_campaigns": true,
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "no_invented_codes": true,
+    "states_probability": true
+   },
+   "passed": true,
+   "tools": [
+    "predict_churn",
+    "recommend_campaigns"
+   ],
+   "answer": "Customer 7590-VHVEG is at high risk (84% churn probability). The main drivers are:\n- New customer (few bills so far)\n- Contract type: Month-to-month\n- Tenure (months): 1\n\nTo address these risks, I recommend offering the following campaigns:\n\n1. **RET-LOCK12**: Upgrade to one-year contract with a 15% discount on monthly fees for 12 months.\n   - Why it fits: Addresses the contract type and tenure risk factors.\n\n2. **RET-NEWBIE**: First-year care package including a welcome call, 1 month free, and free speed upgrade for 3 months.\n   - Why it fits: Helps with new customer concerns and tenure period.\n\nPlease offer these campaigns as recommended."
+  },
+  {
+   "case": "lowrisk_1293-BSEUN",
+   "repeat": 0,
+   "seconds": 10.0,
+   "error": null,
+   "checks": {
+    "no_invented_codes": true,
+    "only_recommended_codes": false,
+    "says_low_risk": false
+   },
+   "passed": false,
+   "tools": [
+    "check_campaign_eligibility"
+   ],
+   "answer": "1293-BSEUN numaralı müşteri için RET-LOCK24 kampanyası teklif edilemez. Bu müşteri, iki yıllık sözleşme ve en az 3 aylık abonelikten yoksun. Şu anda, bu müşteri için önerilen kampanya: %25 indirimli maaşlar (24 aylık) + ücretsiz Tech Support'dur. Herhangi bir koşul onaylamak gerekiyor."
+  },
+  {
+   "case": "lowrisk_1293-BSEUN",
+   "repeat": 1,
+   "seconds": 9.7,
+   "error": null,
+   "checks": {
+    "no_invented_codes": true,
+    "only_recommended_codes": false,
+    "says_low_risk": false
+   },
+   "passed": false,
+   "tools": [
+    "check_campaign_eligibility"
+   ],
+   "answer": "1293-BSEUN numaralı müşteri için RET-LOCK24 kampanyası teklif edilemez. Bu müşteri, saatlik veya bir yıl uzunluğunda bir sözleşme ve en az 3 ay kalan sözleşmeden yoksundur. Şu anda aşağıdaki teklif önerisi sunulabilir:\n\n- %25 indirimli aylık ücretler (24 aylık) + ücretsiz Tech Support"
+  },
+  {
+   "case": "ineligible_fibervalue",
+   "repeat": 0,
+   "seconds": 15.0,
+   "error": null,
+   "checks": {
+    "grounded": false,
+    "says_not_eligible": false,
+    "no_invented_codes": true
+   },
+   "passed": false,
+   "tools": [
+    "check_campaign_eligibility"
+   ],
+   "answer": "7590-VHVEG müşteri numarasındaki müşteri, RET-FIBERVALUE kampanyasını kullanamaz çünkü:\n\n- Fiber optic hizmeti kullanıyor ve aylık ücret 80 doları üzerinde.\n- Bir rakip teklif aldığında bu kampanyayı kullanamıyor.\n\nAlternatif olarak, bir yıllık sözleşme imkanına sahip olmak için $15/açık maliyetü (aylık ücret) %25 azaltabilirsiniz. Ancak bu kampanya başka bir kampanya ile kombinasyonunda kullanılabilirse, bununla ilgili bir ek teklif isteyebilirsiniz ve bu durumda teknik ekibin onayı gerekecektir.\n\nBunun yerine, müşteri için daha uygun bir kampanya önermek gerekirse, [retention_campaigns.md] belgesini inceleyebilir veya high_risk_customers fonksiyonunu kullanarak yüksek risk müşterileri listesini kontrol edebilirsiniz."
+  },
+  {
+   "case": "ineligible_fibervalue",
+   "repeat": 1,
+   "seconds": 11.4,
+   "error": null,
+   "checks": {
+    "grounded": false,
+    "says_not_eligible": true,
+    "no_invented_codes": true
+   },
+   "passed": false,
+   "tools": [
+    "check_campaign_eligibility"
+   ],
+   "answer": "7590-VHVEG müşteri numarasındaki müşteri, FIBERVALUE kampanyasını veremezim. Bu müşteri, aylık ücret 80 doları üzerindeki fiber optic hizmet sahibi ve bir rekabeti alıp almadığını belirten rule ile uyumlu değil. Eğer başka bir kampanyayı kombinasyonuyla kullanıyorsanız, ek teşkilatın onayını da almanız gerekecek. Bunun yerine, 12 aylık sözleşmeyle bir $15/mıllitlik indirim kampanyası öneriyorum."
+  },
+  {
+   "case": "policy_stacking",
+   "repeat": 0,
+   "seconds": 12.4,
+   "error": null,
+   "checks": {
+    "called_search": false,
+    "says_no": true,
+    "cites_source": false
+   },
+   "passed": false,
+   "tools": [
+    "check_campaign_eligibility",
+    "check_campaign_eligibility"
+   ],
+   "answer": "RET-LOCK24 için müşteriye verilebilir değil. Bu müşteri, aylık sözleşme ve en az 3 ay kalan sözleşmede olmalıdır. Şimdi RET-LOCK12 için öneriyi kontrol ediyorum.\n\nRET-LOCK12 için müşteriye verilebilir. Bu müşteri aylık sözleşme içinde ve aylık ücretlerin %15'sini 12 aylık bir indirim alabilir. Herhangi bir onay gereği koşul bulunmamaktadır."
+  },
+  {
+   "case": "policy_stacking",
+   "repeat": 1,
+   "seconds": 17.8,
+   "error": null,
+   "checks": {
+    "called_search": false,
+    "says_no": true,
+    "cites_source": false
+   },
+   "passed": false,
+   "tools": [
+    "check_campaign_eligibility",
+    "check_campaign_eligibility"
+   ],
+   "answer": "RET-LOCK24 için müşteriye verilebilir değil. Bu müşteri, saatlik sözleşme ve en az 3 ay kalan sözleşmeden memnuniyet duymaktadır.\n\nRET-LOCK12 için müşteriye verilebilir. Bu müşteri, saatlik sözleşme ve en az 2 ay kalan sözleşmeden memnuniyet duymaktadır. Müşteri için önerilen kampanya: %15 indirimli aylık ücretler 12 aylık.\n\nİşte detaylar:\n\n- **RET-LOCK24:** \n  - Memnuniyet Duymakça: No\n  - Aylık Ücret: $70.7\n  - Teknik Destek: No\n\n- **RET-LOCK12:** \n  - Memnuniyet Duymakça: No\n  - Aylık Ücret: $70.7\n  - Teknik Destek: %25 indirim (12 aylık)\n\nBu kampanyaların her ikisi de aynı müşteriye verilebilir, ancak RET-LOCK24 için müşteri durumu ve sözleşmenin şartlarına uymamaktadır."
+  },
+  {
+   "case": "top_risk_list",
+   "repeat": 0,
+   "seconds": 7.1,
+   "error": null,
+   "checks": {
+    "called_find": true,
+    "lists_correct_ids": false
+   },
+   "passed": false,
+   "tools": [
+    "find_high_risk_customers"
+   ],
+   "answer": "Üzgünüm, aylık sözleşmeli müşterilerin en yüksek riskli 3 kişisini bulamadım. Lütfen belge veya farklı bir filtre kullanarak tekrar deneyiniz."
+  },
+  {
+   "case": "top_risk_list",
+   "repeat": 1,
+   "seconds": 13.6,
+   "error": null,
+   "checks": {
+    "called_find": true,
+    "lists_correct_ids": true
+   },
+   "passed": true,
+   "tools": [
+    "find_high_risk_customers"
+   ],
+   "answer": "Aylık sözleşme altındaki yüksek riskli müşteri listesi:\n\n1. Müşteri ID: 7216-EWTRS, Aylık sözleşmede, aylık ücretler: $100.80, 1 ay kalsanın hafif olsa bile %95'lik bir tahrik riski var.\n2. Müşteri ID: 9300-AGZNL, Aylık sözleşme altındayken, aylık ücretler: $94.00, 1 ay kalsanın hafif olsa bile %95'lik bir tahrik riski var.\n3. Müşteri ID: 9497-QCMMS, Aylık sözleşme altındayken, aylık ücretler: $93.55, 1 ay kalsanın hafif olsa bile %95'lik bir tahrik riski var."
+  }
+ ]
+}

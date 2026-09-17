@@ -1,0 +1,411 @@
+{
+ "summary": {
+  "model": "qwen2.5:3b",
+  "tag": "iter8",
+  "set": "heldout",
+  "repeats": 3,
+  "case_pass_rate": 0.667,
+  "check_pass_rate": 0.852,
+  "median_seconds": 10.100000000000001,
+  "prompt_temperature": 0.2
+ },
+ "records": [
+  {
+   "case": "h_retain_nokeyword",
+   "repeat": 0,
+   "seconds": 14.1,
+   "error": null,
+   "checks": {
+    "only_recommended_codes": true,
+    "mentions_a_recommended_code": false,
+    "offer_details_faithful": true,
+    "states_probability": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": false,
+   "tools": [
+    "predict_churn"
+   ],
+   "answer": "müşteri kaybı riski yüksek (ayrılma olasılığı %94) olan müşteri için aşağıdaki önerilerde bulunabilir:\n\n- sözleşme tipi: Aylık sözleşme\n- yeni müşteri (fazlalık faturası)\n- aylık ücret: 100.95 TL\n- internet hizmeti: Fiber optic\n- müsiteri süresi: 3 ay\n\nBu risk faktörleri, müşterinin kaybına yol açabileceğini gösteriyor:\n\n- sözleşme tipi: Aylık sözleşme (aylık ödeme)\n- yeni müşteri (fazlalık faturası)\n- aylık ücret: Yüksek tutar\n- internet hizmeti: Fiber optic (gelişmiş ve yüksek maliyetli hizmet)\n\nBu risk faktörleri, müşterinin kaybına yol açabileceğini gösteriyor. Şimdi daha fazla bilgi edinebilir misiniz? Önerilen kampanyaları önermek için daha fazla ayrıntıyı istiyorum."
+  },
+  {
+   "case": "h_retain_nokeyword",
+   "repeat": 1,
+   "seconds": 14.6,
+   "error": null,
+   "checks": {
+    "only_recommended_codes": true,
+    "mentions_a_recommended_code": false,
+    "offer_details_faithful": true,
+    "states_probability": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": false,
+   "tools": [
+    "predict_churn"
+   ],
+   "answer": "müşteri kaybı riski yüksek (ayrılma olasılığı %94) olan müşteri için aşağıdaki öneriler sunulabilir:\n\n- Kayıt türü: Aylık sözleşme\n- Yeni müşteri (çoğunlukla çok fazla fatura yok)\n- Aylık ücret: 100.95 TL\n- İnternet hizmeti: Fiber optic\n- Kayıt süresi: 3 aylık\n\nBu risk faktörleri, müşterinin kaybı olasılığını arttırmaktadır. İşte önerilen stratejiler:\n\n1. **Elektronik çek ile ödeme**: Müşteriyi elektronik cek ödeme yöntemiyla destekleyin.\n2. **Fiber optic internet hizmeti için ek hizmet**: Eğer Fiber optic internet hizmeti için ek hizmet (örneğin, ek internet veya ek telefon) sunulabilirse, bunu önerin.\n\nHerhangi bir kampanya sunulmaz çünkü müşteri kaybı riski yüksek ve kampanyaların etkisini azaltmayabilir."
+  },
+  {
+   "case": "h_retain_nokeyword",
+   "repeat": 2,
+   "seconds": 11.9,
+   "error": null,
+   "checks": {
+    "only_recommended_codes": true,
+    "mentions_a_recommended_code": false,
+    "offer_details_faithful": true,
+    "states_probability": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": false,
+   "tools": [
+    "predict_churn"
+   ],
+   "answer": "müşteri kaybı riski yüksek (ayrılma olasılığı %94) olan müşteri için aşağıdaki önerilerde bulunabilirsiniz:\n\n- sözleşme tipi: aylık sözleşme\n- yeni müşteri (fakat henüz çok para ödediği için)\n- aylık ücret: 100.95 TL\n- internet hizmeti: Fiber optic\n- müşteri tenure: 3 ay\n\nBu risk faktörleri, müşterinin kaybılmasının olasılığını artırdığı düşünülebilir.\n\nHerhangi bir kampanya bu müşteriyi teşvik etmeye çalışmak için kullanılamayacaktır. [retention_campaigns.md] belgesine bakın ve daha fazla bilgi edinmek için arama yapabilirsiniz."
+  },
+  {
+   "case": "h_offer_conditions_en",
+   "repeat": 0,
+   "seconds": 8.5,
+   "error": null,
+   "checks": {
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "mentions_competitor_condition": true,
+    "states_probability": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "Customer 3932-CMDTD is at high risk with a churn probability of 70%. Here are the reasons why each recommended campaign fits:\n\n- **RET-LOCK24**: This campaign offers a two-year contract, which might be attractive to customers who have just started and want stability. The customer gets a 25% discount on the monthly fee for 24 months plus free Tech Support.\n  \n- **RET-FIBERVALUE**: This campaign provides $15/month off for 12 months if the customer has received a competitor offer, is using Fiber optic internet service, and agrees to a one-year contract. It also requires team lead approval if combined with another campaign.\n\nPlease review these recommendations carefully.\n\n**Recommended campaigns**\n- **RET-LOCK24**: 25% off the monthly fee for 24 months + free Tech Support\n- **RET-FIBERVALUE**: $15/month off for 12 months (requires one-year contract) _(Confirm: Customer must have received a competitor offer; Requires a one-year contract; Team Lead approval if combined with another campaign)_\n\n_Sources: [retention_campaigns.md]_"
+  },
+  {
+   "case": "h_offer_conditions_en",
+   "repeat": 1,
+   "seconds": 7.8,
+   "error": null,
+   "checks": {
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "mentions_competitor_condition": true,
+    "states_probability": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "Customer 3932-CMDTD is at high risk with a churn probability of 70%. Here are the reasons why each recommended campaign fits:\n\n- **RET-LOCK24**: This campaign offers a two-year contract and a 25% discount on monthly fees for 24 months. It's suitable because it addresses the customer’s current few bills situation by locking them into a longer-term contract.\n  \n- **RET-FIBERVALUE**: This campaign provides $15/month off their internet service for 12 months, contingent upon having received a competitor offer and signing up to a one-year contract. It fits as they have Fiber optic internet.\n\nPlease review the recommended campaigns and let me know if you need any further assistance.\n\n**Recommended campaigns**\n- **RET-LOCK24**: 25% off the monthly fee for 24 months + free Tech Support\n- **RET-FIBERVALUE**: $15/month off for 12 months (requires one-year contract) _(Confirm: Customer must have received a competitor offer; Requires a one-year contract; Team Lead approval if combined with another campaign)_\n\n_Sources: [retention_campaigns.md]_"
+  },
+  {
+   "case": "h_offer_conditions_en",
+   "repeat": 2,
+   "seconds": 7.4,
+   "error": null,
+   "checks": {
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "mentions_competitor_condition": true,
+    "states_probability": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "Customer 3932-CMDTD is at high risk with a churn probability of 70%. Here are the reasons why each recommended campaign fits:\n\n- **RET-LOCK24**: This campaign offers a two-year contract and a discount on monthly fees. The customer should be eligible for this as they have received a competitor offer, require a one-year contract, and do not need team lead approval.\n  \n- **RET-FIBERVALUE**: This campaign provides $15/month off the internet service price for 12 months. It requires a one-year contract and must be combined with another campaign (like RET-LOCK24) to be eligible.\n\nPlease review these recommendations.\n\n**Recommended campaigns**\n- **RET-LOCK24**: 25% off the monthly fee for 24 months + free Tech Support\n- **RET-FIBERVALUE**: $15/month off for 12 months (requires one-year contract) _(Confirm: Customer must have received a competitor offer; Requires a one-year contract; Team Lead approval if combined with another campaign)_\n\n_Sources: [retention_campaigns.md]_"
+  },
+  {
+   "case": "h_ineligible_autopay",
+   "repeat": 0,
+   "seconds": 9.8,
+   "error": null,
+   "checks": {
+    "called_check": true,
+    "says_not_eligible": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "check_campaign_eligibility"
+   ],
+   "answer": "1215-FIGMP için RET-AUTOPAY kampanyası uygun değildir. Bu müşteri aşağıdaki koşullar altında kampanyayı kullanamaz:\n\n- sözleşme türü: aylık sözleşme\n- aboneliğin süresi: 60 aya kadar\n- internet hizmeti: fiber optic\n\nMüşterinin ödeme yöntemi: banka transfer (otomatik). Bu müşteri, elektronik çek veya mevcut mevzuatta belirtilen yöntemlerden birini kullanarak ödeme yapmalıdır. \n\nBu nedenle, kampanyayı bu müşteriyi sunamaz ve kampanyayı uygulayamazsınız. Eğer müşteri elektronik çek veya mevcut mevzuatta belirtilen başka bir ödeme yöntemi ile ödeme yapabiliyorsa, kampanyayı tekrar deneyebilirsiniz.\n\n_Kaynak: [retention_campaigns.md]_"
+  },
+  {
+   "case": "h_ineligible_autopay",
+   "repeat": 1,
+   "seconds": 7.3,
+   "error": null,
+   "checks": {
+    "called_check": true,
+    "says_not_eligible": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "check_campaign_eligibility"
+   ],
+   "answer": "RET-AUTOPAY kampanyası 1215-FIGMP müşterine şu anda uygun değildir. Bu müşteri, elektronik çek veya mevcut mevzuata göre meblağla ödeme yapıyor. Eğer ödeme yöntemini otomatik ödeme ile değiştirirseniz, kampanya uygulanabilir olacaktır. Ödeme türü değişimi için aşağıdaki önerileri kontrol edebilirsiniz:\n\n- $5/month credit for 12 months after switching to automatic payment (ödeme türünü otomatik ödeme olarak değiştirdiğinizde 12 aylık $5/kredi kazanma)\n\n_Kaynak: [retention_campaigns.md]_"
+  },
+  {
+   "case": "h_ineligible_autopay",
+   "repeat": 2,
+   "seconds": 6.5,
+   "error": null,
+   "checks": {
+    "called_check": true,
+    "says_not_eligible": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "check_campaign_eligibility"
+   ],
+   "answer": "1215-FIGMP için RET-AUTOPAY kampanyası uygun değil. Bu müşteri, elektronik çek veya mevcut mevzuat altında olan mailed check ile ödeme yapıyor olması nedeniyle kampanyayı teşhis edilemez. Eğer müşteri elektronik çekle ödeme yapmayı tercih ederse, kampanya $5/month credit for 12 months after switching to automatic payment koşullarına uyması gerekecek. Herhangi bir başka kampanyayla da uyum sağlamaz.\n\n_Kaynak: [retention_campaigns.md]_"
+  },
+  {
+   "case": "h_why_medium_en",
+   "repeat": 0,
+   "seconds": 8.9,
+   "error": null,
+   "checks": {
+    "states_probability": true,
+    "says_medium": true,
+    "no_invented_codes": true
+   },
+   "passed": true,
+   "tools": [
+    "predict_churn"
+   ],
+   "answer": "Customer 6572-ADKRS is flagged as medium risk with a churn probability of 47%. The main drivers increasing the risk are:\n- Contract type: Month-to-month\n- Internet service: Fiber optic\n\nThe main driver decreasing the risk is:\n- New customer (few bills so far)\n\nAdditionally, other factors include:\n- Tenure (months): 46\n- Payment method: Credit card (automatic)"
+  },
+  {
+   "case": "h_why_medium_en",
+   "repeat": 1,
+   "seconds": 9.3,
+   "error": null,
+   "checks": {
+    "states_probability": true,
+    "says_medium": true,
+    "no_invented_codes": true
+   },
+   "passed": true,
+   "tools": [
+    "predict_churn"
+   ],
+   "answer": "Customer 6572-ADKRS is flagged as medium risk with a churn probability of 47%. The main drivers increasing the risk are:\n- Contract type: Month-to-month\n- Internet service: Fiber optic\n\nThe factors decreasing the risk include:\n- New customer (few bills so far)\n- Tenure (months): 46 months\n- Payment method: Credit card (automatic) \n\nThis profile suggests a moderate churn risk, but with some mitigating factors."
+  },
+  {
+   "case": "h_why_medium_en",
+   "repeat": 2,
+   "seconds": 9.0,
+   "error": null,
+   "checks": {
+    "states_probability": true,
+    "says_medium": true,
+    "no_invented_codes": true
+   },
+   "passed": true,
+   "tools": [
+    "predict_churn"
+   ],
+   "answer": "Customer 6572-ADKRS is flagged as medium risk with a churn probability of 47%. The main drivers increasing the risk are:\n- Contract type: Month-to-month\n- Internet service: Fiber optic\n\nThe factors decreasing the risk include:\n- New customer (few bills so far)\n- Tenure (months): 46\n- Payment method: Credit card (automatic) \n\nThis combination of factors leads to a medium risk level."
+  },
+  {
+   "case": "h_billing_late_fee",
+   "repeat": 0,
+   "seconds": 3.2,
+   "error": null,
+   "checks": {
+    "called_search": false,
+    "states_fee": false,
+    "states_days": false,
+    "no_bad_turkish_terms": true
+   },
+   "passed": false,
+   "tools": [],
+   "answer": ""
+  },
+  {
+   "case": "h_billing_late_fee",
+   "repeat": 1,
+   "seconds": 20.7,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "states_fee": true,
+    "states_days": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "Faturanın geç ödemesi durumu hakkında iki farklı bilgi alıyoruz:\n\n1. **Günlük Ödeme:**\n   - $7 ek ücret, ödemeyi 10 gün sonra eklenebilir.\n   - 30 gün içinde ödeme olmazsa, hizmetler 30 gün içinde kesilebilir.\n   - 60 gün içinde ödeme yapıldıysa, yeniden bağlanma ücreti ödenmez.\n\n2. **Günlük Ödeme İptal Fiyatı:**\n   - Müşterilerin ödeme süresiz olmasından dolayı $7 ek ücret eklenebilir.\n   - 30 gün içinde ödeme olmazsa, hizmetler 30 gün içinde kesilebilir.\n   - 60 gün içinde ödeme yapıldıysa, yeniden bağlanma ücreti ödenmez.\n\n3. **Elektronik Çek veya Kâğıt Çek Ödeme:**\n   - Elektronik çek veya kâğıt çek ile ödeme yapan müşteriler için $5/month ek kredi.\n   - Bu ödeme yöntemi, yüksek kaybın riski olan yöntemlerden biridir.\n\n4. **1 yıllık sözleşme:**\n   - 12 aylık commitments ile %10 indirimli maaşlar.\n   - Ücret: kalan ay sayısı x aylık fee'nin %25'ü.\n\nBu bilgiler, faturanın geç ödemesi durumu hakkında daha fazla bilgi sağlıyor. Eğer bir kampanya önerisi yapmak istiyorsak, müşterinin ödeme yöntemini ve kaybın riskini inceleyebiliriz.\n\n_Kaynak: [billing_faq.md]_"
+  },
+  {
+   "case": "h_billing_late_fee",
+   "repeat": 2,
+   "seconds": 17.8,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "states_fee": true,
+    "states_days": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "Faturanızın geç ödemesi durumuyla ilgili bazı bilgilere erişimiz var:\n\n- **Açıklama:** $7 para eklenir ve bu durumda ödeme tarihi 10 gün sonra. 30 günlük bir süre içinde hizmetlerin kesilmesi durumunda, 60 günlük bir süreye kadar ödemeye geçilen maliyeti ödemekle bir sonraki hizmet başlatma ücreti alınmaz.\n- **Gereksinim:** Aylık ücretler ödenmiş ve ödenmemiş olanlar için. Ödeme tarihi 10 gün sonra $7 eklenir, bu durumda hizmetler 30 günlük bir süre içinde kesilir. 60 günlük bir süreye kadar ödemeye geçilen maliyeti ödemekle bir sonraki hizmet başlatma ücreti alınmaz.\n- **Kampanya:** Ödeme yöntemi olarak elektronik çek veya mailed check ile ödeme yapan müşterilere $5/month credit sunulabilir. Bu kampanyayı kullanmak için ödeme yönteminin yüksek kaybın riskine sahip olması gerekmektedir.\n- **Tarifeler:** 1 yıllık sözleşme, 2 yıllık sözleşme.\n\nBu bilgileri kullanarak müşteriye en uygun çözüm önerisi oluşturabiliriz.\n\n_Kaynak: [billing_faq.md]_"
+  },
+  {
+   "case": "h_fiber_troubleshoot",
+   "repeat": 0,
+   "seconds": 9.8,
+   "error": null,
+   "checks": {
+    "called_search": false,
+    "gives_steps": false,
+    "no_bad_turkish_terms": true
+   },
+   "passed": false,
+   "tools": [
+    "get_customer_profile"
+   ],
+   "answer": "Müşteri belirlemek için müşteri kimlik numarası gerekli. Müşterinin hangi müşteri kimlik numarasıyla kayıtlı olduğunu öğrenmek istiyorsunuz? Eğer sadece genel politika veya kampanya-kurallar sorularınıza cevaplanabilirse, lütfen arama_knowledge_base fonksiyonunu kullanın. Herkesin bilgiye erişimini sağlamak için bu tür sorular genellikle müşteri kimlik numarası gerektirir."
+  },
+  {
+   "case": "h_fiber_troubleshoot",
+   "repeat": 1,
+   "seconds": 32.2,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "gives_steps": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "get_customer_profile",
+    "search_knowledge_base"
+   ],
+   "answer": "Müşteri ID: '1234-ABCD' için fiber interneti sürekli kopuyor. İşte önerim ve çözümler:\n\n**Kablosuz Hızın Durumu:** \n1. **Açık Outage Kontrolü**: [support_troubleshooting.md](https://docs.novatel.com/support_troubleshooting) bölümündeki \"Network Status Dashboard\" üzerinden kablosuz hizin açık bir outage kontrol edin.\n2. **ONT ve Router Restart'i**: Müşteriye ONT ve routeru 30 saniye süren bir süre için kapatın.\n3. **Yardımcı Konoslarda Remoteli Hız Testi**: [support_troubleshooting.md](https://docs.novatel.com/support_troubleshooting) bölümündeki \"Remote Line Test\" ile remotelik hiz testi yapın. -27 dBm'den düşük bir signal, fiber hatası olduğunu gösterir ve teknik yardım ekibi tarafından ücretsiz bir ziyaret alın.\n4. **Wi-Fi Yönümleri**: Eğer Wi-Fi yolu bir sınırlama ise, [retention_campaigns.md](https://docs.novatel.com/retention_campaigns) bölümündeki \"RET-FIBERVALUE: Fiber Price Match\" kampanyasını önerin. Bu kampanya, bir yıllık sözleşme gerektirir ve $15/month discountu 12 aylık olarak sunar.\n\n**Güvenlik Durumu:** \nMüşteri, 90 gün içinde 3 veya daha fazla kez kablosuz hiz sorununu bildirdiği için kaybın bir işaretidir. Bu durumda Retention ekibine accountu flaglayın ve RET-SECURE kampanyasını önerin. Bu kampanya, teknik yardım içerir.\n\n**Diğer Alternatifler:** \n1. **DSL Hızı Düşük**: Eğer DSL hızı planın %60'dan düşükse, adresdeki kablosuz hizunun varlığını kontrol edin ve Fiber upgrade önerin (ilk ay ücretsiz).\n2. **4K Streaming için Fiber Upgradu**: Eğer 4K streaming gerektiği halde Basic DSL kullanıyorsa, Fiber upgrade önerin.\n\nBu önerileri değerlendirmelisiniz ve müşteriye en uygun çözüm sunulması gereken durumları belirlemeniz gerekir."
+  },
+  {
+   "case": "h_fiber_troubleshoot",
+   "repeat": 2,
+   "seconds": 16.6,
+   "error": null,
+   "checks": {
+    "called_search": false,
+    "gives_steps": false,
+    "no_bad_turkish_terms": true
+   },
+   "passed": false,
+   "tools": [
+    "get_customer_profile",
+    "predict_churn"
+   ],
+   "answer": "Müşteri ID'si olan müşteri bulunamadı. Müşteri hakkında genel politika veya kampanya-kurallar sorularınıza [search_knowledge_base] function'uyla başvurabilirsiniz.\n\nAncak, hemen önceki sormanızda fiber interneti sürekli kopuyormuş gibi görünüyor. Bu durumu inceleyelim ve çözüm önerilerimizi sunalım."
+  },
+  {
+   "case": "h_unknown_customer",
+   "repeat": 0,
+   "seconds": 15.2,
+   "error": null,
+   "checks": {
+    "no_codes": true,
+    "says_not_found": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns",
+    "recommend_campaigns"
+   ],
+   "answer": "Müşteri ID'si '9999-ZZZZZ' olan müşteri bulunamadı. Müşteri hakkında bilgi almak için arama kılavuzunu kullanabilirsiniz. Arama kılavuzunda, kampanyalar ve politika hakkında sorularınızı sormanız mümkün olsun."
+  },
+  {
+   "case": "h_unknown_customer",
+   "repeat": 1,
+   "seconds": 30.0,
+   "error": null,
+   "checks": {
+    "no_codes": true,
+    "says_not_found": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns",
+    "search_knowledge_base",
+    "recommend_campaigns"
+   ],
+   "answer": "Müşteri ID'si '9999-ZZZZZ' olan müşteri bulunamadı. Lütfen doğru bir müşteri ID kullanın veya genel politika veya kampanya kuralları hakkında bilgi isteyebilirsiniz. Genel sorular için arayüzden arama yapabilirsiniz.\n\n_Kaynak: [retention_campaigns.md]_"
+  },
+  {
+   "case": "h_unknown_customer",
+   "repeat": 2,
+   "seconds": 16.2,
+   "error": null,
+   "checks": {
+    "no_codes": true,
+    "says_not_found": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns",
+    "recommend_campaigns"
+   ],
+   "answer": "Müşteri ID'si '9999-ZZZZZ' olan müşteri bulunamadı. Lütfen doğru bir müşteri kimliği kullanın. Eğer genel politika veya kampanya kuralları hakkında sorularınız varsa, arayüzdeki \"general knowledge base\" seçeneğini kullanabilirsiniz."
+  },
+  {
+   "case": "h_discount_cap_en",
+   "repeat": 0,
+   "seconds": 10.4,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "states_35": true
+   },
+   "passed": true,
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "The maximum total discount allowed without manager approval is for offers that require more than a 35% total discount, which requires Retention Manager approval.\n\nFor month-to-month contracts:\n- Historically, about four in ten customers leave compared to one in ten on one-year and fewer than one in thirty on two-year contracts.\n- No commitment; the customer can cancel at any time without a fee. List prices apply with no discount.\n\nFor two-year contracts:\n- A 20% discount is applied to the monthly base fee, plus one free add-on service (Online Security or Tech Support) for the whole term.\n- Early termination fee: remaining months x 25% of the monthly fee.\n\nFor one-year contracts:\n- A 10% discount is applied to the monthly base fee. Early termination fee: remaining months x 25% of the monthly fee. Customers can upgrade to a two-year contract at any time without penalty.\n\n_Sources: [tariffs.md], [retention_playbook.md]_"
+  },
+  {
+   "case": "h_discount_cap_en",
+   "repeat": 1,
+   "seconds": 10.4,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "states_35": false
+   },
+   "passed": false,
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "The maximum total discount allowed without manager approval depends on the contract type and specific terms. For month-to-month contracts, there is no explicit mention of a maximum discount limit in the documents reviewed. However, historically, this segment has the highest churn rate with only four out of ten customers leaving compared to one in ten for one-year contracts.\n\nFor two-year contracts, there is a 20% discount on the monthly base fee and an additional free add-on service (Online Security or Tech Support) for the whole term. Early termination fees apply if the customer cancels before the end of the contract period.\n\nFor one-year contracts, there is a 10% discount on the monthly base fee with early termination fees applicable as well. Customers can upgrade to a two-year contract without penalty at any time.\n\nIn summary:\n- For month-to-month contracts: No maximum discount limit mentioned.\n- For two-year contracts: A 20% total discount (including free add-on service) is allowed.\n- For one-year contracts: A 10% total discount is allowed.\n\n_Sources: [tariffs.md], [retention_playbook.md]_"
+  },
+  {
+   "case": "h_discount_cap_en",
+   "repeat": 2,
+   "seconds": 7.4,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "states_35": false
+   },
+   "passed": false,
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "The maximum total discount allowed without manager approval depends on the contract type and customer behavior:\n\n- For month-to-month contracts, no discounts are applied as they have historically resulted in high churn rates (about four out of ten customers leave).\n- For two-year contracts, a 20% discount is available with one free add-on service for the entire term.\n- For one-year contracts, a 10% discount is provided without any additional services.\n\nIn summary:\n- Month-to-month: No discounts are allowed.\n- Two-year contract: Up to a 20% total discount (including early termination fees).\n- One-year contract: Up to a 10% total discount.\n\n_Sources: [tariffs.md], [retention_playbook.md]_"
+  }
+ ]
+}

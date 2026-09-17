@@ -1,18 +1,123 @@
-# 📉 Telco Customer Churn — Analysis & Prediction
+# 📡 TelcoCare AI — Churn Prediction & RAG Retention Assistant
 
-Predict which telecom customers are likely to **churn** (cancel their service) and
-explain *why*, so the business can target retention offers where they matter most.
+Predict which telecom customers are likely to **churn**, explain *why*, and give retention
+agents an **LLM assistant** that turns the model's output plus internal policy documents into
+a concrete, compliant action plan.
 
-![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-1.3%2B-orange)
+![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![XGBoost](https://img.shields.io/badge/XGBoost-tuned-red)
-![LightGBM](https://img.shields.io/badge/LightGBM-tuned-green)
-![Optuna](https://img.shields.io/badge/Optuna-HPO-purple)
-![License](https://img.shields.io/badge/License-MIT-lightgrey)
+![Ollama](https://img.shields.io/badge/LLM-Ollama%20(local)-black)
+![FAISS](https://img.shields.io/badge/RAG-FAISS-blueviolet)
+![FastAPI](https://img.shields.io/badge/API-FastAPI-009688)
+![MLflow](https://img.shields.io/badge/MLOps-MLflow-0194E2)
+![Docker](https://img.shields.io/badge/Docker-compose-2496ED)
 
 ---
 
-## 🎯 Problem
+## 🤖 TelcoCare AI: from a score to an action
+
+A churn probability on its own doesn't tell a call-centre agent what to actually say to the
+customer. TelcoCare AI ties three pieces together to close that gap:
+
+```
+                ┌───────────────────────── Streamlit UI ─────────────────────────┐
+                │  customer score + SHAP drivers    │    chat + tool-call trace  │
+                └──────────────┬────────────────────┴──────────────┬─────────────┘
+                               │ REST                              │ REST
+                         ┌─────▼──────────────── FastAPI ──────────▼─────┐
+                         │ /predict/{id}   /predict   /customers   /chat │
+                         └─────┬───────────────────────────────────┬─────┘
+                               │                                   │
+                  ┌────────────▼───────────┐          ┌────────────▼─────────────┐
+                  │ ChurnPredictor         │◄─tool────│ RetentionAgent           │
+                  │ XGBoost pipeline       │          │ tool-calling loop        │
+                  │ + native SHAP per user │          │ (max 5 steps)            │
+                  └────────────────────────┘          └───┬──────────────────┬───┘
+                                                          │ tool             │ chat
+                                               ┌──────────▼─────────┐  ┌─────▼──────────┐
+                                               │ FAISS vector store │  │ Ollama (local) │
+                                               │ multilingual mpnet │  │ qwen2.5:3b     │
+                                               │ tariffs, campaigns,│  └────────────────┘
+                                               │ playbook, FAQ      │
+                                               └────────────────────┘
+```
+
+| Component | What it does | Key choices |
+|---|---|---|
+| **Predictor** (`src/serving`) | Scores a customer and returns the top drivers | SHAP from the booster's native `pred_contribs`; one-hot columns folded back into readable features |
+| **RAG** (`src/rag`) | Retrieves tariff, campaign and policy passages | Heading-aware chunking; multilingual embeddings so **Turkish questions match English documents**; cosine search with FAISS |
+| **Agent** (`src/agent`) | Routes the question, runs tools, lets the LLM explain, renders facts | 6 tools; deterministic router and rules engine; post-processing that renders every number from code; bounded step budget |
+| **API** (`api/`) | FastAPI with Pydantic validation, timing middleware, `/health` for model and LLM | `/predict` works without the LLM; the agent loads lazily |
+| **MLOps** | MLflow tracking and model registry, pytest, GitHub Actions, Docker Compose | Tests use a scripted fake LLM and a hashing embedder, so CI needs no GPU, Ollama or downloads |
+
+The knowledge base (`knowledge_base/`) is a set of synthetic documents for a fictional
+operator called NovaTel, so none of it is real customer or company data.
+
+**Example.** *"Why is customer 9237-HQITU at risk and what should I offer?"*
+→ `predict_churn` (high risk: month-to-month, fiber, electronic check)
+→ `search_knowledge_base("month-to-month fiber electronic check retention offer")`
+→ the agent answers with RET-LOCK24 + RET-AUTOPAY, checks the stacking and 35% discount
+rules, and cites `[retention_campaigns.md]`.
+
+### How reliable is it? (evaluation-driven development)
+
+A 3B local model can't be trusted with numbers, eligibility rules or tool choice, so I built
+the agent against an automatic eval harness and iterated on it **20 times**, writing down every
+run as I went (including the bugs in my own grader: [`eval/ITERATIONS.md`](eval/ITERATIONS.md)).
+Three separate case sets keep me honest: **dev** for tuning, **held-out** to catch overfitting,
+and a **test** set I left untouched until the system was frozen.
+
+| stage | set | case pass | median latency |
+|---|---|---|---|
+| first harness run | dev | 25% | 22 s |
+| deterministic router | dev | 75% | 14 s |
+| code-rendered campaigns | dev | 100% | 10 s |
+| same system, **new questions** | held-out | **67%** ← overfitting | 10 s |
+| structural routing + hybrid RAG | held-out | 96% | 10 s |
+| first run of the **unseen test set** | test | **87.5%** | 9.6 s |
+| final (strict checks on the assistant's own text) | dev / held-out / test* | 100% / 100% / 96% | 6-9 s |
+
+<sub>*The test set influenced fixes after its first run, so the final test number is no longer an unseen estimate.
+Checks include: grounded numbers, no reasoning leaks, answer language and script, faithful campaign details.</sub>
+
+qwen2.5:7b was just as accurate but four times slower, and qwen3:4b kept leaking its reasoning into
+the reply, so **qwen2.5:3b** stayed the default. What's still shaky is the Turkish phrasing in
+free-text answers, not the facts underneath.
+
+**What made it reliable: code decides and renders the facts, the LLM only explains.**
+- *Routing by entities*: a customer ID, a campaign code or a ranking request picks the tool before the LLM even runs.
+- *Rules engine* (`src/agent/campaigns.py`): eligibility, stacking and ranking by SHAP drivers.
+- *Deterministic rendering*: the risk line, campaign offers, eligibility verdicts and ranking tables come from code. LLM lines containing numbers are dropped on customer cards.
+- *Retrieval*: multilingual mpnet + BM25 with coverage-scaled RRF, and an adaptive relevance cut so the LLM sees ~1.85 passages (`eval/compare_embeddings.py`: hit@1 0.85, MRR 0.885).
+- *Guards*: generation cap (a 14k-token loop was the original "hang"), empty-reply and script-drift retries (Qwen sometimes switched to Chinese), canned answers for unknown customers and eligibility checks, removal of invented links, currency repair, a quoted source excerpt under knowledge-base answers.
+
+```bash
+python -m eval.eval_agent --set heldout --repeats 3 --tag mytest
+python -m eval.eval_retrieval
+```
+
+### Run it locally
+
+```bash
+python -m venv .venv && .venv\Scripts\activate
+pip install torch --index-url https://download.pytorch.org/whl/cpu
+pip install -r requirements.txt
+
+python train.py                     # train + log to MLflow (sqlite:///mlflow.db)
+python -m src.rag.ingest            # build the FAISS index
+ollama pull qwen2.5:3b              # default; override with OLLAMA_MODEL
+
+uvicorn api.main:app --reload       # http://localhost:8000/docs
+streamlit run app/streamlit_app.py  # http://localhost:8501
+mlflow ui --backend-store-uri sqlite:///mlflow.db
+pytest -q
+```
+
+Or run everything in containers: `docker compose up --build`.
+
+---
+
+## 🎯 Churn model: background
 
 A telecom company loses revenue every time a customer leaves, and keeping an existing
 customer is far cheaper than acquiring a new one. This project builds an interpretable,
@@ -34,8 +139,8 @@ test set:
 | LightGBM (tuned) | 0.848 | 0.805 | 0.515 | 0.628 |
 | **XGBoost (tuned)** | **0.850** | 0.797 | 0.515 | 0.625 |
 
-**Best model: XGBoost — holdout ROC-AUC 0.850, PR-AUC 0.667.** At the default 0.50
-threshold it catches ~80% of churners; the F1-optimal threshold (~0.59) trades some recall
+**Best model: XGBoost — holdout ROC-AUC 0.850, PR-AUC 0.663.** At the default 0.50
+threshold it catches ~80% of churners; the F1-optimal threshold (~0.63) trades some recall
 for precision.
 
 <p align="center">
@@ -96,6 +201,15 @@ telco-churn-analysis/
 │   ├── evaluate.py                # metrics & plots
 │   ├── eda.py                     # EDA figure generation
 │   └── explain.py                 # SHAP explainability
+├── src/serving/predictor.py       # per-customer scoring + SHAP drivers
+├── src/rag/                       # chunking, FAISS vector store, ingest CLI
+├── src/agent/                     # Ollama client, tools, tool-calling agent
+├── api/main.py                    # FastAPI service
+├── app/streamlit_app.py           # agent-facing UI
+├── knowledge_base/                # synthetic tariff / campaign / policy docs
+├── tests/                         # pytest (fake LLM, no downloads)
+├── Dockerfile, docker-compose.yml # api + ui + ollama
+├── .github/workflows/ci.yml       # train → test → docker build
 ├── models/                        # saved best model + metrics.json (generated)
 ├── reports/figures/               # all figures (generated)
 ├── train.py                       # end-to-end: clean → engineer → train → evaluate
@@ -144,7 +258,8 @@ jupyter notebook notebooks/01_churn_analysis.ipynb
 ## 🔭 Possible extensions
 
 - Cost-sensitive threshold selection driven by campaign budget and customer lifetime value.
-- Deployment as a FastAPI service + Streamlit dashboard, containerised with Docker.
+- LLM-as-judge (with a stronger model) to catch misattributed sentences that regex checks miss.
+- DVC for data and model versioning; drift monitoring on incoming customer data.
 
 ## 📄 License
 

@@ -1,0 +1,217 @@
+{
+ "summary": {
+  "model": "qwen2.5:3b",
+  "tag": "iter3b",
+  "repeats": 2,
+  "case_pass_rate": 0.25,
+  "check_pass_rate": 0.619,
+  "median_seconds": 22.2,
+  "prompt_temperature": 0.2
+ },
+ "records": [
+  {
+   "case": "offer_9237-HQITU",
+   "repeat": 0,
+   "seconds": 39.2,
+   "error": null,
+   "checks": {
+    "called_recommend_campaigns": true,
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": false,
+    "no_invented_codes": true,
+    "states_probability": true
+   },
+   "passed": false,
+   "tools": [
+    "predict_churn",
+    "recommend_campaigns"
+   ],
+   "answer": "Müşteri %84'lik bir riskli müşteri olarak değerlendirilmektedir ve önerilen kampanyalar şunlardır:\n\n1. **RET-LOCK12 (Kamu Tarifesi):** Aylık sözleşme olan müşterilere 12 aylık ücretsiz yükseltme sunulur. Bu kampanya uygulanması gereken koşullar yoktur.\n\n   - **Eligibility:** Aylık veya bir yıl için sözleşmeli müşteri.\n   - **Offer:** 12 aylık ücretsiz yükseltme (15% indirim).\n   - **Best for:** İki yıllık commitmentsi reddeden müşterilere.\n\n2. **RET-SECURE (Güvenlik ve Yardım İstikrarı):** İnternet hizmetli olan, Online Güvenlik veya Teknoloji Yardımı ekosistemi olmadan müşterilere 6 aylık ücretsiz Online Güvenlik ve Teknoloji Yardımı sunulur. Sonrasında 6 aylık 50% indirimli.\n\n   - **Eligibility:** İnternet hizmetli, Online Güvenlik veya Teknoloji Yardımı olmadan müşterilere.\n   - **Offer:** 6 aylık ücretsiz Online Güvenlik ve Teknoloji Yardımı (sonrasında 50% indirimli).\n   - **Best for:** Hızlı internet hizmeti kullanıcılara, bağlantı veya güvenlik sorunlarına yol açan müşteri.\n\nDiğer kampanyalar:\n\n- **RET-NEWBIE (Yeni Müşteri Paketi):** 12 aylık veya daha az tenure olan müşterilere 6 aylık ücretsiz paket sunulur.\n- **RET-AUTOPAY (Elektronik Ödeme İstikrarı):** Elektronik kontrol veya posta ile ödeme yapan müşterilere 6 aylık ücretsiz ödeme istikrarı sunulur.\n\nBu kampanyaların etkinleştirilmesi gereken koşullar yoktur. Herhangi bir kampanya, stacking kuralları ve karar alma kuralları dahildir. Önerilen kampanyalar, müşteriye en uygun olanları seçerken göz önünde bulundunur."
+  },
+  {
+   "case": "offer_9237-HQITU",
+   "repeat": 1,
+   "seconds": 49.4,
+   "error": null,
+   "checks": {
+    "called_recommend_campaigns": true,
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "no_invented_codes": true,
+    "states_probability": true
+   },
+   "passed": true,
+   "tools": [
+    "predict_churn",
+    "recommend_campaigns"
+   ],
+   "answer": "9237-HQITU numaralı müşteri, yüksek riskli ve ona önerilen kampanyalar aşağıda belirtildiği gibi seçmeliyim.\n\n**Risk Seviyesi:** Yüksek\n\n**Tahmini Churn Oranı (%):** 84%\n\n**Risken Artan Sebepler:**\n- Kontrat Durumu: Aylık\n- Aylık Toplamın Oranı: 0.46\n- İnternet Hizmeti: Fiber Optik\n\n**Önerilen Kampanyalar:**\n1. **Kampanya Kodu:** RET-LOCK12\n   - **Ne Göre:** Bu kampanya, aylık kontrat kullanıcılara özel olarak tasarlanmıştır.\n   - **Nedeni:** Aylık kontrat kullanıcılara daha uygun ve etkili bir hizmet sunarak onları kalmaya teşvik eder.\n   - **Kontrol Gereklilikleri:** None\n   - **Politika:** 15% indirimli aylık ücretler için 12 ay. (Eligible: Aylık kontrat kullanıcılara özel)\n2. **Kampanya Kodu:** RET-SECURE\n   - **Ne Göre:** Bu kampanya, internet hizmeti ve ödeme yöntemi gibi müşteri özelliklerine yönelik olarak tasarlanmıştır.\n   - **Nedeni:** İnternet hizmeti ve ödeme yöntemi gibi önemli özelliklerin etkili bir şekilde yönetilmesi, müşterinin daha iyi bir deneyim sağlar.\n   - **Kontrol Gereklilikleri:** None\n   - **Politika:** 6 ay için ücretsiz Online Güvenlik ve Teknoloji Yardı hizmetleri, ardından 6 ay için %50 indirimli. (Eligible: İnternet kullanıcılara özel, Online Güvenlik veya Teknoloji Yardımı eksik)\n\nHer iki kampanya da, müşterinin risk seviyesini düşürme için etkili olabilecek faktörleri göz önünde bulundurarak tasarlanmışlardır.\n\nHer kampanyanın koşullarını kontrol etmek gerekir."
+  },
+  {
+   "case": "offer_7590-VHVEG",
+   "repeat": 0,
+   "seconds": 21.9,
+   "error": null,
+   "checks": {
+    "called_recommend_campaigns": true,
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "no_invented_codes": true,
+    "states_probability": false
+   },
+   "passed": false,
+   "tools": [
+    "predict_churn",
+    "recommend_campaigns"
+   ],
+   "answer": "Based on the analysis, I recommend offering the following campaigns:\n\n- **RET-LOCK12**: This campaign is eligible for customers with a month-to-month contract and addresses the risk factors of tenure (short) and monthly to total ratio (high). The offer includes a 15% discount on the monthly fee for 12 months. It is best suited for customers who refuse a two-year commitment.\n\n- **RET-NEWBIE**: This campaign is eligible for new customers with a tenure of 12 months or less and addresses the risk factor of tenure (short). The offer includes a proactive welcome call, one month free, and a free speed upgrade for three months. It is best suited for new customers who are at high risk due to their short tenure.\n\nThese campaigns have been ranked based on how well they address the customer's churn drivers and do not violate any stacking rules. Please review these recommendations carefully before implementing them."
+  },
+  {
+   "case": "offer_7590-VHVEG",
+   "repeat": 1,
+   "seconds": 26.3,
+   "error": null,
+   "checks": {
+    "called_recommend_campaigns": true,
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": false,
+    "no_invented_codes": true,
+    "states_probability": false
+   },
+   "passed": false,
+   "tools": [
+    "predict_churn",
+    "recommend_campaigns"
+   ],
+   "answer": "For customer 7590-VHVEG, the recommended campaigns to address their churn drivers are:\n\n- **RET-LOCK12 (code):** This campaign offers a 15% discount on monthly fees for 12 months if they switch from their current month-to-month contract. It addresses both the \"Contract\" and \"monthly_to_total_ratio\" risk factors.\n  \n- **RET-NEWBIE (code):** If customer 7590-VHVEG has been with NovaTel for less than a year, this campaign provides them with a proactive welcome call, one month free of charges, and a speed upgrade offer for the first three months. This is best suited for new customers who are likely to churn within their first year.\n\nAdditionally, there are other eligible campaigns available but they do not address the specific risk drivers identified:\n\n- **RET-SECURE (code):** For Internet service users without Online Security or Tech Support, this campaign offers a free security and support bundle.\n  \n- **RET-AUTOPAY (code):** This campaign incentivizes electronic payments by offering an automatic payment discount for customers who pay via electronic check or mailed check.\n\nBased on the stacking rules, only two campaigns can be offered at most. The recommended combination is RET-LOCK12 and RET-NEWBIE as they do not violate any stacking restrictions and address different risk drivers effectively. \n\nCustomer 7590-VHVEG should be contacted to confirm their eligibility for these campaigns."
+  },
+  {
+   "case": "lowrisk_1293-BSEUN",
+   "repeat": 0,
+   "seconds": 55.6,
+   "error": null,
+   "checks": {
+    "no_invented_codes": true,
+    "only_recommended_codes": false,
+    "says_low_risk": false
+   },
+   "passed": false,
+   "tools": [
+    "predict_churn",
+    "recommend_campaigns"
+   ],
+   "answer": "1293-BSEUN numaralı müşteri için önerilen kampanyalar yoktur. Ancak, kampanya teklif etmek için şu kampanyaların eligible olduğunu belirtiyorum:\n\n- **RET-AUTOPAY**: [Code: \"RET-AUTOPAY\", Kullanıcıya Verilen İzin: \"-\", Nedeni: \"Müşterinin iki yıllık sözleşmeyle kullanması, kampanya bu konuda etkili olabilir. Bu kampanya, müşterinin elektronik veya mevcut kontrol numarası ile ödeme yapma eğilimini arttırmayı amaçlar.\"]\n- **RET-LOCK24**: [Code: \"RET-LOCK24\", Kullanıcıya Verilen İzin: \"-\", Nedeni: \"Müşterinin iki yıllık sözleşmeyle kullanması, kampanya bu konuda etkili olabilir. Ancak, kampanya uygulanamaz çünkü müşteri iki yıllık sözleşmeyle kullanıyor ve bu nedenle iki yıllık contractu için kampanyayı teklif edemeziz.\"]\n- **RET-LOCK12**: [Code: \"RET-LOCK12\", Kullanıcıya Verilen İzin: \"-\", Nedeni: \"Müşterinin iki yıllık sözleşmeyle kullanması, kampanya bu konuda etkili olabilir. Ancak, kampanya uygulanamaz çünkü müşteri iki yıllık sözleşmeyle kullanıyor ve bu nedenle bir yıllık contractu için kampanyayı teklif edemeziz.\"]\n- **RET-SECURE**: [Code: \"RET-SECURE\", Kullanıcıya Verilen İzin: \"-\", Nedeni: \"Müşterinin iki yıllık sözleşmeyle kullanması, kampanya bu konuda etkili olabilir. Ancak, kampanya uygulanamaz çünkü müşteri internet hizmetleriyle ilgili Online Güvenlik veya Müşteri Destek hizmetlerini kullanmuyor ve bu nedenle kampanyayı teklif edemeziz.\"]\n- **RET-NEWBIE**: [Code: \"RET-NEWBIE\", Kullanıcıya Verilen İzin: \"-\", Nedeni: \"Müşterinin iki yıllık sözleşmeyle kullanması, kampanya bu konuda etkili olabilir. Ancak, kampanya uygulanamaz çünkü müşteri 12 aylık süreye veya altında olan tenurea sahiptir ve bu nedenle yeni müşterilere yönelik kampanyayı teklif edemeziz.\"]\n- **RET-FIBERVALUE**: [Code: \"RET-FIBERVALUE\", Kullanıcıya Verilen İzin: \"-\", Nedeni: \"Müşterinin iki yıllık sözleşmeyle kullanması, kampanya bu konuda etkili olabilir. Ancak, kampanya uygulanamaz çünkü müşteri $80'dan yüksek bir aylık ücretli fiber optic hizmetleri kullanmuyor ve bu nedenle kampanyayı teklif edemeziz.\"]\n\nBu kampanyaların her biri, müşteri risk faktörlerinden (katmanlık, aylık toplam oran, süreyi) etkili olduğunu"
+  },
+  {
+   "case": "lowrisk_1293-BSEUN",
+   "repeat": 1,
+   "seconds": 27.3,
+   "error": null,
+   "checks": {
+    "no_invented_codes": true,
+    "only_recommended_codes": false,
+    "says_low_risk": false
+   },
+   "passed": false,
+   "tools": [
+    "predict_churn",
+    "recommend_campaigns"
+   ],
+   "answer": "1293-BSEUN müşteri için önerilen kampanyalar:\n\n- **Kampanya Kodu**: [RET-AUTOPAY]\n  - **İçerik**: Automatic payment incentive\n  - **Nedeni**: Bu kampanyayı takip eden müşterilerin daha fazla internet ve teknoloji hizmetlerini alması için öneriyoruz.\n  - **Kontrol Gereklilikleri**: [Pays by electronic check or mailed check]\n\nBu kampanyaların etkili olduğunu belirtmektedir. Eğer bu kampanyayı uygulayabilmeniz gerekiyorsa, lütfen kontrol gereken koşullara uygun olmanızı sağlayın."
+  },
+  {
+   "case": "ineligible_fibervalue",
+   "repeat": 0,
+   "seconds": 22.5,
+   "error": null,
+   "checks": {
+    "grounded": true,
+    "says_not_eligible": false,
+    "no_invented_codes": true
+   },
+   "passed": false,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "7590-VHVEG müşteri, yüksek bir risk seviyesinde ve %84 oranında kaybedilme olasılığıyla değerlendirilmektedir.\n\nBu müşteriyi korumak için önerilen en uygun kampanyalar şunlardır:\n\n1. **RET-LOCK12 (Kamu Paketi):**\n   - **Eligibility:** Aylık sözleşme olan müşteri.\n   - **Offer:** 12 aylık zaman içinde aylık ücretin %15'si azaltılması.\n   - **Best for:** İki yıllık bir sözleşmeden kaçının ve aylık ödeme yapma sezonu.\n\n2. **RET-NEWBIE (Yeni müşteri paketi):**\n   - **Eligibility:** 12 aylık veya daha az tenure olan müşteriler için.\n   - **Offer:** 1 aylık ücretsiz, 3 aylık ücretsiz hız artışı gibi önemi duyan bir paket.\n   - **Best for:** İlk 1 aya kadar müşteri.\n\nBu kampanyaların etkili olduğunu düşünüyorum. Ancak, bu kampanyaların kullanılabilmesi için bazı koşullar geçerli olmalıdır:\n\n- RET-LOCK12: Aylık sözleşme olan müşteriler için.\n- RET-NEWBIE: 12 aylık veya daha az tenure olan müşteriler için.\n\nRET-FIBERVALUE kampanyası, müşteriye fiber fiyat eşitlemesi sunulur ancak bu müşteri fiber optic müşteri değildir ve aylık ücreti $80'den fazla olduğu için etkinleştirilemez. RET-LOCK24 kampanyası da etkili olamaz çünkü müşterinin sözleşme tenureu 3 aydan küçük olduğundan.\n\nBu önerilerle, müşteriyi daha iyi bir şekilde korumak ve onun tercihlerine uygun hale getirmek için kullanabilirsiniz."
+  },
+  {
+   "case": "ineligible_fibervalue",
+   "repeat": 1,
+   "seconds": 18.1,
+   "error": null,
+   "checks": {
+    "grounded": true,
+    "says_not_eligible": false,
+    "no_invented_codes": true
+   },
+   "passed": false,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "RET-FIBERVALUE kampanyası uygulanamaz çünkü müşteri, Fiber optic hizmeti kullanıyor ve aylık ücretin $80'den yüksek olması durumunda Fiber price match kampanyasına başvurulabilir.\n\nRET-LOCK12 kampanyası önerilebilir. Bu kampanya, aylık sözleşme ile Month-to-month contract koşuluyla uygulanabilir. Kampanya, müşteri için 12 aylık bir yıllık sözleşmede %15 indirim kazanmasına imkan tanır ve bu durum, aylık fiyattan toplam fiyatına bakıldığında risk seviyesini düşürme yeteneğine katkı sağlar.\n\nRET-NEWBIE kampanyası önerilebilir. Bu kampanya, 12 ay içindeki tenure için bir önümüzdeki telefonu ve ücretsiz aylık hız iyilesmesi sunar. Bu durum, müşteri ilk yıllık tenure sırasında churning yoğunluğuyla ilgili risk seviyesini düşürme yeteneğine katkı sağlar.\n\nMüşterinin risk seviyesi yüksek ve churning olasılığı %84'dir. Bunun nedeni, aylık sözleşme kullanılabilecek ve tenure 1 ay içindeki durumla ilgili olan bu kampanyaların etkilerine dayanır."
+  },
+  {
+   "case": "policy_stacking",
+   "repeat": 0,
+   "seconds": 6.2,
+   "error": null,
+   "checks": {
+    "called_search": false,
+    "says_no": false,
+    "cites_source": false
+   },
+   "passed": false,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "Müşteri ID: RET-LOCK bulunamadı. Lütfen doğru müşteri kimliği sağlayın."
+  },
+  {
+   "case": "policy_stacking",
+   "repeat": 1,
+   "seconds": 6.1,
+   "error": null,
+   "checks": {
+    "called_search": false,
+    "says_no": false,
+    "cites_source": false
+   },
+   "passed": false,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "Müşteri ID: RET-LOCK bulunamadı. Lütfen doğru müşteri kimliği sağlayın."
+  },
+  {
+   "case": "top_risk_list",
+   "repeat": 0,
+   "seconds": 12.3,
+   "error": null,
+   "checks": {
+    "called_find": true,
+    "lists_correct_ids": true
+   },
+   "passed": true,
+   "tools": [
+    "find_high_risk_customers"
+   ],
+   "answer": "Aylık sözleşme altındaki en yüksek riskli 3 müşteri:\n\n1. Müşteri ID: 7216-EWTRS  \n   - Hedefleme olasılıkları: 0.9551  \n   - Aylık ücretler: 100,8 TL\n\n2. Müşteri ID: 9300-AGZNL  \n   - Hedefleme olasılıkları: 0.9519  \n   - Aylık ücretler: 94 TL\n\n3. Müşteri ID: 9497-QCMMS  \n   - Hedefleme olasılıkları: 0.9515  \n   - Aylık ücretler: 93,55 TL"
+  },
+  {
+   "case": "top_risk_list",
+   "repeat": 1,
+   "seconds": 13.1,
+   "error": null,
+   "checks": {
+    "called_find": true,
+    "lists_correct_ids": true
+   },
+   "passed": true,
+   "tools": [
+    "find_high_risk_customers"
+   ],
+   "answer": "Aylık sözleşme altındaki en yüksek riskli 3 müşteri:\n\n- Müşteri ID: 7216-EWTRS, Churn_Probability: 0.9551, Aylık Ödeme: $100.80\n- Müşteri ID: 9300-AGZNL, Churn_Probability: 0.9519, Aylık Ödeme: $94.00\n- Müşteri ID: 9497-QCMMS, Churn_Probability: 0.9515, Aylık Ödeme: $93.55\n\nBu müşterilerin aylık sözleşme altındayken en yüksek riskli müşteri olabilirler. Herhangi bir müşteri hakkında daha fazla bilgi almak için lütfen ek görevi oluşturunuz."
+  }
+ ]
+}

@@ -1,4 +1,5 @@
-"""Project-wide configuration: paths, column groups and tuned hyperparameters."""
+"""Project-wide configuration: paths, column groups, hyperparameters and LLM/RAG settings."""
+import os
 from pathlib import Path
 
 # --- Paths -------------------------------------------------------------------
@@ -7,9 +8,37 @@ DATA_RAW = ROOT / "data" / "raw" / "telco_churn.csv"
 DATA_PROCESSED = ROOT / "data" / "processed"
 MODELS_DIR = ROOT / "models"
 FIGURES_DIR = ROOT / "reports" / "figures"
+KNOWLEDGE_DIR = ROOT / "knowledge_base"
+INDEX_DIR = ROOT / "artifacts" / "rag_index"
+MLRUNS_DIR = ROOT / "mlruns"
 
-for _d in (DATA_PROCESSED, MODELS_DIR, FIGURES_DIR):
+for _d in (DATA_PROCESSED, MODELS_DIR, FIGURES_DIR, INDEX_DIR):
     _d.mkdir(parents=True, exist_ok=True)
+
+# Keep Hugging Face downloads inside the project (not the user profile on C:)
+os.environ.setdefault("HF_HOME", str(ROOT / ".cache" / "huggingface"))
+
+# --- LLM (Ollama) ------------------------------------------------------------
+OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "qwen2.5:3b")  # chosen by eval: same accuracy as 7b, 4x faster on 4 GB VRAM
+LLM_TEMPERATURE = float(os.getenv("LLM_TEMPERATURE", "0.2"))
+LLM_TIMEOUT = int(os.getenv("LLM_TIMEOUT", "600"))
+LLM_NUM_CTX = int(os.getenv("LLM_NUM_CTX", "8192"))  # Ollama defaults to 4096, too small for tool outputs
+LLM_NUM_PREDICT = int(os.getenv("LLM_NUM_PREDICT", "700"))  # hard cap: small models can loop forever
+LLM_REPEAT_PENALTY = float(os.getenv("LLM_REPEAT_PENALTY", "1.1"))
+AGENT_MAX_STEPS = 5
+
+# --- RAG ---------------------------------------------------------------------
+EMBEDDING_MODEL = os.getenv(
+    "EMBEDDING_MODEL", "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
+)
+CHUNK_SIZE = 600      # characters
+CHUNK_OVERLAP = 100
+RAG_TOP_K = 3  # hit@3 == hit@4 on eval_retrieval; one fewer distractor for the LLM
+RAG_RELEVANCE_MARGIN = 0.08  # drop passages this far below the best (cosine); tuned for mpnet, see ITERATIONS.md
+
+# --- Serving -----------------------------------------------------------------
+API_URL = os.getenv("API_URL", "http://localhost:8000")
 
 # --- Columns -----------------------------------------------------------------
 TARGET = "Churn"
