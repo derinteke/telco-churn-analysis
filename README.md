@@ -16,8 +16,8 @@ a concrete, compliant action plan.
 
 ## 🤖 TelcoCare AI: from a score to an action
 
-A churn probability on its own doesn't tell a call-centre agent what to *say*. TelcoCare AI
-connects three pieces:
+A churn probability on its own doesn't tell a call-centre agent what to actually say to the
+customer. TelcoCare AI ties three pieces together to close that gap:
 
 ```
                 ┌───────────────────────── Streamlit UI ─────────────────────────┐
@@ -50,8 +50,8 @@ connects three pieces:
 | **API** (`api/`) | FastAPI with Pydantic validation, timing middleware, `/health` for model and LLM | `/predict` works without the LLM; the agent loads lazily |
 | **MLOps** | MLflow tracking and model registry, pytest, GitHub Actions, Docker Compose | Tests use a scripted fake LLM and a hashing embedder, so CI needs no GPU, Ollama or downloads |
 
-The knowledge base (`knowledge_base/`) contains **synthetic** documents for a fictional
-operator, *NovaTel*.
+The knowledge base (`knowledge_base/`) is a set of synthetic documents for a fictional
+operator called NovaTel, so none of it is real customer or company data.
 
 **Example.** *"Why is customer 9237-HQITU at risk and what should I offer?"*
 → `predict_churn` (high risk: month-to-month, fiber, electronic check)
@@ -61,11 +61,11 @@ rules, and cites `[retention_campaigns.md]`.
 
 ### How reliable is it? (evaluation-driven development)
 
-A 3B local model is unreliable at numbers, eligibility rules and tool choice, so the agent
-was developed against an automatic eval harness across **20 measured iterations** (full
-log, including mistakes in the grader itself: [`eval/ITERATIONS.md`](eval/ITERATIONS.md)).
-Three case sets keep the numbers honest: **dev** (used for tuning), **held-out** (to detect
-overfitting), and a **test** set that was held back until the system was frozen.
+A 3B local model can't be trusted with numbers, eligibility rules or tool choice, so I built
+the agent against an automatic eval harness and iterated on it **20 times**, writing down every
+run as I went (including the bugs in my own grader: [`eval/ITERATIONS.md`](eval/ITERATIONS.md)).
+Three separate case sets keep me honest: **dev** for tuning, **held-out** to catch overfitting,
+and a **test** set I left untouched until the system was frozen.
 
 | stage | set | case pass | median latency |
 |---|---|---|---|
@@ -80,11 +80,12 @@ overfitting), and a **test** set that was held back until the system was frozen.
 <sub>*The test set influenced fixes after its first run, so the final test number is no longer an unseen estimate.
 Checks include: grounded numbers, no reasoning leaks, answer language and script, faithful campaign details.</sub>
 
-qwen2.5:7b matched the 3B model's accuracy at 4x the latency, and qwen3:4b leaked its reasoning, so
-**qwen2.5:3b** is the default. The remaining weakness is Turkish fluency in free-text answers, not the facts.
+qwen2.5:7b was just as accurate but four times slower, and qwen3:4b kept leaking its reasoning into
+the reply, so **qwen2.5:3b** stayed the default. What's still shaky is the Turkish phrasing in
+free-text answers, not the facts underneath.
 
-**What made it reliable: code decides and renders facts, the LLM explains.**
-- *Router by entities*: customer ID / campaign code / ranking request pick the tool before the LLM runs.
+**What made it reliable: code decides and renders the facts, the LLM only explains.**
+- *Routing by entities*: a customer ID, a campaign code or a ranking request picks the tool before the LLM even runs.
 - *Rules engine* (`src/agent/campaigns.py`): eligibility, stacking and ranking by SHAP drivers.
 - *Deterministic rendering*: the risk line, campaign offers, eligibility verdicts and ranking tables come from code. LLM lines containing numbers are dropped on customer cards.
 - *Retrieval*: multilingual mpnet + BM25 with coverage-scaled RRF, and an adaptive relevance cut so the LLM sees ~1.85 passages (`eval/compare_embeddings.py`: hit@1 0.85, MRR 0.885).
