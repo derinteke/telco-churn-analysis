@@ -12,6 +12,13 @@ env/
 # Models (regenerate with train.py) — comment out if you want to commit them
 models/*.joblib
 
+# TelcoCare AI: generated artifacts & caches
+artifacts/
+mlruns/
+mlflow.db
+.cache/
+.env
+
 # OS / editor
 .DS_Store
 .vscode/
@@ -22,3 +29,4 @@ models/*.joblib
 
 # CatBoost training logs
 catboost_info/
+.ollama/
