@@ -1,0 +1,11 @@
+.venv/
+.git/
+.cache/
+.ollama/
+mlruns/
+mlflow.db
+artifacts/
+models/*.joblib
+notebooks/
+reports/
+**/__pycache__/
