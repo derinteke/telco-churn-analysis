@@ -1,0 +1,407 @@
+{
+ "summary": {
+  "model": "qwen3:4b",
+  "tag": "iter12",
+  "set": "heldout",
+  "repeats": 3,
+  "case_pass_rate": 1.0,
+  "check_pass_rate": 1.0,
+  "median_seconds": 96.65,
+  "prompt_temperature": 0.2
+ },
+ "records": [
+  {
+   "case": "h_retain_nokeyword",
+   "repeat": 0,
+   "seconds": 101.1,
+   "error": null,
+   "checks": {
+    "only_recommended_codes": true,
+    "mentions_a_recommended_code": true,
+    "offer_details_faithful": true,
+    "states_probability": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** yüksek (%94 ayrılma olasılığı)\n\nOkay, let's see. The user asked what they can do to prevent losing customer 6023-YEBUP.\n\n1. Müşteri aylık sözleşme kullanıyor (month-to-month contract)\n2. Yeni müşteri: henüz az fatura ödemesi (few bills so far)\n4. Fiber optik internet hizmeti (fiber optic service)\n5. 3 aylık süre (tenure)\n\nBut the user said to write 2-4 short bullets explaining why at risk, using drivers_increasing_risk in plain language.\n\nThe system's instruction says: \"Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language. Do NOT list, name or describe campaigns...\"\n\n- contract type: Month-to-month\n- new customer (few bills so far)\n- monthly charge: 100.95\n- internet service: Fiber optic\n- tenure (months): 3\n\nBut in business terms, maybe combine some points.\n\n- Müşteri aylık sözleşmeye sahip olup, bu yüksek kayıp riskini artırıyor.\n- Yeni müşteri olarak henüz az fatura ödemesi nedeniyle ayrılma olasılığı yüksek.\n- 3 aylık süre içinde hizmet kullanma alışkanlığı, müşteri kaybına neden olabilecek bir faktördür.\n\nWait, but the user wants concise bullets. Let me check the original drivers again.\n\nThe system says: \"Do NOT list, name or describe campaigns\". So focus on why they are at risk.\n\n1. Müşteri aylık sözleşme kullanıyor (kayıp riskini artırır)\n2. Yeni müşteri olarak henüz az fatura ödemesi nedeniyle ayrılma olasılığı yüksek\n\nBut the user wants up to 4 bullets. Let me see.\n\nThe response from the tool says drivers_increasing_risk: [\"contract type: Month-to-month\", \"new customer (few bills so far)\", \"monthly charge: 100.95\", \"internet service: Fiber optic\", \"tenure (months): 3\"]\n\n- Aylık sözleşme\n\n**Önerilen kampanyalar**\n- **RET-LOCK24**: 2 yıllık sözleşmeye geçişte 24 ay boyunca aylık ücrette %25 indirim + ücretsiz Tech Support\n  - Neden: sözleşme tipi: aylık, aylık ücret: 100.95, yeni müşteri (az sayıda fatura)\n- **RET-SECURE**: Online Security + Tech Support 6 ay ücretsiz, sonraki 6 ay %50 indirimli\n  - Neden: Online Security ek hizmeti: yok, Tech Support ek hizmeti: yok, internet hizmeti: Fiber optic\n\n_Kaynak: [retention_campaigns.md]_"
+  },
+  {
+   "case": "h_retain_nokeyword",
+   "repeat": 1,
+   "seconds": 101.6,
+   "error": null,
+   "checks": {
+    "only_recommended_codes": true,
+    "mentions_a_recommended_code": true,
+    "offer_details_faithful": true,
+    "states_probability": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** yüksek (%94 ayrılma olasılığı)\n\nOkay, let's see. The user asked what they can do to prevent losing customer 6023-YEBUP. I called the recommend_campaigns function for that customer ID.\n\n1. Month-to-month contract (aylık sözleşme) which makes it easy to leave.\n2. New customer with few bills so far (yeni müşteri, az maliyetli hizmetler).\n4. Fiber optic internet (fiber optik hizmeti), but maybe that's a positive? Wait, the driver says it's increasing risk. Hmm, in the data, fiber optic is listed as a driver increasing risk. Maybe because they have high-speed service which might be expensive or something else.\n\nWait, the user wants to explain why they are at risk without mentioning campaigns. So focus on the drivers that push them towards churn.\n\nThe tool says \"drivers_increasing_risk\" includes: contract type: Month-to-month, new customer (few bills so far), monthly charge: 100.95, internet service: Fiber optic, tenure (months): 3.\n\n- Aylık sözleşme yapısında olduğu için kolayca ayrılabilecek\n- Yeni müşteri olup henüz az fatura ödemekle ilgili\n- Fiber optik internet hizmeti (maybe this is a risk driver? The tool lists it as increasing risk, so need to explain why)\n\nWait, but the user wants plain business language. So maybe for fiber optic, it's because high-speed services might be more expensive or they are sensitive to price.\n\nBut according to the data given, these drivers are pushing risk up. So I have to list them in Turkish as reasons.\n\n1. Müşteri aylık sözleşme ile kayıp riski yüksek çünkü bu tür sözleşmeler müşterilerin kolayca ayrılabileceği için.\n2. Yeni müşteri olup henüz 3 ay boyunca fatura ödememiş, bu da ayrılma olasılığını artırıyor.\n4. Fiber optik internet hizmeti, müşterinin daha fazla maliyet alması veya hizmetlerin değişkenliği nedeniyle kayıp riskini artırıyor.\n\nBut need to check if the tool's response is accurate. The user wants plain language without technical terms. Also, the instruction says \"\n\n**Önerilen kampanyalar**\n- **RET-LOCK24**: 2 yıllık sözleşmeye geçişte 24 ay boyunca aylık ücrette %25 indirim + ücretsiz Tech Support\n  - Neden: sözleşme tipi: aylık, aylık ücret: 100.95, yeni müşteri (az sayıda fatura)\n- **RET-SECURE**: Online Security + Tech Support 6 ay ücretsiz, sonraki 6 ay %50 indirimli\n  - Neden: Online Security ek hizmeti: yok, Tech Support ek hizmeti: yok, internet hizmeti: Fiber optic\n\n_Kaynak: [retention_campaigns.md]_"
+  },
+  {
+   "case": "h_retain_nokeyword",
+   "repeat": 2,
+   "seconds": 102.1,
+   "error": null,
+   "checks": {
+    "only_recommended_codes": true,
+    "mentions_a_recommended_code": true,
+    "offer_details_faithful": true,
+    "states_probability": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** yüksek (%94 ayrılma olasılığı)\n\nOkay, let's see. The user asked what they can do to prevent losing customer 6023-YEBUP.\n\n- \"Aylık sözleşme\" (month-to-month contract) makes them vulnerable because they can leave anytime.\n- Yeni müşteri (few bills so far) means they haven't been with us long, which increases churn risk.\n- Fiber optic internet might be a factor since it's expensive or complex for them.\n- 3 ay süre (3 months) is short, so they're still new.\n\nBut the instruction says not to list campaigns, just explain why at risk. Also, need to use Turkish terms exactly as specified: \"müşteri kaybı\", \"kayıp riski\", etc.\n\nWait, the user's question was in Turkish: \"6023-YEBUP numaralı müşteriyi kaybetmemek için ne yapabilirim?\" which translates to \"What can I do to not lose customer 6023-YEBUP?\"\n\nThe tool response says the risk level is high. The answer should be bullet points in Turkish, max 8 bullets.\n\n1. Aylık sözleşme (month-to-month) kullanıyor, bu müşterilerin kolayca ayrılabileceği için kayıp riski yüksek.\n2. Yeni müşteri: Az maliyetli hizmetlerle başlayan, henüz birkaç fatura ödememiş.\n4. Fiber optik internet hizmeti, daha pahalı veya karmaşık olabilir ve kayıp riskini artırır.\n5. 3 ay süre: Mükemmeleşmemiş müşteri, daha yüksek ayrılma olasılığı.\n\nBut need to phrase in plain business language without technical terms. Also, the instruction says \"Do not state the risk level, probabilities or prices yourself\". Wait, but the user is asking what to do, so maybe the explanation of why they are at risk is part of it.\n\nWait, the tool response's instruction says: \"Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language.\"\n\nSo the answer should be 2-4 bullet points in Turkish explaining why the customer is at risk (not what to do). The user asked \"ne yapabilirim?\" which means \"what can I do\", but according to the tool response's instruction, we need to explain why they are at risk first.\n\nWait, looking back: the user's question is about what\n\n**Önerilen kampanyalar**\n- **RET-LOCK24**: 2 yıllık sözleşmeye geçişte 24 ay boyunca aylık ücrette %25 indirim + ücretsiz Tech Support\n  - Neden: sözleşme tipi: aylık, aylık ücret: 100.95, yeni müşteri (az sayıda fatura)\n- **RET-SECURE**: Online Security + Tech Support 6 ay ücretsiz, sonraki 6 ay %50 indirimli\n  - Neden: Online Security ek hizmeti: yok, Tech Support ek hizmeti: yok, internet hizmeti: Fiber optic\n\n_Kaynak: [retention_campaigns.md]_"
+  },
+  {
+   "case": "h_offer_conditions_en",
+   "repeat": 0,
+   "seconds": 100.0,
+   "error": null,
+   "checks": {
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "mentions_competitor_condition": true,
+    "states_probability": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** high (70% churn probability)\n\nOkay, let's see. The user asked what to offer customer 3932-CMDTD. I called the recommend_campaigns function with that customer ID.\n\nI need to write 2-4 bullet points explaining why the customer is at risk using the drivers_increasing_risk in plain business language. The instructions say not to list or describe campaigns, just focus on the risk reasons.\n\n2. New customer with few bills indicates they're still establishing their billing history, which could mean instability.\n3. Lack of Online Security add-on suggests they haven't added protective services, making them vulnerable to potential issues.\n\nWait, the user said \"plain business language\" so avoid technical terms. Also, the tool response mentions \"new customer (few bills so far)\" as a driver increasing risk. So maybe that's about being new and not having a long history of payments.\n\nAlso, fiber optic internet service is listed as a driver increasing risk. Hmm, why? Maybe because fiber is more expensive or competitive? But in the context of churn, perhaps it's a feature that competitors target, so customers with fiber might be at higher risk if they're switching to cheaper plans?\n\nBut according to the tool response, the drivers_increasing_risk include \"internet service: Fiber optic\". So I need to explain that as part of why they're at risk.\n\nWait, but the user's instruction says: \"Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language.\"\n\n- monthly charge: 105.65\n- new customer (few bills so far)\n- Online Security add-on: No\n- internet service: Fiber optic\n\nBut I need to phrase these as reasons for high churn risk.\n\nLet me think of how a business would explain this.\n\n- They are new to our service with limited billing history, indicating potential instability in their commitment.\n- They do not have an Online Security add-on, leaving them exposed to security risks that might prompt a switch to a more comprehensive package.\n- Their fiber optic internet service is a high-cost option that may be less competitive compared to alternatives, making them vulnerable to churn.\n\nBut the user wants 2-4 bullets. Let me condense this into 3 or 4 points without being too detailed.\n\nWait, the instruction says \"Do NOT list, name or describe campaigns\". So focus only on why they're at risk.\n\n[\"monthly charge: 105.65\", \"new customer (few bills so far)\", \"Online Security add-on: No\",\n\n**Recommended campaigns**\n- **RET-LOCK24**: 25% off the monthly fee for 24 months + free Tech Support\n  - Why: monthly charge: 105.65, new customer (few bills so far)\n- **RET-FIBERVALUE**: $15/month off for 12 months (requires one-year contract)\n  - Why: internet service: Fiber optic, monthly charge: 105.65\n  - Confirm: Customer must have received a competitor offer; Requires a one-year contract; Team Lead approval if combined with another campaign\n\n_Sources: [retention_campaigns.md]_"
+  },
+  {
+   "case": "h_offer_conditions_en",
+   "repeat": 1,
+   "seconds": 99.1,
+   "error": null,
+   "checks": {
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "mentions_competitor_condition": true,
+    "states_probability": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** high (70% churn probability)\n\nOkay, let's see. The user asked what to offer customer 3932-CMDTD. I called the recommend_campaigns function with that customer ID.\n\nThe instruction says to write 2-4 short bullets explaining why the customer is at risk using drivers_increasing_risk in plain language. Don't list or describe campaigns—those are handled automatically below.\n\n2. New customer (few bills so far) – recent, not long-term\n3. Online Security add-on: No – missing a security feature\n4. Internet service: Fiber optic – might be a factor here? Wait, the driver is increasing risk, but fiber optic is listed as a driver that increases risk. Hmm.\n\nWait, in the tool response, drivers_increasing_risk includes \"internet service: Fiber optic\". But usually, fiber might be more stable? Maybe for this customer, having fiber optic is a risk factor here. The system says it's increasing risk, so I have to go with that.\n\n- Recent customer (few bills) means they're new and might not be committed yet.\n- No online security add-on – they don't have this protection, which is risky.\n- Fiber optic internet service – maybe in their context, fiber is more prone to churn? Or perhaps the system flags it as a risk here.\n\n- They are new to our service with few billing cycles, indicating low retention stability.\n- Lack of Online Security add-on exposes them to potential security risks that could drive churn.\n- Fiber optic internet service is flagged as a risk factor in their profile.\n\nWait, but the tool says \"drivers_increasing_risk\" so these four points are why they're at risk. But the user wants 2-4 bullets. Let me check if I can condense.\n\nThe system's instruction says: \"Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language.\"\n\n2. New customer (few bills) → recent, not established\n3. No Online Security add-on → missing a key service\n4. Fiber optic internet → specific to their plan\n\nBut need to phrase in business terms without jargon.\n\n- High monthly\n\n**Recommended campaigns**\n- **RET-LOCK24**: 25% off the monthly fee for 24 months + free Tech Support\n  - Why: monthly charge: 105.65, new customer (few bills so far)\n- **RET-FIBERVALUE**: $15/month off for 12 months (requires one-year contract)\n  - Why: internet service: Fiber optic, monthly charge: 105.65\n  - Confirm: Customer must have received a competitor offer; Requires a one-year contract; Team Lead approval if combined with another campaign\n\n_Sources: [retention_campaigns.md]_"
+  },
+  {
+   "case": "h_offer_conditions_en",
+   "repeat": 2,
+   "seconds": 99.5,
+   "error": null,
+   "checks": {
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "mentions_competitor_condition": true,
+    "states_probability": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** high (70% churn probability)\n\nOkay, let's see. The user asked what to offer customer 3932-CMDTD. I called the recommend_campaigns function with that customer ID.\n\nThe instruction says to write 2-4 short bullets explaining why the customer is at risk using the drivers_increasing_risk in plain business language. Don't list or describe campaigns—those are handled below.\n\n2. New customer (few bills so far) → Recently signed up, not yet stable\n3. Online Security add-on: No → Missing security service\n4. Internet service: Fiber optic → Maybe a factor that's risky? Wait, the tool says these are drivers increasing risk. So fiber optic might be part of why they're at risk? But in some contexts, fiber could be more expensive or something.\n\nSecond: They're new to our service with limited billing history, indicating instability in their commitment.\nThird: They don't have the Online Security add-on, leaving them vulnerable to potential threats.\nFourth: Their fiber optic internet service might be a factor here—maybe it's more expensive or they're switching providers? Wait, but according to the tool, this is a driver increasing risk. So perhaps fiber optic is associated with higher churn in their context.\n\nBut the instruction says to use drivers_increasing_risk. Let me check again: \"drivers_increasing_risk\": [\"monthly charge: 105.65\", \"new customer (few bills so far)\", \"Online Security add-on: No\", \"internet service: Fiber optic\"]\n\nSo these four points are why they're at risk.\n\nBut the user wants 2-4 bullets. So I need to condense into 2-4 points.\n\n2. Recent customer with few billing cycles suggests instability in commitment.\n3. Lack of Online Security add-on exposes them to potential security risks.\n4. Fiber optic internet service may contribute to churn (as per their data).\n\nBut the instruction says \"plain business language\" and not to list campaigns.\n\nWait, the tool response says: \"Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language.\"\n\nSo I need to take those four drivers and make them into 2-4 concise points.\n\n- Short tenure with few billing cycles suggests recent onboarding instability.\n-\n\n**Recommended campaigns**\n- **RET-LOCK24**: 25% off the monthly fee for 24 months + free Tech Support\n  - Why: monthly charge: 105.65, new customer (few bills so far)\n- **RET-FIBERVALUE**: $15/month off for 12 months (requires one-year contract)\n  - Why: internet service: Fiber optic, monthly charge: 105.65\n  - Confirm: Customer must have received a competitor offer; Requires a one-year contract; Team Lead approval if combined with another campaign\n\n_Sources: [retention_campaigns.md]_"
+  },
+  {
+   "case": "h_ineligible_autopay",
+   "repeat": 0,
+   "seconds": 69.6,
+   "error": null,
+   "checks": {
+    "called_check": true,
+    "says_not_eligible": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "check_campaign_eligibility"
+   ],
+   "answer": "**Karar: HAYIR.** RET-AUTOPAY bu müşteriye verilemez. (Kural: Pays by electronic check or mailed check)\n\nOkay, let's see. The user asked if RET-AUTOPAY is suitable for customer ID 1215-FIGMP.\n\nI called the check_campaign_eligibility function with campaign_code RET-AUTOPAY and customer_id 1215-FIGMP. The response says it's not eligible (NO). The rule mentioned is \"Pays by electronic check or mailed check\". \n\nLooking at the customer facts: PaymentMethod is \"Bank transfer (automatic)\". So they pay via bank transfer, which might be considered as automatic payment here. But the rule states that RET-AUTOPAY requires paying by electronic check or mailed check. Wait, maybe there's a confusion in terms.\n\nWait, the response says \"Pays by electronic check or mailed check\" is the rule for eligibility. The customer's PaymentMethod is \"Bank transfer (automatic)\", which might not be considered as electronic check or mailed check. So the system says they don't meet the criteria.\n\nThe user wants to know if it's suitable. According to the tool response, it's not eligible. So I need to explain that in Turkish.\n\nI should mention the rule: \"Pays by electronic check or mailed check\" (elektronik çek veya gönderilen çek ile ödenen müşteriler). The customer uses bank transfer automatic, which doesn't fit. Also, the offer part says there's a $5/month credit after switching to auto payment, but since they're already using automatic, maybe that's not applicable here.\n\nThe answer should state it's not eligible because the customer pays via bank transfer (automatic), not electronic check or mailed check. So in Turkish: \"1215-FIGMP için RET-AUTOPAY kampanyası uygun değildir çünkü müşteri elektronik çek veya gönderilen çek ile ödenmez (mevcut ödeme yöntemi: banka transferi otomatik).\"\n\nAlso, the tool response says \"verdict\": \"NO, RET-AUTOPAY cannot be offered to this customer.\" So need to translate that clearly.\n\nMake sure to use Turkish terms correctly. The user's language is Turkish, so all answers must be in Turkish.\n\nCheck if there are any other details from the tool response. The conditions_to_confirm is empty, so no additional steps needed.\n\nSo the answer should be concise: state it's not eligible, explain why using the rule and customer's payment method.\n</think>\n\n1215-FIGMP için RET-AUTOPAY kampanyası uygun değildir çünkü müşteri elektronik çek veya gönderilen çek ile ödenmez (mevcut ödeme yöntemi: banka transferi otomatik). [retention_campaigns.md]"
+  },
+  {
+   "case": "h_ineligible_autopay",
+   "repeat": 1,
+   "seconds": 90.7,
+   "error": null,
+   "checks": {
+    "called_check": true,
+    "says_not_eligible": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "check_campaign_eligibility"
+   ],
+   "answer": "**Karar: HAYIR.** RET-AUTOPAY bu müşteriye verilemez. (Kural: Pays by electronic check or mailed check)\n\nOkay, let's see. The user asked if RET-AUTOPAY is suitable for customer ID 1215-FIGMP.\n\nI called the check_campaign_eligibility function with campaign_code RET-AUTOPAY and customer_id 1215-FIGMP. The response says it's not eligible (NO). The rule mentioned is \"Pays by electronic check or mailed check\". \n\nLooking at the customer facts: PaymentMethod is \"Bank transfer (automatic)\". So they pay via bank transfer, which might be considered as automatic payment here. But the rule states that RET-AUTOPAY requires paying by electronic check or mailed check. Wait, maybe there's a conflict here.\n\nWait, the verdict says NO because the customer pays by bank transfer (automatic), but the campaign requires electronic check or mailed check. So even though they have automatic payments, the system doesn't consider it as eligible. The offer mentioned is a $5/month credit after switching to automatic payment, but since the customer already uses automatic bank transfers, maybe that's why it's not eligible.\n\nThe user needs to know it's not suitable and why. According to the tool response, the rule is \"Pays by electronic check or mailed check\". The customer's payment method is bank transfer (automatic), which might be different from electronic checks. So the answer should state it's not eligible because they don't pay via electronic check or mailed check.\n\nI need to phrase this in Turkish as per instructions. Use exact terms: \"elektronik çek\" for electronic check, \"posta üzerinden çek\" maybe? Wait, the rule says \"Pays by electronic check or mailed check\", so in Turkish it's \"elektronik çek veya posta üzerinden çek\". But the customer uses bank transfer (automatic), which is different.\n\nThe response should be concise: 1-2 bullet points. The tool says eligible: false, verdict NO, rule as given. So answer in Turkish: \"RET-AUTOPAY kampanyası 1215-FIGMP müşterisine uygulanamaz çünkü müşteri elektronik çek veya posta üzerinden çek ile ödeme yapmıyorsa [rule].\"\n\nWait, the customer facts show PaymentMethod is \"Bank transfer (automatic)\", so they don't use electronic check or mailed check. The rule states that RET-AUTOPAY requires those payment methods. So the answer should be: \"RET-AUTOPAY kampanyası 1215-FIGMP müşterisine uygulanamaz çünkü müşteri elektronik çek veya posta üzerinden çek ile ödeme yapmıyorsa.\" But according to the tool response, the rule is \"Pays by electronic check or mailed check\", so the customer isn't eligible because they don't meet that condition.\n\nWait, the tool's verdict says: \"NO, RET-AUTOPAY cannot be offered to this customer. Rule: 'Pays by electronic check or mailed check'\". So the answer in Turkish should state it's not eligible and the reason as per the rule.\n\n- RET-AUTOPAY kampanyası 1215-FIGMP müşterisine uygulanamaz.\n- Neden: Müşteri elektronik çek veya posta üzerinden çek ile ödeme yapmıyorsa [rule].\n\n_Kaynak: [retention_campaigns.md]_"
+  },
+  {
+   "case": "h_ineligible_autopay",
+   "repeat": 2,
+   "seconds": 90.3,
+   "error": null,
+   "checks": {
+    "called_check": true,
+    "says_not_eligible": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "check_campaign_eligibility"
+   ],
+   "answer": "**Karar: HAYIR.** RET-AUTOPAY bu müşteriye verilemez. (Kural: Pays by electronic check or mailed check)\n\nOkay, let's see. The user asked if RET-AUTOPAY is suitable for customer ID 1215-FIGMP.\n\nI called the check_campaign_eligibility function with campaign_code RET-AUTOPAY and customer_id 1215-FIGMP. The response says it's not eligible (NO). The rule mentioned is \"Pays by electronic check or mailed check\". \n\nLooking at the customer facts: PaymentMethod is \"Bank transfer (automatic)\". So they pay via bank transfer, which might be considered automatic payment here. Wait, but the rule says the customer must pay by electronic check or mailed check. Hmm.\n\nWait, the system's response states that RET-AUTOPAY requires the customer to pay by electronic check or mailed check. But this customer uses \"Bank transfer (automatic)\", which is different. So even though they have automatic payments, it's not matching the required payment methods. \n\nThe verdict says NO, so I need to explain why in Turkish. The user wants a concise answer with bullet points.\n\nI should mention that RET-AUTOPAY isn't eligible because the customer uses bank transfer (automatic) instead of electronic check or mailed check. Also, maybe note the offer they get if they switch, but since it's not applicable here, focus on why it's not allowed.\n\nThe response from the tool says \"Pays by electronic check or mailed check\" as the rule. The customer's payment method is bank transfer (automatic), so that's a mismatch. \n\nSo in Turkish: RET-AUTOPAY kampanyası 1215-FIGMP müşterisine uygulanamaz çünkü müşteri elektronik çek veya gönderilen çek ile ödeme yapıyor değil, banka transferi (otomatik) kullanıyor. [rule] ve diğer detaylar.\n\nWait, the tool response says \"Pays by electronic check or mailed check\" as the rule. So the customer must pay via those methods for RET-AUTOPAY to be eligible. But this customer uses bank transfer (automatic), which is different. Hence, not eligible.\n\nSo the answer should state that it's not eligible because of payment method mismatch. Also, the tool mentions \"customer_facts\" with PaymentMethod as \"Bank transfer (automatic)\", so need to translate that into Turkish terms correctly.\n\nThe user wants the answer in Turkish, concise bullet points max 8.\n\n- RET-AUTOPAY kampanyası 1215-FIGMP müşterisine uygulanamaz.\n- Sebep: Müşteri elektronik çek veya gönderilen çek ile ödeme yapıyor değil (banka transferi otomatik kullanıyor).\n- Kampanya kuralı gereği, bu ödeme yöntemiyle uyumlu değildir.\n\nBut the tool response says \"rule\": \"Pays by electronic check or mailed check\", so in Turkish terms: \"Elektronik çek veya gönderilen çek ile ödeme yapmak zorundadır\".\n\nAlso, the customer's payment method is \"Bank transfer (automatic)\", which translates to \"Banka transferi (otomatik)\".\n\n- RET-AUTOPAY kampanyası 1215-FIGMP müşterisine uygulanamaz.\n- Sebep: Müşteri elektronik çek veya gönderilen çek ile ödeme yapmıyorsa (bank\n\n_Kaynak: [retention_campaigns.md]_"
+  },
+  {
+   "case": "h_why_medium_en",
+   "repeat": 0,
+   "seconds": 96.3,
+   "error": null,
+   "checks": {
+    "states_probability": true,
+    "says_medium": true,
+    "no_invented_codes": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** medium (47% churn probability)\n\nOkay, let's see. The user asked why customer 6572-ADKRS is flagged as risky. I called the recommend_campaigns function because the question was \"Why is customer X at risk?\" which maps to predict_churn(X), but wait no—the tools say that for \"Why is customer X at risk?\" it's predict_churn(X). Wait, maybe I made a mistake here.\n\nWait, looking back at the instructions: The user says \"Why is 6572-ADKRS flagged as risky?\" which should be handled by predict_churn(X), but in the tool calls, the assistant called recommend_campaigns. Hmm, that's confusing.\n\nWait, no—the initial instruction says: \"Pick the tool by question type: 'Why is customer X at risk?' -> predict_churn(X)\". But in the user's message, they asked why 6572-ADKRS is risky, so the correct tool should be predict_churn. However, the assistant called recommend_campaigns instead. Wait, maybe that's a mistake.\n\nWait, looking at the tool responses: The tool response from recommend_campaigns gives risk_level as medium and drivers_increasing_risk. But the user asked for why they are risky, so actually the correct first step should be predict_churn(X) to get the reasons. However, in this case, the assistant called recommend_campaigns. Maybe there's a mix-up here.\n\nWait, but according to the tool response provided by the system (the tool_response), it says that when you call recommend_campaigns for customer_id 6572-ADKRS, it returns risk_level: medium and drivers_increasing_risk as [\"contract type: Month-to-month\", \"internet service: Fiber optic\"], etc. So perhaps in this scenario, the system's tool response is simulating a case where recommend_campaigns was called but actually should have been predict_churn.\n\nBut according to the problem statement, the user asked why the customer is risky, so the correct function would be predict_churn(X). However, the assistant here called recommend_campaigns. Maybe this is part of the test scenario where they want us to use the provided tool response.\n\nWait, the user's question is \"Why is 6572-ADKRS flagged as risky?\" which should trigger predict_churn(X), but in the tool calls made by the assistant, they called recommend_campaigns. That seems incorrect. However, given that the system provided a tool_response for recommend_campaigns, perhaps this is a specific test case where the answer is derived from that.\n\nWait, looking at the problem statement: The user's message says \"Why is 6572-ADKRS flagged as risky?\" and the assistant called recommend_campaigns. Then the tool response came back with risk_level medium and drivers_increasing_risk. So in this case, even though the correct tool for \"why is customer X at risk\" is predict_churn, the system's example shows that they used recommend_campaigns. Maybe it's a mistake in the problem setup, but we have to work with what's given.\n\nThe task now is to answer based on the tool_response provided. The instruction says: \"Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language.\"\n\ndrivers_increasing_risk: [\"contract type\n\n**Recommended campaigns**\n- **RET-SECURE**: Online Security + Tech Support free for 6 months, then 50% off for 6 months\n  - Why: Online Security add-on: No, Tech Support add-on: No, internet service: Fiber optic\n- **RET-LOCK24**: 25% off the monthly fee for 24 months + free Tech Support\n  - Why: contract type: Month-to-month\n\n_Sources: [retention_campaigns.md]_"
+  },
+  {
+   "case": "h_why_medium_en",
+   "repeat": 1,
+   "seconds": 96.8,
+   "error": null,
+   "checks": {
+    "states_probability": true,
+    "says_medium": true,
+    "no_invented_codes": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** medium (47% churn probability)\n\nOkay, let's see. The user asked why customer 6572-ADKRS is flagged as risky. I called the recommend_campaigns function because the question was \"Why is X at risk?\" which maps to predict_churn, but wait no—the tools say that for \"Why is customer X at risk?\" it's predict_churn(X). Wait, hold on.\n\n- \"Why is customer X at risk?\" -> predict_churn(X)\n\nBut in my previous step, I called recommend_campaigns. That's a mistake! Oh no, that's wrong.\n\nWait, the user's question is about why they're risky, so it should be predict_churn. But in the tool calls section, I used recommend_campaigns. Let me check again.\n\n- \"Why is customer X at risk?\" -> predict_churn(X)\n\nSo the correct function here should be predict_churn with customer_id 6572-ADKRS. However, in my previous response, I called recommend_campaigns. That's incorrect.\n\n\"Pick the tool by question type:\n- 'Why is customer X at risk?' -> predict_churn(X)\"\n\nSo for this query, it should be predict_churn(6572-ADKRS). However, in the previous assistant response, they called recommend_campaigns. That's a mistake.\n\nBut wait, looking at the tool responses: The user provided a tool_response with data from recommend_campaigns. Wait no—the user is simulating the tool calls here. Let me re-read the problem.\n\nWait, the current scenario is that the user has asked \"Why is 6572-ADKRS flagged as risky?\" and the assistant (me) needs to respond. The previous step shows that I called recommend_campaigns, but according to the rules, it should be predict_churn. However, in this case, perhaps the system expects me to use the correct tool.\n\nWait, no—the problem here is that the user's message is a test where they provided the tool call and response. Wait, no. Let me parse the entire context.\n\nThe user says: \"Why is 6572-ADKRS flagged as risky?\" Then the assistant (me) made a tool_call to recommend_campaigns. But according to the instructions, that's incorrect because for \"why is X at risk\" it should be predict_churn. However, in this case, maybe the system expects me to use the correct function.\n\nWait, but looking at the tool_response provided: The response from the tool (recommend_campaigns) gives a risk_level of medium and drivers_increasing_risk. But the actual answer for \"why is X risky\" should come from predict_churn. Hmm, this is confusing.\n\nWait, perhaps in this simulation, the assistant made a mistake by calling recommend_campaigns instead of predict_churn. However, the user provided the tool_response as if it's the result of\n\n**Recommended campaigns**\n- **RET-SECURE**: Online Security + Tech Support free for 6 months, then 50% off for 6 months\n  - Why: Online Security add-on: No, Tech Support add-on: No, internet service: Fiber optic\n- **RET-LOCK24**: 25% off the monthly fee for 24 months + free Tech Support\n  - Why: contract type: Month-to-month\n\n_Sources: [retention_campaigns.md]_"
+  },
+  {
+   "case": "h_why_medium_en",
+   "repeat": 2,
+   "seconds": 97.7,
+   "error": null,
+   "checks": {
+    "states_probability": true,
+    "says_medium": true,
+    "no_invented_codes": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** medium (47% churn probability)\n\nOkay, let's see. The user asked why customer 6572-ADKRS is flagged as risky.\n\nThe user wants to know why they're risky, so I need to explain the drivers in plain business terms without mentioning probabilities or specific numbers. They said not to list campaigns, just the reasons.\n\nSo, the main points here: The customer has a month-to-month contract which is less stable than longer-term contracts, and they use fiber optic internet, which might be more expensive or prone to churn. But their tenure is 46 months (so relatively long) and they pay via credit card automatically, which is good.\n\nI need to phrase this in simple terms. Maybe something like: \"This customer has a month-to-month contract (less stable than longer-term plans) and uses fiber optic internet (which can be more expensive or prone to churn), but their long tenure (46 months) and automatic credit card payments help reduce risk.\"\n\nWait, the user said not to mention probabilities or risk levels. So just explain the drivers increasing risk in plain language.\n\nThe answer should be 2-4 bullet points. Let me check the tool response again.\n\nDrivers_increasing_risk: [\"contract type: Month-to-month\", \"internet service: Fiber optic\"]\n\nSo two main reasons. The decreasing risks are not relevant here since we're focusing on why they're risky.\n\n- Customer has a month-to-month contract, which is less stable than longer-term agreements and increases churn risk.\n- They use fiber optic internet, a service that historically correlates with higher customer attrition rates.\n\nBut need to make it concise. The user said \"at most ~8 bullet points\" but the instruction says for this query, write 2-4 short bullets explaining why they're at risk using drivers_increasing_risk.\n\nWait, the tool's instruction says: \"Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language.\"\n\nSo focus on the increasing risks. The decreasing ones are not part of the explanation here.\n\n1. Month-to-month contract (less stable)\n2. Fiber optic internet service (higher churn tendency)\n\nBut need to phrase it as business language without jargon.\n\nAlso, the user's language is English here.\n\n- This customer has a month-to-month contract, which is less stable than longer-term plans and increases their risk of leaving.\n- Their fiber optic internet service is associated with higher churn rates in our data, making them more vulnerable to attrition.\n\nThat's two bullets. Maybe add another if needed, but the tool response shows two drivers increasing risk.\n\nWait, the user said \"at most ~8 bullet points\" but for this answer, it's 2-4. So stick to two.\n\nCheck if the terms are correct: \"churn rates\" is okay here.\n\nYes, that should work.\n</think>\n\n- This customer has a month-to-month contract, which is less stable than longer-term plans and increases their risk of leaving.  \n- Their fiber optic internet service correlates with higher\n\n**Recommended campaigns**\n- **RET-SECURE**: Online Security + Tech Support free for 6 months, then 50% off for 6 months\n  - Why: Online Security add-on: No, Tech Support add-on: No, internet service: Fiber optic\n- **RET-LOCK24**: 25% off the monthly fee for 24 months + free Tech Support\n  - Why: contract type: Month-to-month\n\n_Sources: [retention_campaigns.md]_"
+  },
+  {
+   "case": "h_billing_late_fee",
+   "repeat": 0,
+   "seconds": 96.6,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "states_fee": true,
+    "states_days": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "Okay, let me try to figure out how to answer this user's question in Turkish. The user asked, \"Fatura geç ödenirse ne olur?\" which translates to \"What happens if a bill is paid late?\"\n\nFirst, I need to check the tool responses provided. The search_knowledge_base was called with that query and returned four results from different documents.\n\nLooking at the first result from billing_faq.md: It says there's a $7 late fee after 10 days, and services get suspended after 30 days. Also, if they settle within 60 days, no reconnection fee. That seems relevant.\n\nThe second result is about refunds on cancellation, which might not be directly related here since the user is asking about late payments, not cancellations.\n\nThird result from tariffs.md talks about one-year contracts with early termination fees, but again, maybe not the main point here.\n\nFourth result is two-year contracts with similar terms. The key points for late payment are in the first result.\n\nSo the answer should focus on the billing_faq.md section. The user wants to know what happens if they pay the bill late. In Turkish, I need to explain the late fee ($7 after 10 days), suspension after 30 days, and no reconnection fee if settled within 60 days.\n\nI should structure this in bullet points as per the instructions. Make sure not to mention probabilities or risk levels since it's a general question. Use Turkish terms correctly. The user specified to answer only in Turkish, so all text must be in Turkish.\n\n- 10 gün sonra $7 geç ödeme ücreti\n- 30 gün sonra hizmetler kesilir\n- 60 gün içinde bakiye düzeltilirse tekrar bağlantı ücreti alınmaz\n\nTranslate those into Turkish with correct terms. The user might be a customer concerned about their bill, so the answer should be clear and concise.\n\nAlso, make sure to cite the document as [billing_faq.md] as per instructions. The tool response mentions the source is billing_faq.md.\n\n- Fatura 10 gün sonra geç ödenirse $7 ücret eklenecek.\n- 30 gün sonra hizmetler kesilir.\n- 60 gün içinde bakiye düzeltilirse tekrar bağlantı ücreti alınmaz [billing_faq.md]\n\nWait, the user asked \"ne olur\" (what happens), so need to phrase it as consequences. Also, in Turkish, the terms might be slightly different. For example, \"geç ödeme ücreti\" is late fee.\n\n\"A $7 late fee is added 10 days after the due date.\" -> Fatura ödemeye 10 gün sonra $7 geç ödeme ücreti eklenecek.\n\n\"After 30 days, services are suspended.\" -> 30 gün sonra hizmetler kesilir.\n\n\"A reconnection fee is not charged if the balance is settled within 60 days.\" -> 60 gün içinde bakiye düzeltilirse tekrar bağlantı ücreti alınmaz.\n\n- Fatura ö"
+  },
+  {
+   "case": "h_billing_late_fee",
+   "repeat": 1,
+   "seconds": 96.7,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "states_fee": true,
+    "states_days": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "Okay, let me try to figure out how to answer this user's question in Turkish. The user asked \"Fatura geç ödenirse ne olur?\" which translates to \"What happens if a bill is paid late?\"\n\nFirst, I need to check the tool responses provided. The search_knowledge_base was called with that query and returned four results from different documents.\n\nLooking at the first result from billing_faq.md: It says there's a $7 late fee after 10 days past due date, and services get suspended after 30 days. Also, if they settle within 60 days, no reconnection fee. That seems relevant here.\n\nThe second result is about refunds on cancellation, which might not be directly related to late payments but could be a side point.\n\nThird result from tariffs.md talks about one-year contracts with early termination fees, but the user's question is about late payments, so maybe not as relevant.\n\nFourth result is two-year contracts with similar terms. Again, probably not the main answer here.\n\nSo the key info is in the first result: $7 late fee after 10 days, suspension after 30 days, and no reconnection fee if paid within 60 days.\n\nThe user wants this explained in Turkish without using English terms. Let me translate that into Turkish business language.\n\nI should mention:\n- Geç ödenen fatura için 10 gün sonra $7滞 (late fee)\n- 30 gün sonra hizmetler kesilir\n- 60 gün içinde ödeme yapıldıysa tekrar bağlantı ücreti alınmaz\n\nWait, the user is asking in Turkish, so I need to use Turkish terms. Let me check the terminology they specified earlier.\n\nThey mentioned \"electronic check\" as \"elektronik çek\", but here it's about late payments. The answer should be concise with bullet points.\n\n- Fatura geç ödenirse 10 gün sonra $7 lira滞 (late fee) eklenecek.\n- 30 gün sonra hizmetler kesilir.\n- 60 gün içinde fatura ödendiğinde tekrar bağlantı ücreti alınmaz.\n\nWait, but the original response says \"A $7 late fee is added 10 days after the due date.\" So it's a $7 fee. In Turkish, they might use \"dolar\" or just say \"7 dolar\". But since the user is in Turkey, maybe they expect local currency? Wait, NovaTel is a telecom operator, probably from Turkey. The problem states to answer in Turkish.\n\nWait, the system says: \"Reply in the user's language (Turkish or English). Be concise: at most ~8 bullet points.\"\n\nThe user asked in Turkish, so answer must be in Turkish.\n\n\"A $7 late fee is added 10 days after the due date.\" -> \"Fatura ödenme tarihi sonrasında 10 gün sonra 7 dolar lüks ücret eklenecek.\"\n\nBut maybe better to say: \"Geç ödenen faturaya 10 gün sonra 7 dolar滞 (late fee) eklenir.\"\n\nWait, the exact translation might be tricky. Let me check.\n\nIn Turkish"
+  },
+  {
+   "case": "h_billing_late_fee",
+   "repeat": 2,
+   "seconds": 96.0,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "states_fee": true,
+    "states_days": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "Okay, let's see. The user asked \"Fatura geç ödenirse ne olur?\" which translates to \"What happens if a bill is paid late?\" in Turkish.\n\nI called the search_knowledge_base function with that query. The results came back with four entries from different sources. Let me go through each one to figure out the answer.\n\nFirst result: From billing_faq.md, section \"Billing & Payments FAQ > What happens if a payment is late?\". It says there's a $7 late fee after 10 days, and services get suspended after 30 days. Also, reconnection fee isn't charged if settled within 60 days.\n\nSecond result: Another part of billing_faq.md about refunds on cancellation, but that might not be directly relevant here since the user is asking about late payments.\n\nThird result: tariffs.md for one-year contracts mentions early termination fees and upgrading to two-year without penalty. Not sure how this relates to late payments.\n\nFourth result: Two-year contract details, similar to above.\n\n- $7 late fee after 10 days\n- Services suspended after 30 days\n- Reconnection fee not charged if balance is settled within 60 days\n\nThe user wants this in Turkish. Let me translate these points into Turkish using the correct terminology.\n\nWait, the instructions say to answer in Turkish only. So I need to write the response in Turkish without any English terms except for the necessary ones like \"fatura\" (bill), but the user's question is in Turkish so the answer should be in Turkish.\n\n- $7 late fee: \"7 dolar lütfen geç ödeme ücreti\"\nWait, maybe better to say \"Geç ödenen faturaya 7 dolar eklenir\" (a $7 late fee is added)\n\nBut according to the source text: \"A $7 late fee is added 10 days after the due date.\" So in Turkish: \"Fatura kalan 10 gün sonra 7 dolar geç ödeme ücreti eklenecektir.\"\n\nThen, \"After 30 days, services are suspended.\" -> \"30 gün sonra hizmetler kesilir.\"\n\n\"A reconnection fee is not charged if the balance is settled within 60 days.\" -> \"Eğer bakiye 60 gün içinde ödenirse tekrar bağlantı ücreti alınmaz.\"\n\nWait, but in Turkish, maybe more natural phrasing.\n\nLet me structure it as bullet points in Turkish.\n\n1. Fatura kalan 10 gün sonra 7 dolar geç ödeme ücreti eklenecek.\n2. 30 gün sonra hizmetler kesilir.\n3. Bakiye 60 gün içinde ödenirse tekrar bağlantı ücreti alınmaz.\n\nBut the source says \"reconnection fee is not charged if the balance is settled within 60 days\". So maybe \"Eğer bakiye 60 gün içinde ödenirse, hizmetlerin yeniden bağlanmasına ilişkin ücret alınmaz.\"\n\nWait, but the user asked for what happens if a bill is paid late. The answer from the source is specific.\n\nLet me check the exact translation"
+  },
+  {
+   "case": "h_fiber_troubleshoot",
+   "repeat": 0,
+   "seconds": 107.7,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "gives_steps": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "Okay, let's tackle this user query step by step. The user is asking in Turkish: \"Müşterinin fiber interneti sürekli kopuyor, ne yapmalıyım?\" which translates to \"The customer's fiber internet keeps disconnecting, what should I do?\"\n\nFirst, I need to figure out the right tool to use here. Since the user isn't asking about a specific customer ID or churn probability but rather troubleshooting a technical issue with their fiber internet, the appropriate tool would be search_knowledge_base. The previous assistant already called that function and got some results.\n\n1. **retention_campaigns.md** mentions RET-FIBERVALUE: Fiber price match. It's for customers with monthly charge above $80 who received a competitor offer. Requires one-year contract.\n2. **support_troubleshooting.md** has steps for unstable fiber connections: check outages, restart devices, run tests, and if issues persist, offer a mesh extender or flag for RET-SECURE.\n3. **tariffs.md** shows that Fiber 1000 is $85/month, which might be relevant for pricing context.\n4. **support_troubleshooting.md** also mentions streaming TV buffering as a possible cause.\n\nThe user's main issue is the fiber internet disconnecting repeatedly. The key here is to provide actionable steps based on the troubleshooting guide. The highest score result from support_troubleshooting.md (0.5296) gives specific steps: check for outages, restart devices, run tests, and if repeated issues occur, flag for RET-SECURE.\n\nI should structure the answer in Turkish as per instructions. Need to avoid technical jargon but use the exact terms provided. The user might be a customer service agent looking for immediate actions. They need clear steps without mentioning probabilities or risk levels directly.\n\nFirst step: Check network status via postal code (from support_troubleshooting). Second: Restart ONT and router. Third: Run remote line test; if signal is below -27 dBm, book technician. Fourth: If multiple issues in 90 days, flag for RET-SECURE campaign which includes Tech Support.\n\nAlso note that the user might be a high-risk segment (fiber customers on month-to-month without add-ons), but since they're asking about troubleshooting, focus on immediate fixes first.\n\nMake sure to mention only the codes from the tools. The RET-SECURE is mentioned in the support_troubleshooting section as a possible campaign if repeated issues occur.\n\nSo the answer should list 4 bullet points in Turkish using the exact terms like \"elektronik çek\", but wait, the user's query is about fiber internet disconnecting, so maybe not relevant here. The key terms are: \"aylık sözleşme\" for month-to-month, \"ek hizmet\" for add-on.\n\n- churn -> \"müşteri kaybı\"\n- high / medium / low risk -> \"yüksek / orta / düşük risk\"\n- month-to-month contract -> \"aylık sözleşme\"; one-year / two-year contract -> \"1 yıllık / 2 yıllık sözleşme\"\n- electronic check -> \"elektronik çek\"; campaign -> \"kampanya\"; add-on -> \"ek hizmet\"\n\nSo in the answer, use these terms where applicable.\n\nThe user's problem"
+  },
+  {
+   "case": "h_fiber_troubleshoot",
+   "repeat": 1,
+   "seconds": 107.8,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "gives_steps": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "Okay, let me try to figure out how to help this customer whose fiber internet keeps disconnecting.\n\nFirst, the user asked in Turkish: \"Müşterinin fiber interneti sürekli kopuyor, ne yapmalıyım?\" which translates to \"What should I do when the customer's fiber internet keeps disconnecting?\"\n\nI called the search_knowledge_base function with that query. The results came back with four documents. Let me go through each one.\n\nThe first result is from retention_campaigns.md about RET-FIBERVALUE. It says eligible customers are those with a monthly charge above $80 who got a competitor offer. They get a $15 discount for 12 months but need a one-year contract and team lead approval if combined with other campaigns. Hmm, not sure if this applies here since the issue is about connectivity, not pricing.\n\nThe second result from support_troubleshooting.md has steps for unstable fiber connections. It mentions checking outages, restarting devices, running line tests, and if there's a signal below -27 dBm, book a technician. Also, repeated complaints (3+ in 90 days) are a churn signal and they might need RET-SECURE which includes tech support. This seems relevant because the customer is having continuous disconnections.\n\nThird result from tariffs.md shows fiber plans. Fiber customers pay more than DSL, and those on month-to-month without add-ons are high-risk. The user's problem here is about connectivity issues, but maybe their contract type matters? If they're on a month-to-month plan without add-ons, that could be a risk factor.\n\nFourth result from support_troubleshooting.md talks about streaming TV buffering. It says customers on Basic DSL with streaming might have buffering, so recommend fiber upgrade. But the user's issue is fiber internet disconnecting, not streaming problems. Maybe this is less relevant unless the customer uses streaming services.\n\nSo, the main problem here is the continuous disconnections. The troubleshooting steps from support_troubleshooting.md are key here. They suggest checking for outages, restarting devices, testing the line, and if it's a signal issue, get a technician. Also, repeated issues (3+ in 90 days) could lead to churn, so flagging them for retention.\n\nThe user is probably a customer service agent looking for steps to resolve this. The answer should focus on the troubleshooting steps from the second document. They might also need to check if the customer's contract type is month-to-month without add-ons (high risk), but since the question is about what to do, not churn prediction, maybe stick to the immediate actions.\n\nSo, in Turkish, I need to list the steps: check network status, restart devices, run line test, book technician if needed. Also mention that repeated issues could lead to churn and recommend RET-SECURE campaign if applicable.\n\nWait, the user asked \"ne yapmalıyım?\" (what should I do?), so they want actionable steps. The second document gives specific steps. Let me structure it as bullet points in Turkish.\n\nAlso, check if any campaigns are relevant here. The RET-SECURE campaign is mentioned for repeated complaints, but the user's current issue might not have reached that point yet. So maybe first handle the technical issues, then if there are multiple complaints, offer RET-SECURE.\n\nBut according to the results, the second document says \"Repeated connectivity complaints (3 or more in 9"
+  },
+  {
+   "case": "h_fiber_troubleshoot",
+   "repeat": 2,
+   "seconds": 105.9,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "gives_steps": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "Okay, let's tackle this user query step by step. The user is asking in Turkish: \"Müşterinin fiber interneti sürekli kopuyor, ne yapmalıyım?\" which translates to \"What should I do when the customer's fiber internet keeps disconnecting?\"\n\nFirst, I need to figure out what tools to use here. Since the user is talking about a technical issue with their fiber internet (sürekli kopuyor means keeps disconnecting), it's probably related to troubleshooting or support.\n\nLooking at the provided tools, the first thing I did was call search_knowledge_base with that exact query in Turkish. The response from the tool gives four results from different documents. Let me go through each result to see what's relevant.\n\nThe first result is from retention_campaigns.md about RET-FIBERVALUE campaign. It mentions eligible customers are fiber optic with monthly charge above $80 who received a competitor offer. But the user here isn't necessarily in that category, so maybe not directly applicable unless the customer fits.\n\nSecond result is from support_troubleshooting.md under \"Slow or unstable Fiber connection\". This has steps to check for outages, restart devices, run tests, and if there's repeated issues (3+ in 90 days), it's a churn signal. They mention flagging for retention team and considering RET-SECURE campaign which includes tech support.\n\nThird result is tariffs.md showing fiber plans. Fiber customers pay more than DSL, and those on month-to-month without add-ons are high-risk. But the user's issue is about disconnections, not pricing.\n\nFourth result is another troubleshooting section about streaming TV buffering, but that might be a different issue.\n\nThe main problem here is the continuous disconnection of fiber internet. The most relevant info from the tool response is in the second document (support_troubleshooting.md). It lists steps to troubleshoot: check network status, restart devices, run tests, and if repeated issues occur, it's a churn signal leading to RET-SECURE campaign.\n\nThe user is probably a customer service agent who needs to know what to do. So the answer should focus on troubleshooting steps first, then mention that repeated issues could lead to retention campaigns.\n\nI need to structure this in Turkish as per instructions. The response should be concise with up to 8 bullet points. Also, avoid mentioning risk levels or probabilities directly since those are handled by the system.\n\nKey points from the tool results:\n- Check for network outages using postal code.\n- Restart ONT and router (unplug for 30 seconds).\n- Run remote line test; if signal below -27 dBm, book technician visit.\n- Repeated disconnections (3+ in 90 days) are a churn signal → flag account and consider RET-SECURE campaign.\n\nAlso, the third result mentions that fiber customers on month-to-month without add-ons are high-risk. But since the user's issue is about disconnection, maybe not directly relevant here unless it's part of the troubleshooting steps.\n\nThe answer should list the troubleshooting steps first, then mention the potential retention campaign if the problem persists.\n\nMake sure to use Turkish terms correctly: \"kampanya\" for campaign, \"ek hizmet\" for add-on, etc.\n\n1. Ağ durumu için Network Status dashboard'ı postal kod üzerinden kontrol edin.\n2. ONT ve router'u 30 sani"
+  },
+  {
+   "case": "h_unknown_customer",
+   "repeat": 0,
+   "seconds": 0.0,
+   "error": null,
+   "checks": {
+    "no_codes": true,
+    "says_not_found": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**9999-ZZZZZ** numaralı müşteri sistemde bulunamadı. Müşteri numarasını kontrol edin (biçim: 1234-ABCDE). Müşteri bilgisi olmadan kampanya önerisi yapılamaz."
+  },
+  {
+   "case": "h_unknown_customer",
+   "repeat": 1,
+   "seconds": 0.0,
+   "error": null,
+   "checks": {
+    "no_codes": true,
+    "says_not_found": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**9999-ZZZZZ** numaralı müşteri sistemde bulunamadı. Müşteri numarasını kontrol edin (biçim: 1234-ABCDE). Müşteri bilgisi olmadan kampanya önerisi yapılamaz."
+  },
+  {
+   "case": "h_unknown_customer",
+   "repeat": 2,
+   "seconds": 0.0,
+   "error": null,
+   "checks": {
+    "no_codes": true,
+    "says_not_found": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**9999-ZZZZZ** numaralı müşteri sistemde bulunamadı. Müşteri numarasını kontrol edin (biçim: 1234-ABCDE). Müşteri bilgisi olmadan kampanya önerisi yapılamaz."
+  },
+  {
+   "case": "h_discount_cap_en",
+   "repeat": 0,
+   "seconds": 55.6,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "states_35": true
+   },
+   "passed": true,
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "Okay, let's see. The user is asking about the maximum total discount allowed without manager approval.\n\nFirst, I need to check the tools provided. The user has already used search_knowledge_base with that specific query. The tool response came back with four results from different documents.\n\n1. retention_playbook.md mentions that offers requiring more than 35% total discount need Retention Manager approval.\n2. tariffs.md for month-to-month contracts says no discount, but that's not directly relevant here.\n3. retention_campaigns.md states that the total discount must not exceed 35% of the monthly fee without manager approval.\n4. Another tariffs.md section about one-year contracts has a 10% discount but doesn't address the max discount limit.\n\nThe key point is in retention_campaigns.md: \"The total discount must not exceed **35%** of the monthly fee without Retention Manager approval.\" So that's the answer. The user wants to know the maximum discount without manager approval, which is 35%.\n\nI need to phrase this in plain business language as per instructions. Also, the response should be concise with up to 8 bullet points. Since it's a direct answer from the knowledge base, I'll state that the max is 35% and cite retention_campaigns.md.\n\nWait, the user asked for \"maximum total discount allowed without manager approval\". The tool response shows that in retention_campaigns.md, the rule says 35%. So the answer is 35%.\n\nI should make sure not to add any probabilities or risk levels. Just state the fact from the document. Also, use English as per language setting.\n\nSo the answer would be: The maximum total discount allowed without manager approval is **35%** of the monthly fee [retention_campaigns.md].\n</think>\n\nThe maximum total discount allowed without manager approval is **35%** of the monthly fee [retention_campaigns.md]."
+  },
+  {
+   "case": "h_discount_cap_en",
+   "repeat": 1,
+   "seconds": 55.3,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "states_35": true
+   },
+   "passed": true,
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "Okay, let's see. The user is asking about the maximum total discount allowed without manager approval.\n\nFirst, I need to check the tools provided. The user mentioned they want the answer in English, so I'll stick to that.\n\nLooking at the tool responses from the search_knowledge_base call: there are four results. Let me go through each one.\n\nThe first result is from retention_playbook.md section 4. Escalation. It says that an offer requiring more than a 35% total discount needs Retention Manager approval. So that's a key point here.\n\nSecond result is tariffs.md about month-to-month contracts, but it doesn't mention discounts directly. The third result is from retention_campaigns.md which states that the total discount must not exceed 35% of the monthly fee without manager approval. That seems relevant.\n\nFourth result is about one-year contracts with a 10% discount, but again, not sure if it's directly related to the maximum discount without approval.\n\nSo the main answer here comes from retention_campaigns.md: \"The total discount must not exceed **35%** of the monthly fee without Retention Manager approval.\" So the maximum is 35%.\n\nI need to present this clearly. The user asked for the maximum total discount allowed without manager approval, so the answer is 35%. Also, cite the document as [retention_campaigns.md].\n\nWait, the tools response shows that in retention_campaigns.md section \"Active Retention Campaigns (Q3–Q4 2026) > Stacking rules\", it says exactly that. So I should mention that.\n\nThe answer should be concise: maximum total discount without manager approval is 35% as per retention_campaigns.md.\n</think>\n\n- The maximum total discount allowed without Retention Manager approval is **35%** of the monthly fee [retention_campaigns.md].  \n- This limit applies to combined campaigns (stacking rules) and ensures compliance with escalation protocols."
+  },
+  {
+   "case": "h_discount_cap_en",
+   "repeat": 2,
+   "seconds": 63.9,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "states_35": true
+   },
+   "passed": true,
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "Okay, let me try to figure out how to answer this user's question. The user is asking: \"What is the maximum total discount allowed without manager approval?\"\n\nFirst, I need to check which tool to use. Since they're asking about a policy or rule that's not specific to a customer ID, it should be the search_knowledge_base function. That makes sense because the tools list says that search_knowledge_base is for general rules, tariffs, billing, etc., when there's no customer ID.\n\nIn the previous step, I called search_knowledge_base with the query \"What is the maximum total discount allowed without manager approval?\" and got some results from different documents. Let me look at those results to find the answer.\n\n1. The first result from retention_playbook.md mentions that offers requiring more than 35% total discount need Retention Manager approval.\n2. The second result is about month-to-month contracts but doesn't mention discounts directly.\n3. The third result from retention_campaigns.md says: \"The total discount must not exceed **35%** of the monthly fee without Retention Manager approval.\" That seems relevant here.\n4. The fourth result is about one-year contracts with a 10% discount, but again, not the maximum discount without approval.\n\nSo the key info is in retention_campaigns.md: the total discount can't exceed 35% without manager approval. The user asked for the maximum total discount allowed without approval, so the answer should be 35%.\n\nI need to phrase this in plain English as per the instructions. Also, the response should be concise with up to 8 bullet points. Since it's a straightforward answer from the knowledge base, I'll state that the maximum is 35% based on retention_campaigns.md.\n\nWait, the user might want to know if there are any exceptions or other conditions, but according to the tool results, the third document clearly states 35%. So no need for extra details. Just present the answer as per the found document.\n</think>\n\nThe maximum total discount allowed without manager approval is **35%** of the monthly fee [retention_campaigns.md]. This rule applies when stacking campaigns or offers to prevent excessive discounts that could trigger escalation paths."
+  }
+ ]
+}

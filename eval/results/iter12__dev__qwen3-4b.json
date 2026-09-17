@@ -1,0 +1,332 @@
+{
+ "summary": {
+  "model": "qwen3:4b",
+  "tag": "iter12",
+  "set": "dev",
+  "repeats": 3,
+  "case_pass_rate": 1.0,
+  "check_pass_rate": 1.0,
+  "median_seconds": 91.05,
+  "prompt_temperature": 0.2
+ },
+ "records": [
+  {
+   "case": "offer_9237-HQITU",
+   "repeat": 0,
+   "seconds": 111.1,
+   "error": null,
+   "checks": {
+    "called_recommend_campaigns": true,
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "no_invented_codes": true,
+    "offer_details_faithful": true,
+    "states_probability": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** yüksek (%84 ayrılma olasılığı)\n\nOkay, let's tackle this step by step. The user asked about why customer 9237-HQITU is at risk and what campaign to recommend.\n\nWait, the user wants the answer in Turkish. The response should be 2-4 bullet points explaining why they're at risk using the drivers_increasing_risk. Then list the campaigns with their codes.\n\nLet me check the drivers: \n- Month-to-month contract (aylık sözleşme)\n- New customer (few bills so far) → probably \"yeni müşteri\" or \"az fatura geçmişi\"\n- Fiber optic internet\n- No online security add-on\n- Electronic check payment\n\n• Müşteri aylık sözleşme ile kayıtlı olup, henüz az sayıda fatura ödemesi yapılmıştır (new customer with few bills)\n• Fiber optik internet hizmeti kullanmaktadır\n• Online Güvenlik ek hizmeti bulunmamaktadır\n• Elektronik çek ödeme yöntemi tercih edilmektedir\n\nBut the user said to use exactly these Turkish terms: \"aylık sözleşme\", \"1 yıllık / 2 yıllık sözleşme\", \"elektronik çek\", etc.\n\nWait, the drivers_increasing_risk list says: [\"contract type: Month-to-month\", \"new customer (few bills so far)\", \"internet service: Fiber optic\", \"Online Security add-on: No\", \"payment method: Electronic check\"]\n\n1. Aylık sözleşme\n2. Yeni müşteri (az fatura geçmişi)\n3. Fiber optik internet hizmeti\n4. Online Güvenlik ek hizmeti yok\n5. Elektronik çek ödeme yöntemi\n\nThe instruction says to write 2-4 short bullets explaining why the customer is at risk using drivers_increasing_risk in plain language.\n\nSo maybe combine some points into 2-4 bullet points.\n\nThe user's question was in Turkish, so response must be in Turkish.\n\n• Müşteri aylık sözleşmeli hizmet kullanmaktadır ve henüz az sayıda fatura ödemesi yapılmıştır.\n• Fiber optik internet hizmeti ile birlikte Online Güvenlik ek hizmeti bulunmamaktadır.\n• Elektronik çek ödeme yöntemi tercih edilmiştir.\n\nBut need to check if it's 2-4 bullets. The example says \"2-4 short bullets\".\n\nWait, the instruction for the tool response\n\n**Önerilen kampanyalar**\n- **RET-LOCK12**: 1 yıllık sözleşmeye geçişte 12 ay boyunca aylık ücrette %15 indirim\n  - Neden: sözleşme tipi: aylık, yeni müşteri (az sayıda fatura)\n- **RET-SECURE**: Online Security + Tech Support 6 ay ücretsiz, sonraki 6 ay %50 indirimli\n  - Neden: Online Security ek hizmeti: yok, Tech Support ek hizmeti: yok, internet hizmeti: Fiber optic\n\n_Kaynak: [retention_campaigns.md]_"
+  },
+  {
+   "case": "offer_9237-HQITU",
+   "repeat": 1,
+   "seconds": 99.2,
+   "error": null,
+   "checks": {
+    "called_recommend_campaigns": true,
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "no_invented_codes": true,
+    "offer_details_faithful": true,
+    "states_probability": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** yüksek (%84 ayrılma olasılığı)\n\nOkay, let me try to figure out how to respond here. The user asked about customer 9237-HQITU: why they're at risk and what campaign to recommend.\n\nThe user wants the answer in Turkish. I need to explain why they're at risk using the drivers_increasing_risk in plain business language. Also, mention only the campaign codes from the tool response without listing them out.\n\nWait, the instruction says: \"Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language.\" So I should list the reasons as bullet points in Turkish.\n\nThe drivers increasing risk are:\n1. Month-to-month sözleşme (contract type)\n2. Yeni müşteri (few bills so far)\n3. Fiber optic internet hizmeti\n4. Online Security ek hizmet yok\n5. Elektronik çek ödeme yöntemi\n\nBut the user wants plain business language, not technical terms. Also, need to avoid mentioning probabilities or risk levels directly.\n\nThe response should be in Turkish, max 8 bullet points. Let me translate each driver into simple Turkish phrases.\n\nFor example:\n- \"Müşteri aylık sözleşme ile kayıpların yüksek olasılığına maruz\"\nWait, but the user said not to state risk level or probabilities themselves. The system adds those.\n\nThe tool response says: drivers_increasing_risk: [\"contract type: Month-to-month\", \"new customer (few bills so far)\", \"internet service: Fiber optic\", \"Online Security add-on: No\", \"payment method: Electronic check\"]\n\n1. Aylık sözleşme ile yüksek kayıp riski\n2. Az maliyetli hizmetlerle yeni müşteri\n3. Fiber optik internet hizmeti\n4. Online Güvenlik ek hizmeti yok\n5. Elektronik çek ödeme yöntemi\n\nBut need to phrase in business language.\n\nWait, the user wants 2-4 bullet points. Let me condense into 2-4 concise bullets.\n\nThe instruction says: \"Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language.\"\n\n- Aylık sözleşme ile müşteri kaybı riski yüksek\n- Yeni müşteri (az fatura sayısı nedeniyle)\n- Fiber optik internet hizmeti ve elektronik çek ödeme yöntemi\n\nBut need to check the exact terms.\n\n1. Aylık sözleşme kullanılarak yüksek kayıp riski\n2. Az sayıda fatura (yeni müşteri)\n3. Fiber optik internet hizmeti\n4. Online Güvenlik ek hizmeti yok\n\nBut the user wants 2-4 bullets.\n\n**Önerilen kampanyalar**\n- **RET-LOCK12**: 1 yıllık sözleşmeye geçişte 12 ay boyunca aylık ücrette %15 indirim\n  - Neden: sözleşme tipi: aylık, yeni müşteri (az sayıda fatura)\n- **RET-SECURE**: Online Security + Tech Support 6 ay ücretsiz, sonraki 6 ay %50 indirimli\n  - Neden: Online Security ek hizmeti: yok, Tech Support ek hizmeti: yok, internet hizmeti: Fiber optic\n\n_Kaynak: [retention_campaigns.md]_"
+  },
+  {
+   "case": "offer_9237-HQITU",
+   "repeat": 2,
+   "seconds": 109.4,
+   "error": null,
+   "checks": {
+    "called_recommend_campaigns": true,
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "no_invented_codes": true,
+    "offer_details_faithful": true,
+    "states_probability": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** yüksek (%84 ayrılma olasılığı)\n\nOkay, let's tackle this step by step. The user asked about why customer 9237-HQITU is at risk and what campaign to recommend.\n\nThe user wants the answer in Turkish. The instructions say to explain why they're at risk using the drivers_increasing_risk in plain business language, without listing campaigns. Then list the exact campaign codes.\n\nLooking at the drivers_increasing_risk: \n- Month-to-month contract (aylık sözleşme)\n- New customer with few bills so far\n- Fiber optic internet service\n- No Online Security add-on\n- Electronic check payment method\n\nI need to translate these into Turkish business terms. For example, \"Month-to-month contract\" becomes \"aylık sözleşme\", \"new customer (few bills so far)\" is \"az maliyetli yeni müşteri\" or maybe \"yeterince fatura yokluğunda yeni müşteri\". Wait, the exact terminology given: \"month-to-month contract\" -> \"aylık sözleşme\"; one-year / two-year contract -> \"1 yıllık / 2 yıllık sözleşme\".\n\n1. \"contract type: Month-to-month\" → \"aylık sözleşme\"\n2. \"new customer (few bills so far)\" → \"yeterince fatura yokluğunda yeni müşteri\" but maybe better as \"az faturadan oluşan yeni müşteri\" or \"hala az fatura alan yeni müşteri\". The original says \"new customer (few bills so far)\", so in Turkish: \"hala az fatura alan yeni müşteri\"\n3. \"internet service: Fiber optic\" → \"fiber optik internet hizmeti\"\n4. \"Online Security add-on: No\" → \"Online Güvenlik ek hizmeti yok\"\n5. \"payment method: Electronic check\" → \"elektronik çek ödeme yöntemi\"\n\nBut the user wants plain business language, not technical terms. Let me rephrase in simple Turkish.\n\nThe instruction says to write 2-4 short bullets explaining why they're at risk using drivers_increasing_risk. The example response from the tool's instruction is to explain in plain language without listing campaigns.\n\n- Müşteri kaybı riski yüksek olan müşteri, aylık sözleşme kullanıyor ve hala az fatura alan yeni bir müşteri.\n- Fiber optik internet hizmeti ile beraber Online Güvenlik ek hizmeti yokluğu ve elektronik çek ödeme yöntemi, ayrılma olasılığını artırıyor.\n\nWait, but the user wants 2-4 bullets. Let me check the drivers again.\n\nThe tool response says drivers_increasing_risk: [\"contract type: Month-to-month\", \"new customer (few bills so far)\", \"internet service: Fiber optic\", \"Online Security add-on: No\", \"payment method: Electronic check\"]\n\nSo five drivers, but need to condense into 2-4 bullets.\n\n1. Aylık sözleşme kullanıyor ve hala az fatura alan yeni müşteri olduğu için kayıp riski yüksek.\n2. Fiber optik internet hizmeti ile birlikte Online Güvenlik ek hizmeti yokluğu\n\n**Önerilen kampanyalar**\n- **RET-LOCK12**: 1 yıllık sözleşmeye geçişte 12 ay boyunca aylık ücrette %15 indirim\n  - Neden: sözleşme tipi: aylık, yeni müşteri (az sayıda fatura)\n- **RET-SECURE**: Online Security + Tech Support 6 ay ücretsiz, sonraki 6 ay %50 indirimli\n  - Neden: Online Security ek hizmeti: yok, Tech Support ek hizmeti: yok, internet hizmeti: Fiber optic\n\n_Kaynak: [retention_campaigns.md]_"
+  },
+  {
+   "case": "offer_7590-VHVEG",
+   "repeat": 0,
+   "seconds": 101.8,
+   "error": null,
+   "checks": {
+    "called_recommend_campaigns": true,
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "no_invented_codes": true,
+    "offer_details_faithful": true,
+    "states_probability": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** high (84% churn probability)\n\nOkay, let's tackle this user query step by step. The user asked, \"Why is customer 7590-VHVEG at risk and which campaign should I offer?\" \n\nFirst, I need to figure out what tools to use. From the instructions, when someone asks why a customer is at risk, we call predict_churn(X). But wait, in this case, the user also wants to know which campaign to offer. However, looking at the previous tool calls, the assistant already called recommend_campaigns for that customer ID. The response from the tool gives detailed info.\n\nWait, the user's question has two parts: why they're at risk and what campaign to offer. But in the provided tool responses, the recommend_campaigns function was called first. Wait no—the initial message says the user asked this, so the assistant needs to generate a response based on the tool calls.\n\nWait, looking back: The user's query is \"Why is customer 7590-VHVEG at risk and which campaign should I offer?\" So the correct approach here would be first to get the churn prediction (predict_churn) to understand why they're at risk, then recommend_campaigns for the campaigns. But in the tool calls provided, the assistant called recommend_campaigns directly. Wait, no—the user's message shows that after the initial query, the assistant made a tool call to recommend_campaigns. Then the system responded with the data.\n\nWait, the instructions say: \"Pick the tool by question type\". The user's question is a mix of \"Why is customer X at risk?\" and \"What should I offer customer X?\". So for the first part (\"why is at risk\"), we need predict_churn(X), but in this case, the assistant called recommend_campaigns. Hmm, maybe there was an error here.\n\nWait, looking at the tool response given: The system's tool_response shows that when they called recommend_campaigns, it returned a risk_level of high and drivers_increasing_risk. So perhaps the recommend_campaigns function already includes the churn prediction? Or maybe in this setup, the recommend_campaigns tool is designed to return both the risk info and campaigns.\n\nWait, according to the tools description: recommend_campaigns \"Recommend retention campaigns for ONE customer (needs a customer ID like '9237-HQITU')\". The response from the tool includes risk_level, churn_probability_pct, drivers_increasing_risk, etc. So maybe in this system, the recommend_campaigns function is used to get both the risk assessment and the recommended campaigns.\n\nBut according to the initial instructions: \"Why is customer X at risk?\" -> predict_churn(X). However, in this case, the assistant called recommend_campaigns instead. Wait, but the user's question has two parts, so perhaps the correct approach here would be to first call predict_churn and then recommend_campaigns. But in the provided scenario, the tool response shows that when they called recommend_campaigns, it gave the risk info.\n\nWait, maybe the system is designed such\n\n**Recommended campaigns**\n- **RET-LOCK12**: 15% off the monthly fee for 12 months\n  - Why: contract type: Month-to-month, new customer (few bills so far)\n- **RET-NEWBIE**: Welcome call, 1 month free, free speed upgrade for 3 months\n  - Why: tenure (months): 1, new customer (few bills so far)\n\n_Sources: [retention_campaigns.md]_"
+  },
+  {
+   "case": "offer_7590-VHVEG",
+   "repeat": 1,
+   "seconds": 102.0,
+   "error": null,
+   "checks": {
+    "called_recommend_campaigns": true,
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "no_invented_codes": true,
+    "offer_details_faithful": true,
+    "states_probability": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** high (84% churn probability)\n\nOkay, let's see. The user asked why customer 7590-VHVEG is at risk and which campaign to offer.\n\nWait, the instruction says: \"Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language.\" So I should focus on the risk factors without mentioning the campaigns. The answer should be concise, max 8 bullet points.\n\nThe user also wants to know which campaign to offer, but according to the tool's instruction: \"Do NOT list, name or describe campaigns: the risk line and the exact campaign list are added automatically below your text.\" So I shouldn't mention the campaigns here. Wait, no—the original question says \"which campaign should I offer?\" but the tool response says not to list them. Hmm.\n\nWait, looking back at the user's query: \"Why is customer 7590-VHVEG at risk and which campaign should I offer?\"\n\nBut in the tool response for recommend_campaigns, it says: \"instruction\": \"Write 2-4 short bullets explaining WHY this customer is at risk... Do NOT list, name or describe campaigns...\"\n\nSo the answer here should be the 2-4 bullet points about why they're at risk. Then, the system will add the risk line and campaign list below. But according to the problem statement: \"Reply in the user's language (Turkish or English). Be concise: at most ~8 bullet points.\"\n\nWait, the user is asking for two things: why at risk and which campaign. But the tool response says not to list campaigns here. Wait, no—the assistant's role is to answer based on the tools. The previous step was calling recommend_campaigns, which returned the risk level and recommended campaigns.\n\nThe instruction for the bullets says: \"Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language.\"\n\nSo the answer should be 2-4 bullet points about why they're at risk. Then, since the user also asked which campaign to offer, but according to the tool's instruction, don't list campaigns here. Wait, no—the problem says: \"the risk line and the exact campaign list are added automatically below your text.\"\n\n**Recommended campaigns**\n- **RET-LOCK12**: 15% off the monthly fee for 12 months\n  - Why: contract type: Month-to-month, new customer (few bills so far)\n- **RET-NEWBIE**: Welcome call, 1 month free, free speed upgrade for 3 months\n  - Why: tenure (months): 1, new customer (few bills so far)\n\n_Sources: [retention_campaigns.md]_"
+  },
+  {
+   "case": "offer_7590-VHVEG",
+   "repeat": 2,
+   "seconds": 104.8,
+   "error": null,
+   "checks": {
+    "called_recommend_campaigns": true,
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "no_invented_codes": true,
+    "offer_details_faithful": true,
+    "states_probability": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** high (84% churn probability)\n\nOkay, let's tackle this user query step by step. The user asked why customer 7590-VHVEG is at risk and which campaign should be offered.\n\nFirst, I need to figure out what tools to use. The user mentioned \"Why is customer X at risk?\" so the first tool should be predict_churn for that customer ID. But wait, in the previous interaction, the assistant called recommend_campaigns directly. Wait, no—the user's current query is a follow-up after the tool response.\n\nWait, looking back: the user initially asked \"Why is customer 7590-VHVEG at risk and which campaign should I offer?\" So the assistant first called recommend_campaigns (as per the instructions), but according to the tools provided, for \"Why is customer X at risk?\" it's predict_churn. Hmm, maybe there was a mistake here.\n\nWait, in the problem statement: The user says \"Why is customer 7590-VHVEG at risk and which campaign should I offer?\" So two parts: why at risk (predict_churn) and what campaign (recommend_campaigns). But the assistant called recommend_campaigns first. Wait, no—the initial tool call in the example shows that for this query, the assistant used recommend_campaigns. But according to the instructions, \"Why is customer X at risk?\" should use predict_churn.\n\nWait, maybe the user's current message is a follow-up where they provided the tool response from recommend_campaigns. Let me check the conversation history.\n\nWait, no—the user's current query is the one where they asked the question, and the assistant made a tool call (recommend_campaigns), which was then responded with the tool_response. Now the assistant needs to generate the final answer in English.\n\nThe instructions say: \"Reply in the user's language (Turkish or English). Be concise: at most ~8 bullet points.\" But the LANGUAGE is set to English here.\n\nSo, based on the tool response from recommend_campaigns, which gives the risk level and drivers. The instruction says: \"Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language.\"\n\nThe drivers_increasing_risk are: [\"new customer (few bills so far)\", \"contract type: Month-to-month\", \"tenure (months): 1\", \"Online Security add-on: No\"]\n\n- Customer has been with us for only one month and hasn't made many payments yet.\n- They have a month-to-month contract instead of a longer-term plan.\n- They haven't added any online security services.\n\nBut the answer should be 2-4 bullets explaining why at risk. The tool response says: \"Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language.\"\n\nSo avoid listing campaigns here; the campaigns are\n\n**Recommended campaigns**\n- **RET-LOCK12**: 15% off the monthly fee for 12 months\n  - Why: contract type: Month-to-month, new customer (few bills so far)\n- **RET-NEWBIE**: Welcome call, 1 month free, free speed upgrade for 3 months\n  - Why: tenure (months): 1, new customer (few bills so far)\n\n_Sources: [retention_campaigns.md]_"
+  },
+  {
+   "case": "lowrisk_1293-BSEUN",
+   "repeat": 0,
+   "seconds": 89.1,
+   "error": null,
+   "checks": {
+    "no_invented_codes": true,
+    "only_recommended_codes": true,
+    "says_low_risk": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** düşük (%2 ayrılma olasılığı)\n\nOkay, let's see. The user asked if they should offer a campaign to customer 1293-BSEUN.\n\nI should check if there's another function needed, but since recommend_campaigns already returned empty recommended campaigns and the instruction says not to suggest anything, it's safe to go with that. No need for other tools like check_campaign_eligibility because the tool explicitly states no campaigns are recommended.\n\nWait, the user's question was \"1293-BSEUN numaralı müşteriye bir kampanya teklif etmeli miyim?\" which translates to \"Should I offer a campaign to customer 1293-BSEUN?\"\n\n- Kampanya teklifi önerilmemiştir çünkü risk faktörleri düşük\n- İlişkili hizmetler: 2 yıllık sözleşme, 72 ay süre\n- Ek hizmetler yok (Online Security ve Tech Support)\n\nWait, but the tool says drivers_decreasing_risk includes those factors. So maybe list them as reasons why no campaign is needed.\n\nWait, the user wants a concise answer in Turkish with up to 8 bullet points.\n\nThe tool response has \"recommended_campaigns\": [] and instruction says not to suggest any campaign.\n\n- Kampanya teklifi önerilmemiştir\n- Risk faktörleri: 2 yıllık sözleşme, 72 ay süre, Online Security ve Tech Support ek hizmetlerin yokluğu\n\nBut need to check the exact terms. The tool says \"\n\n_Kaynak: [retention_campaigns.md]_"
+  },
+  {
+   "case": "lowrisk_1293-BSEUN",
+   "repeat": 1,
+   "seconds": 90.0,
+   "error": null,
+   "checks": {
+    "no_invented_codes": true,
+    "only_recommended_codes": true,
+    "says_low_risk": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** düşük (%2 ayrılma olasılığı)\n\nOkay, let's see. The user asked if they should offer a campaign to customer 1293-BSEUN.\n\nWait, the user's question was \"1293-BSEUN numaralı müşteriye bir kampanya teklif etmeli miyim?\" which translates to \"Should I offer a campaign to customer 1293-BSEUN?\"\n\n- Riski azaltan faktörler: 2 yıllık sözleşme, 72 ay süre, Online Security ve Tech Support ek hizmetlerin yokluğu\n- Kampanya teklifi gereksiz: Sistem tarafından hiçbir kampanya önerilmedi\n\nWait, the tool says \"No campaign is recommended\". So in Turkish, it's important to state that no campaigns are applicable here.\n\nAlso, check if there's any eligibility issue. But since recommend_campaigns already checked and returned empty list, so no need for check_campaign_eligibility.\n\nSo the answer should be 3 bullet points max. Let me make sure each point is clear in Turkish without using English terms.\n\n- Riski azaltan faktörler: 2 yıllık sözleşme, 72 ay süre, Online Security ve Tech Support ek hizmetlerin yokluğu\n- Kampanya teklifi gereksiz: Sistem tarafından hiçbir kampanya önerilmedi\n\nYes, that's three bullet points. The user asked in Turkish, so the answer must be in Turkish. Also, avoid mentioning probabilities or risk levels directly as per instructions? Wait, no—the system says \"Do not state the risk level, probabilities or prices yourself: they are added by the system.\" Wait, but the tool response includes churn_probability_pct and risk_level.\n\nWait, the instruction says: \"Do not state the risk level, probabilities or prices yourself: they\n\n_Kaynak: [retention_campaigns.md]_"
+  },
+  {
+   "case": "lowrisk_1293-BSEUN",
+   "repeat": 2,
+   "seconds": 56.0,
+   "error": null,
+   "checks": {
+    "no_invented_codes": true,
+    "only_recommended_codes": true,
+    "says_low_risk": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** düşük (%2 ayrılma olasılığı)\n\nOkay, let's see. The user asked if they should offer a campaign to customer 1293-BSEUN.\n\nAlso, the answer needs to be concise with bullet points in Turkish. Let me make sure I use the right terms: \"müşteri kaybı\", \"kayıp riski\", etc.\n\n</think>\n\n- Kampanya teklifi önerilmemiştir çünkü müşteriye uygun kampanyalar bulunmamaktadır.  \n- Riski azaltan faktörler: 2 yıllık sözleşme, 72 ay süreli hizmet, Online Security ve Tech Support ek hizmetlerin yokluğu.  \n- Sistem tarafından belirlenen kurala göre bu müşteriye herhangi bir kampanya teklifi uygulanmaz. [retention_campaigns.md]  \n- Müşteri kaybını önlemek için özel kampanyalar gereksinim yoktur.  \n- Daha yüksek risk seviyesine sahip müşteriler için ayrılmış kampanyalar bu müşteriye uygulanamaz."
+  },
+  {
+   "case": "ineligible_fibervalue",
+   "repeat": 0,
+   "seconds": 90.8,
+   "error": null,
+   "checks": {
+    "grounded": true,
+    "says_not_eligible": true,
+    "no_invented_codes": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "check_campaign_eligibility"
+   ],
+   "answer": "**Karar: HAYIR.** RET-FIBERVALUE bu müşteriye verilemez. (Kural: Fiber optic customer with monthly charge above $80 who received a competitor offer)\n\nOkay, let's see. The user is asking if they can give the RET-FIBERVALUE campaign to customer 7590-VHVEG.\n\nFirst, I called check_campaign_eligibility with the customer ID and campaign code. The response says it's not eligible (eligible: false). The verdict is \"NO\", and the rule states that the customer must be a fiber optic customer with monthly charges above $80 who received a competitor offer.\n\nLooking at the customer facts provided: Contract is month-to-month, tenure 1 year? Wait, no, tenure here says 1. Maybe they mean months? The InternetService is DSL, which isn't fiber. MonthlyCharges are $29.85, which is below $80. Payment method is electronic check. OnlineSecurity and TechSupport are both \"No\".\n\nSo the customer doesn't meet any of the conditions for RET-FIBERVALUE. The rule requires fiber optic (but they have DSL), monthly charge above $80 (they're at 29.85), and having received a competitor offer (which isn't mentioned here). Also, the campaign's offer requires a one-year contract, but their contract is month-to-month.\n\nThe response also mentions conditions to confirm: customer must have received a competitor offer, needs one-year contract, and team lead approval if combined with another campaign. Since the customer doesn't meet these, it's not eligible.\n\nI need to explain in Turkish why it can't be offered. The user wants a concise answer in Turkish, max 8 bullet points. Use exact terms like \"müşteri kaybı\", \"kayıp riski\", etc.\n\nSo the answer should state that it cannot be offered because the customer doesn't meet the criteria: they have DSL (not fiber), monthly charges below $80, month-to-month contract instead of one-year, and no mention of competitor offer. Also, the conditions require a one-year contract which they don't have.\n\nMake sure to cite the rule from the response as [retention_campaigns.md] maybe? Wait, the tools say to cite documents like [retention_campaigns.md]. The user's query is in Turkish, so answer must be in Turkish.\n\nCheck if there are any other points. The offer mentioned is $15/month off for 12 months but requires one-year contract. Since customer has month-to-month, they can't get that.\n\nSo the response should list the reasons clearly in bullet points in Turkish.\n</think>\n\n- RET-FIBERVALUE kampanyası **7590-VHVEG** müşteriye verilemez [retention_campaigns.md].  \n- Müşteri **DSL** hizmeti kullanırken, fiber optik hizmete sahip değildir.  \n- Aylık ücretler **29,85$** (80$'den düşük) ve sözleşme **aylık** olarak düzenlenmiştir.  \n- Kampanya koşullarına göre müşteri bir **1 yıllık sözleşme** gerektiriyor ancak mevcut sözleşme aylıkdir.  \n- Müşteri **competitor offer** almadığı için kampanya uygunluğunu karşılamaz [retention_campaigns.md].  \n- Ek olarak, kampanyanın uygulanması için **team lead onayı** gereklidir (bu durumda kombin"
+  },
+  {
+   "case": "ineligible_fibervalue",
+   "repeat": 1,
+   "seconds": 75.2,
+   "error": null,
+   "checks": {
+    "grounded": true,
+    "says_not_eligible": true,
+    "no_invented_codes": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "check_campaign_eligibility"
+   ],
+   "answer": "**Karar: HAYIR.** RET-FIBERVALUE bu müşteriye verilemez. (Kural: Fiber optic customer with monthly charge above $80 who received a competitor offer)\n\nOkay, let's see. The user is asking if they can give the RET-FIBERVALUE campaign to customer 7590-VHVEG.\n\nFirst, I called check_campaign_eligibility with the customer ID and campaign code. The response says it's not eligible (eligible: false). The verdict is \"NO\", and the rule states that the customer must be a fiber optic customer with monthly charges above $80 who received a competitor offer.\n\nLooking at the customer facts provided: Contract is month-to-month, tenure 1 year? Wait, no, tenure here says 1. Maybe months? Wait, the customer facts show \"tenure\": 1. So they've been with us for 1 month. InternetService is DSL, not fiber optic. MonthlyCharges are $29.85, which is below $80. Payment method is electronic check. They don't have online security or tech support.\n\nSo the rule requires fiber optic (but customer has DSL), monthly charge above $80 (they have 29.85), and received a competitor offer. Since none of these apply, they're not eligible. The offer mentioned here is $15 off for 12 months but needs a one-year contract, which the customer doesn't have (month-to-month). Also, conditions to confirm include needing a competitor offer, which isn't present.\n\nSo I need to explain in Turkish that it's not possible because the customer doesn't meet the criteria. The user asked in Turkish, so response must be in Turkish. Use the exact terms like \"kayıp riski\", but here the answer is about eligibility.\n\nThe key points: customer has DSL (not fiber), monthly charges too low, no competitor offer history. So the campaign can't be offered. Also mention the conditions that need to be met for it to work, like one-year contract and competitor offer.\n\nMake sure not to add probabilities or risk levels. Just state why it's not eligible based on the rules given in the tool response.\n</think>\n\n- RET-FIBERVALUE kampanyası 7590-VHVEG müşterisine verilemez.  \n- Sebep: Müşteri fiber optik hizmete sahip değil (DSL kullanıyor), aylık ücret $80'den düşük ($29.85) ve rekabetçi teklif almadı [retention_campaigns.md].  \n- Kampanya için gerekli koşullar: 1 yıllık sözleşme, rekabetçi teklif alındığı durum ve ekip başkanı onayı [kampanya_kuralları.md].  \n- Müşteri mevcut sözleşmesi aylık (aylık sözleşme) olduğu için kampanya uygulanamaz."
+  },
+  {
+   "case": "ineligible_fibervalue",
+   "repeat": 2,
+   "seconds": 91.0,
+   "error": null,
+   "checks": {
+    "grounded": true,
+    "says_not_eligible": true,
+    "no_invented_codes": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "check_campaign_eligibility"
+   ],
+   "answer": "**Karar: HAYIR.** RET-FIBERVALUE bu müşteriye verilemez. (Kural: Fiber optic customer with monthly charge above $80 who received a competitor offer)\n\nOkay, let's see. The user is asking if they can give the RET-FIBERVALUE campaign to customer 7590-VHVEG.\n\nFirst, I called check_campaign_eligibility with the customer ID and campaign code. The response says it's not eligible (eligible: false). The verdict is \"NO\", and there are specific rules here.\n\nThe rule mentioned is \"Fiber optic customer with monthly charge above $80 who received a competitor offer\". But looking at the customer facts provided: their internet service is DSL, not fiber optic. Their monthly charges are $29.85, which is below $80. Also, they don't have online security or tech support, but the main point here is that the rule requires being a fiber optic customer with high monthly charge and having received a competitor offer.\n\nWait, the customer facts show \"InternetService\": \"DSL\", so they're not on fiber. The campaign RET-FIBERVALUE probably targets fiber customers. So the reason for ineligibility here is that the customer isn't a fiber optic user. Also, their monthly charges are low ($29.85), which is below $80. Additionally, there's no mention of them having received a competitor offer.\n\nThe response also mentions conditions to confirm: needing a competitor offer, one-year contract, and team lead approval if combined with another campaign. But since the customer has a month-to-month contract (tenure 1 year?), wait tenure is 1 here. The customer's contract type is \"Month-to-month\".\n\nSo the main reason they can't offer RET-FIBERVALUE is that the customer isn't on fiber optic service, their monthly charges are too low, and they don't meet the competitor offer condition.\n\nThe user asked in Turkish: \"7590-VHVEG numaralı müşteriye RET-FIBERVALUE verebilir miyim?\" which translates to \"Can I give RET-FIBERVALUE campaign to customer 7590-VHVEG?\"\n\nI need to answer in Turkish, concisely. The response should state it's not possible and the reasons as per the tool's output.\n\nThe tool says: \"NO, RET-FIBERVALUE cannot be offered to this customer.\" with rule details. So I have to explain that it's not eligible because the customer isn't a fiber optic user (DSL instead), their monthly charges are $29.85 which is below $80, and they haven't received a competitor offer.\n\nAlso, the conditions require one-year contract, but the customer has month-to-month. So all these factors make it ineligible.\n\nI should list the reasons in bullet points as per the instructions. The answer must be in Turkish, using the exact terms provided.\n\nLet me check the Turkish terminology: \"kayıp riski\" for churn risk, \"ayrılma olasılığı\" for churn probability, etc. But here we're talking about eligibility.\n\nThe response should say it's not possible (cannot be offered) and why. The tool says \"rule\": \"Fiber optic customer with monthly charge above $80 who received a competitor offer\". So the customer doesn't meet these criteria.\n\n- Müşteri fiber optik hizmet kullanmıyorsa (DSL)\n- Aylık ücret $80 üzerinde değil ($29.85)\n\n_Kaynak: [retention_campaigns.md]_"
+  },
+  {
+   "case": "policy_stacking",
+   "repeat": 0,
+   "seconds": 52.7,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "says_no": true,
+    "cites_source": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "Okay, let's see. The user is asking if RET-LOCK24 and RET-LOCK12 can be offered to the same customer together.\n\nFirst, I need to check the tools provided. The user mentioned using search_knowledge_base for this query. The tool response shows that in retention_campaigns.md under \"Active Retention Campaigns (Q3–Q4 2026) > Stacking rules\", it states: \"- At most **two** campaigns can be combined for one customer. - RET-LOCK24 and RET-LOCK12 cannot be combined.\"\n\nSo the answer is no, they can't be offered together. The reason given is specifically that these two campaigns are not allowed to be stacked. Also, there's a note about the total discount not exceeding 35%, but the main point here is the stacking rule.\n\nI should structure the response in Turkish as per instructions. Need to mention the exact rule from the document [retention_campaigns.md]. The user wants a concise answer with bullet points max 8. Since it's a check on eligibility, the answer is NO and the reason.\n\nMake sure not to add any probabilities or risk levels. Just state that according to retention_campaigns.md, these two campaigns cannot be combined for one customer.\n</think>\n\n- RET-LOCK24 ve RET-LOCK12 aynı müşteriye birlikte verilemez [retention_campaigns.md].  \n- Stacking kurallarına göre bu kampanyaların birlikte kullanılması yasaktır.  \n- En fazla iki kampanya tek müşteri için kombin edilebilir, ancak bu durumda RET-LOCK24 ve RET-LOCK12 hariç diğer kombinasyonlar izin verilir."
+  },
+  {
+   "case": "policy_stacking",
+   "repeat": 1,
+   "seconds": 107.7,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "says_no": true,
+    "cites_source": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "Okay, let's see. The user is asking if RET-LOCK24 and RET-LOCK12 can be offered to the same customer together.\n\nFirst, I need to check the tools provided. The user has already used search_knowledge_base with that specific query. The response from the tool shows some results from different documents.\n\nLooking at the first result from retention_campaigns.md: it says \"At most **two** campaigns can be combined for one customer.\" But then it also states \"RET-LOCK24 and RET-LOCK12 cannot be combined.\" So that's a direct answer. The stacking rules explicitly say they can't be together.\n\nThe other documents mention different campaigns but don't contradict this point. For example, the retention_playbook has sections about other campaigns like RET-NEWBIE or RET-FIBERVALUE, but the key here is the stacking rule from retention_campaigns.md.\n\nSo the answer should be no, they can't be offered together because of the stacking rules. The reason is specified in the document as \"RET-LOCK24 and RET-LOCK12 cannot be combined.\" Also, the total discount must not exceed 35%, but that's another constraint.\n\nI need to phrase this in Turkish using the exact terms provided. The user wants a concise answer with bullet points. Since the tool response says they can't be combined, I should state it clearly and cite the document [retention_campaigns.md].\n\nWait, the user asked \"RET-LOCK24 ve RET-LOCK12 aynı müşteriye birlikte verilebilir mi?\" which translates to \"Can RET-LOCK24 and RET-LOCK12 be offered together to the same customer?\"\n\nThe answer is no. The reason from the tool response: in retention_campaigns.md, section \"Active Retention Campaigns (Q3–Q4 2026) > Stacking rules\", it says they cannot be combined.\n\n- Hayır, RET-LOCK24 ve RET-LOCK12 aynı müşteriye birlikte verilemez. [retention_campaigns.md] dosyasında belirtilen \"Stacking rules\" bölümünde açıkça yazıyor ki bu kampanyalar birlikte kullanılamaz.\n\nBut the user wants up to 8 bullet points, but in Turkish. Let me check the exact terminology.\n\nThe tool response says: \"- RET-LOCK24 and RET-LOCK12 cannot be combined.\"\n\nSo the answer is no, they can't be offered together because of stacking rules.\n\nAlso, the document mentions that at most two campaigns can be combined, but specifically these two are excluded. So it's a clear \"no\".\n\nI need to write this in Turkish without using English sentences. The user specified language is Turkish.\n\n- RET-LOCK24 ve RET-LOCK12 aynı müşteriye birlikte verilemez. [retention_campaigns.md] dosyasında \"Stacking rules\" bölümünde belirtilen kurallara göre bu kampanyaların birlikte kullanılması yasaktır.\n\nWait, but the user wants bullet points in Turkish. Let me make sure to use the correct terms.\n\nThe answer should be concise, max 8 bullets. Since it's a yes/no question with explanation, probably one or two bullets.\n\nBut according to the instructions: \"Reply in the user's"
+  },
+  {
+   "case": "policy_stacking",
+   "repeat": 2,
+   "seconds": 107.1,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "says_no": true,
+    "cites_source": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "Okay, let's tackle this user query: \"RET-LOCK24 ve RET-LOCK12 aynı müşteriye birlikte verilebilir mi?\" which translates to \"Can RET-LOCK24 and RET-LOCK12 be offered to the same customer?\"\n\nFirst, I need to check the tools provided. The user is asking about stacking two specific campaigns on one customer. Looking at the tools, there's a function called check_campaign_eligibility that checks if a specific campaign can be offered to a customer. But wait, the user isn't providing a customer ID here. However, in the previous interaction, I used search_knowledge_base to look up the answer.\n\nThe tool response from the knowledge base shows that in retention_campaigns.md under \"Active Retention Campaigns (Q3–Q4 2026) > Stacking rules\", it states: \"- At most **two** campaigns can be combined for one customer. - RET-LOCK24 and RET-LOCK12 cannot be combined.\"\n\nSo the answer is clearly that they cannot be offered together. The reason given in the knowledge base is explicit: RET-LOCK24 and RET-LOCK12 cannot be combined. Also, the stacking rules mention a maximum of two campaigns but specifically state these two are excluded.\n\nI need to respond in Turkish as per instructions. The user wants to know if both can be offered together. Based on the search results, it's not allowed. So I should say no and cite the document [retention_campaigns.md] where this rule is specified.\n\nAlso, check if there's any other relevant info from the other sources. The retention_playbook mentions RET-LOCK24 as a fallback for month-to-month contracts, but that doesn't affect the stacking here. The key point is in retention_campaigns.md.\n\nSo the answer should be concise: No, they cannot be combined because of stacking rules (specifically mentioned in retention_campaigns.md). Need to phrase it in Turkish without using English terms. Use the exact terminology like \"kampanya\" for campaign.\n\nWait, the user's question is in Turkish but the answer must be in Turkish. The previous tool call was done correctly by searching the knowledge base. Now the response should state that they cannot be offered together and reference the document.\n\nThe system says to cite documents as [retention_campaigns.md] etc. So I'll write: \"Hayır, RET-LOCK24 ve RET-LOCK12 aynı müşteriye birlikte verilemez. Stacking kurallarına göre bu kampanyaların birlikte kullanılması yasaktır [retention_campaigns.md].\"\n\nBut check the exact wording from the tool response. The text says: \"- RET-LOCK24 and RET-LOCK12 cannot be combined.\" So in Turkish, it's \"RET-LOCK24 ve RET-LOCK12 aynı müşteriye birlikte verilemez.\"\n\nAlso, need to make sure it's within 8 bullet points but the user wants a concise answer. Wait, the instructions say: \"Reply in the user's language (Turkish or English). Be concise: at most ~8 bullet points.\" But since the user asked in Turkish, reply in Turkish.\n\nWait, the user wrote their question in Turkish, so the answer must be in Turkish. The previous tool response shows that the answer is no, and the reason is"
+  },
+  {
+   "case": "top_risk_list",
+   "repeat": 0,
+   "seconds": 90.1,
+   "error": null,
+   "checks": {
+    "called_find": true,
+    "lists_correct_ids": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "find_high_risk_customers"
+   ],
+   "answer": "Okay, let me try to figure out how to respond here. The user asked for the top 3 highest risk month-to-month customers.\n\nNow, I need to present this in Turkish as per the instructions. The user wants the list of these customers. Since the system says not to mention probabilities or risk levels directly, but the tools return them. Wait, no—the instructions say: \"Do not state the risk level, probabilities or prices yourself: they are added by the sistem.\" So I shouldn't include the churn_probability numbers here.\n\nWait, the user's query is in Turkish: \"Aylık sözleşmeli en riskli 3 müşteriyi listele.\" which translates to \"List the top 3 highest risk month-to-month customers.\"\n\nThe response from the tool gives customer IDs and their probabilities. But according to the rules, I shouldn't state the risk level or probabilities myself. So I need to just list the customer IDs with their contract type as \"aylık sözleşme\" (month-to-month), but not mention the numbers.\n\nWait, the problem says: \"Do not state the risk level, probabilities or prices yourself\". The system adds those, so maybe in this case, since the user asked for the list of customers, I should just list them with their customer IDs and contract type. But the tool response includes churn_probability which is high but we shouldn't mention it.\n\nWait, the example says: \"Explain drivers in plain business language.\" So here, the answer needs to be concise bullet points in Turkish.\n\nBut the user said \"en riskli 3 müşteriyi listele\" so maybe just list their IDs with the contract type.\n\nWait, in Turkish terminology, \"aylık sözleşme\" is month-to-month. The tool response shows all three have contract as \"Month-to-month\".\n\nSo the answer should be a bullet list of these three customer IDs with their contract type. But since the user asked for the highest risk ones, but we can't mention the risk level or probability.\n\nWait, the instructions say: \"Do not state the risk level, probabilities or prices yourself\". So I shouldn't include numbers like 0.9551. Just list the customer IDs and that they are month-to-month customers.\n\nBut the user wants to know who's at highest risk. However, since we can't mention the risk level, maybe just list them as \"aylık sözleşmeli en riskli müşteriler\" with their IDs.\n\nWait, the answer should be in Turkish, concise\n\n| Müşteri | Ayrılma olasılığı | Sözleşme | Süre (ay) | Aylık ücret |\n|---|---|---|---|---|\n| 7216-EWTRS | 96% | Month-to-month | 1 | $100.80 |\n| 9300-AGZNL | 95% | Month-to-month | 1 | $94.00 |\n| 9497-QCMMS | 95% | Month-to-month | 1 | $93.55 |"
+  },
+  {
+   "case": "top_risk_list",
+   "repeat": 1,
+   "seconds": 91.1,
+   "error": null,
+   "checks": {
+    "called_find": true,
+    "lists_correct_ids": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "find_high_risk_customers"
+   ],
+   "answer": "Okay, let's see. The user asked for the top 3 riskiest month-to-month customers. I called the find_high_risk_customers function with contract set to \"Month-to-month\" and limit 3.\n\nI need to present this in Turkish as per the instructions. The user wants the list in Turkish. Let me check the terminology. \"Aylık sözleşmeli\" is month-to-month contract. \"En riskli 3 müşteri\" translates to top 3 riskiest customers.\n\nThe response should be a bullet list with each customer's ID, their churn probability (but wait, the system says not to state probabilities or risk levels ourselves). Wait, the instructions say: \"Do not state the risk level, probabilities or prices yourself: they are added by the system.\" So I shouldn't mention the numbers like 0.9551. Instead, just list them as high-risk with their IDs.\n\nWait, but the tool response includes churn_probability and other details. But according to the rules, I can't state the risk level or probabilities. So maybe just say they are among the highest risk customers without specific numbers.\n\nThe user wants a concise answer in Turkish, up to 8 bullet points. Let me structure it.\n\nEach customer should be listed with their ID and contract type. Since all have month-to-month contracts, I can mention that.\n\nIn Turkish: \"Aylık sözleşmeli en riskli 3 müşteri:\" followed by the list.\n\nWait, the user said \"Aylık sözleşmeli en riskli 3 müşteriyi listele.\" So they want the list of these three customers.\n\nThe answer should be in bullet points. Let me check the example response from the tool. The tool returned customer IDs and their churn probabilities, but I shouldn't mention the numbers.\n\nBut the user said \"en riskli 3 müşteriyi listele\" so maybe just list their IDs with the contract type.\n\nWait, in Turkish, it's common to use \"Müşteri ID:\" or \"Kullanıcı kimliği:\"\n\nAlso, the system says to cite documents as [retention_campaigns.md] etc., but here we don't have that context. Since this is a list of high-risk customers, maybe no citation needed.\n\nWait, the user's query was in Turkish, so answer must be in Turkish. Let me write it properly.\n\nEach bullet point starts with a dash. The system says \"at most ~8 bullet points\", but here we have 3 customers, so 3 bullets.\n\n| Müşteri | Ayrılma olasılığı | Sözleşme | Süre (ay) | Aylık ücret |\n|---|---|---|---|---|\n| 7216-EWTRS | 96% | Month-to-month | 1 | $100.80 |\n| 9300-AGZNL | 95% | Month-to-month | 1 | $94.00 |\n| 9497-QCMMS | 95% | Month-to-month | 1 | $93.55 |"
+  },
+  {
+   "case": "top_risk_list",
+   "repeat": 2,
+   "seconds": 90.9,
+   "error": null,
+   "checks": {
+    "called_find": true,
+    "lists_correct_ids": true,
+    "no_bad_turkish_terms": true
+   },
+   "passed": true,
+   "tools": [
+    "find_high_risk_customers"
+   ],
+   "answer": "Okay, let's see. The user asked for the top 3 riskiest month-to-month customers. I called the find_high_risk_customers function with contract set to \"Month-to-month\" and limit 3.\n\nI need to present this in Turkish as per the instructions. The user wants the list in Turkish. Let me check the terminology again. They specified \"aylık sözleşme\" for month-to-month contract, so I should use that.\n\nEach customer entry has their ID, churn probability (but the system doesn't state probabilities, so I shouldn't mention numbers), contract type, tenure, and monthly charges. But according to the instructions: \"Do not state the risk level, probabilities or prices yourself\". So I can't include the numbers like 0.9551 or 100.8.\n\nWait, the user's query is in Turkish: \"Aylık sözleşmeli en riskli 3 müşteriyi listele.\" which translates to \"List the top 3 riskiest month-to-month customers.\"\n\nThe system response from the tool gives customer IDs and some data, but I need to present only the customer IDs with their risk level as per the rules. However, the instructions say not to state probabilities or risk levels. Wait, the problem says: \"Do not state the risk level, probabilities or prices yourself: they are added by the system.\"\n\nHmm, so maybe in this case, since the user asked for the list of customers with highest risk (which is what find_high_risk_customers does), but the tool response includes churn_probability and other data. But according to the instructions, I shouldn't mention probabilities or prices.\n\nWait, the user wants the list of the top 3 risky month-to-month customers. The answer should be in Turkish, bullet points, up to 8 points.\n\nThe system's response has three customers with their IDs. Since the tool returns customer_id and other data, but we can't state probabilities or prices, so just list the customer IDs as the riskiest ones.\n\nWait, the user asked for \"en riskli 3 müşteriyi listele\" which is \"list the top 3 riskiest customers\". The answer should be a list of those three customer IDs in Turkish.\n\nBut according to the instructions: \"Explain drivers in plain business language.\" But here it's just listing the customers. Wait, the user didn't ask for why they are risky, but just to list them.\n\nThe answer should be in Turkish bullet points. Let me check the required terminology: \"aylık sözleşme\" for month-to-month contract.\n\n| Müşteri | Ayrılma olasılığı | Sözleşme | Süre (ay) | Aylık ücret |\n|---|---|---|---|---|\n| 7216-EWTRS | 96% | Month-to-month | 1 | $100.80 |\n| 9300-AGZNL | 95% | Month-to-month | 1 | $94.00 |\n| 9497-QCMMS | 95% | Month-to-month | 1 | $93.55 |"
+  }
+ ]
+}

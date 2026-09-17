@@ -1,0 +1,497 @@
+{
+ "summary": {
+  "model": "qwen2.5:7b",
+  "tag": "final",
+  "set": "test",
+  "repeats": 1,
+  "case_pass_rate": 0.875,
+  "check_pass_rate": 0.977,
+  "median_seconds": 39.0,
+  "prompt_temperature": 0.2
+ },
+ "records": [
+  {
+   "case": "t_leaving_en",
+   "repeat": 0,
+   "seconds": 106.6,
+   "error": null,
+   "checks": {
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "offer_details_faithful": true,
+    "states_probability": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "Customer 6861-XWTWQ is thinking about leaving. Any ideas?",
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** high (94% churn probability)\n\n- They have an month-to-month contract, which is common for customers who leave.\n- Being a new customer with few bills so far can also increase their likelihood to switch.\n- The payment method being electronic check might not be as convenient for some users.\n\n**Recommended campaigns**\n- **RET-LOCK24**: 25% off the monthly fee for 24 months + free Tech Support\n  - Why: contract type: Month-to-month, monthly charge: 99.25, new customer (few bills so far)\n- **RET-SECURE**: Online Security + Tech Support free for 6 months, then 50% off for 6 months\n  - Why: Online Security add-on: No, Tech Support add-on: No, internet service: Fiber optic\n\n_Sources: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "customer_id": "6861-XWTWQ",
+     "risk_level": "high",
+     "churn_probability_pct": "94%",
+     "drivers_increasing_risk": [
+      "contract type: Month-to-month",
+      "new customer (few bills so far)",
+      "internet service: Fiber optic",
+      "monthly charge: 99.25",
+      "payment method: Electronic check"
+     ],
+     "driver_features": [
+      {
+       "feature": "Contract",
+       "value": "Month-to-month"
+      },
+      {
+       "feature": "monthly_to_total_ratio",
+       "value": "0.15"
+      },
+      {
+       "feature": "InternetService",
+       "value": "Fiber optic"
+      },
+      {
+       "feature": "MonthlyCharges",
+       "value": "99.25"
+      },
+      {
+       "feature": "PaymentMethod",
+       "value": "Electronic check"
+      }
+     ],
+     "drivers_decreasing_risk": [],
+     "recommended_campaigns": [
+      {
+       "code": "RET-LOCK24",
+       "title": "Upgrade to two-year contract",
+       "customer_gets": "25% off the monthly fee for 24 months + free Tech Support",
+       "why_it_fits": [
+        "contract type: Month-to-month",
+        "monthly charge: 99.25",
+        "new customer (few bills so far)"
+       ],
+       "why_features": [
+        {
+         "feature": "Contract",
+         "value": "Month-to-month"
+        },
+        {
+         "feature": "MonthlyCharges",
+         "value": "99.25"
+        },
+        {
+         "feature": "monthly_to_total_ratio",
+         "value": "0.15"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      },
+      {
+       "code": "RET-SECURE",
+       "title": "Free security & support bundle",
+       "customer_gets": "Online Security + Tech Support free for 6 months, then 50% off for 6 months",
+       "why_it_fits": [
+        "Online Security add-on: No",
+        "Tech Support add-on: No",
+        "internet service: Fiber optic"
+       ],
+       "why_features": [
+        {
+         "feature": "OnlineSecurity",
+         "value": "No"
+        },
+        {
+         "feature": "TechSupport",
+         "value": "No"
+        },
+        {
+         "feature": "InternetService",
+         "value": "Fiber optic"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      }
+     ],
+     "instruction": "Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language. Do NOT list, name or describe campaigns: the risk line and the exact campaign list are added automatically below your text."
+    }
+   ]
+  },
+  {
+   "case": "t_info_tr",
+   "repeat": 0,
+   "seconds": 36.5,
+   "error": null,
+   "checks": {
+    "states_probability": true,
+    "no_non_recommended_codes": true,
+    "mentions_competitor_condition": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": false,
+    "numbers_grounded": true
+   },
+   "passed": false,
+   "question": "6362-QHAFM hakkında bilgi verir misin?",
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** yüksek (%68 ayrılma olasılığı)\n\n- Müşteri kaybı riski yüksek.\n- Elektronik çek ile ödeme yapma.\n- Fiberoptik internet hizmeti alımı.\n\n**Önerilen kampanyalar**\n- **RET-FIBERVALUE**: 12 ay boyunca aylık $15 indirim (1 yıllık sözleşme gerekir)\n  - Neden: internet hizmeti: Fiber optic, aylık ücret: 108.3\n  - Teyit edilecek: Customer must have received a competitor offer; Requires a one-year contract; Team Lead approval if combined with another campaign\n- **RET-LOCK24**: 2 yıllık sözleşmeye geçişte 24 ay boyunca aylık ücrette %25 indirim + ücretsiz Tech Support\n  - Neden: aylık ücret: 108.3\n\n_Kaynak: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "customer_id": "6362-QHAFM",
+     "risk_level": "high",
+     "churn_probability_pct": "68%",
+     "drivers_increasing_risk": [
+      "monthly charge: 108.3",
+      "payment method: Electronic check",
+      "internet service: Fiber optic"
+     ],
+     "driver_features": [
+      {
+       "feature": "MonthlyCharges",
+       "value": "108.3"
+      },
+      {
+       "feature": "PaymentMethod",
+       "value": "Electronic check"
+      },
+      {
+       "feature": "InternetService",
+       "value": "Fiber optic"
+      }
+     ],
+     "drivers_decreasing_risk": [
+      "contract type: One year",
+      "Tech Support add-on: Yes"
+     ],
+     "recommended_campaigns": [
+      {
+       "code": "RET-FIBERVALUE",
+       "title": "Fiber price match",
+       "customer_gets": "$15/month off for 12 months (requires one-year contract)",
+       "why_it_fits": [
+        "internet service: Fiber optic",
+        "monthly charge: 108.3"
+       ],
+       "why_features": [
+        {
+         "feature": "InternetService",
+         "value": "Fiber optic"
+        },
+        {
+         "feature": "MonthlyCharges",
+         "value": "108.3"
+        }
+       ],
+       "conditions_to_confirm": [
+        "Customer must have received a competitor offer",
+        "Requires a one-year contract",
+        "Team Lead approval if combined with another campaign"
+       ],
+       "source": "retention_campaigns.md"
+      },
+      {
+       "code": "RET-LOCK24",
+       "title": "Upgrade to two-year contract",
+       "customer_gets": "25% off the monthly fee for 24 months + free Tech Support",
+       "why_it_fits": [
+        "monthly charge: 108.3"
+       ],
+       "why_features": [
+        {
+         "feature": "MonthlyCharges",
+         "value": "108.3"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      }
+     ],
+     "instruction": "Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language. Do NOT list, name or describe campaigns: the risk line and the exact campaign list are added automatically below your text."
+    }
+   ]
+  },
+  {
+   "case": "t_eligible_yes_tr",
+   "repeat": 0,
+   "seconds": 36.7,
+   "error": null,
+   "checks": {
+    "says_yes": true,
+    "offer_details_faithful": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "9237-HQITU müşterisine RET-SECURE verilebilir mi?",
+   "tools": [
+    "check_campaign_eligibility"
+   ],
+   "answer": "**Karar: EVET.** RET-SECURE bu müşteriye verilebilir. (Kural: Online Security veya Tech Support ek hizmeti olmayan internet müşterisi)\n\n- **RET-SECURE**: Online Security + Tech Support 6 ay ücretsiz, sonraki 6 ay %50 indirimli\n\nRET-SECURE kampanyası müşteri 9237-HQITU'ya verilebilir. Kampanya, internet hizmeti kullanan ve Online Security veya Tech Support ek hizmeti almamış bir müşteriye sunulabilir.\n\nMüşterinin durumu:\n- Aylık sözleşme\n- 2 ay süre\n- Şubeoptik internet hizmeti\n- Elektronik çek ödeme yöntemi\n- Online Security ve Tech Support ek hizmetleri yok\n\nKampanya öngörüsü:\n- 6 aya kadar Online Security ve Tech Support ücretsiz\n\nBu durumda RET-SECURE kampanyasını öneririz.\n\n_Kaynak: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "campaign": "RET-SECURE",
+     "eligible": true,
+     "verdict": "YES, RET-SECURE can be offered.",
+     "rule": "Internet customer without Online Security or Tech Support",
+     "rule_tr": "Online Security veya Tech Support ek hizmeti olmayan internet müşterisi",
+     "customer_facts": {
+      "Contract": "Month-to-month",
+      "tenure": 2,
+      "InternetService": "Fiber optic",
+      "MonthlyCharges": 70.7,
+      "PaymentMethod": "Electronic check",
+      "OnlineSecurity": "No",
+      "TechSupport": "No"
+     },
+     "offer": "Online Security + Tech Support free for 6 months, then 50% off for 6 months",
+     "conditions_to_confirm": []
+    }
+   ]
+  },
+  {
+   "case": "t_paper_bill_en",
+   "repeat": 0,
+   "seconds": 12.3,
+   "error": null,
+   "checks": {
+    "states_2_dollars": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "Is there a fee for paper bills?",
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "There is a $2/month fee for new sign-ups that choose paper bills since 2025. However, customers can switch back to paper at no cost if they wish.\n\n_Sources: [billing_faq.md]_\n\n> **Source excerpt** (billing_faq.md › What is paperless billing?): Bills are sent by email and are available in the NovaTel app. Customers can switch back to paper at no cost. Paper bills carry a $2/month fee for new sign-ups since 2025.",
+   "tool_results": [
+    {
+     "results": [
+      {
+       "rank": 1,
+       "source": "billing_faq.md",
+       "section": "Billing & Payments FAQ > What is paperless billing?",
+       "text": "Bills are sent by email and are available in the NovaTel app. Customers can switch\nback to paper at no cost. Paper bills carry a $2/month fee for new sign-ups since 2025."
+      },
+      {
+       "rank": 2,
+       "source": "billing_faq.md",
+       "section": "Billing & Payments FAQ > What happens if a payment is late?",
+       "text": "A $7 late fee is added 10 days after the due date. After 30 days, services are\nsuspended. A reconnection fee is not charged if the balance is settled within 60 days."
+      },
+      {
+       "rank": 3,
+       "source": "retention_campaigns.md",
+       "section": "Active Retention Campaigns (Q3–Q4 2026) > RET-AUTOPAY: Automatic payment incentive",
+       "text": "- **Eligible:** customers paying by electronic check or mailed check.\n- **Offer:** a $5/month credit for 12 months when they switch to automatic bank transfer\n  or credit card.\n- **Best for:** customers who pay by electronic check (the payment method with the highest\n  churn rate) or who have billing complaints."
+      }
+     ],
+     "instruction": "Answer ONLY the question that was asked, using the most relevant passage (usually rank 1). Ignore passages about other topics. For a problem, give the concrete steps from the document in order. Copy numbers and currencies ($) exactly; never convert them. If no passage answers the question, say so."
+    }
+   ]
+  },
+  {
+   "case": "t_fiber1000_price_tr",
+   "repeat": 0,
+   "seconds": 8.9,
+   "error": null,
+   "checks": {
+    "states_85": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "Fiber 1000 paketinin aylık ücreti ne kadar?",
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "Fiber 1000 paketinin aylık ücreti $85'dir.\n\n_Kaynak: [retention_campaigns.md], [tariffs.md]_\n\n> **Kaynak metin** (retention_campaigns.md › RET-FIBERVALUE: Fiber price match): - **Eligible:** Fiber optic customers with a monthly charge above $80 who received a competitor offer. - **Offer:** a $15/month discount for 12 months. It requires a one-year contract. - **Approval:** Team Lead approval is required when combined with any other campaign.",
+   "tool_results": [
+    {
+     "results": [
+      {
+       "rank": 1,
+       "source": "retention_campaigns.md",
+       "section": "Active Retention Campaigns (Q3–Q4 2026) > RET-FIBERVALUE: Fiber price match",
+       "text": "- **Eligible:** Fiber optic customers with a monthly charge above $80 who received a\n  competitor offer.\n- **Offer:** a $15/month discount for 12 months. It requires a one-year contract.\n- **Approval:** Team Lead approval is required when combined with any other campaign."
+      },
+      {
+       "rank": 2,
+       "source": "tariffs.md",
+       "section": "NovaTel Tariff Catalogue (2026) > Internet plans",
+       "text": "| Plan | Technology | Speed | List price / month |\n|------|-----------|-------|--------------------|\n| Basic DSL | DSL | 24 Mbps | $29 |\n| Fiber 300 | Fiber optic | 300 Mbps | $65 |\n| Fiber 1000 | Fiber optic | 1 Gbps | $85 |\n\nFiber customers pay considerably more than DSL customers. Fiber customers on\nmonth-to-month contracts without add-on services are a known high-risk segment."
+      },
+      {
+       "rank": 3,
+       "source": "support_troubleshooting.md",
+       "section": "Technical Support: Common Issues > Streaming TV buffering",
+       "text": "Streaming TV requires at least 25 Mbps per 4K stream. Customers on Basic DSL with\nStreaming TV and Streaming Movies often experience buffering, so recommend a Fiber upgrade."
+      }
+     ],
+     "instruction": "Answer ONLY the question that was asked, using the most relevant passage (usually rank 1). Ignore passages about other topics. For a problem, give the concrete steps from the document in order. Copy numbers and currencies ($) exactly; never convert them. If no passage answers the question, say so."
+    }
+   ]
+  },
+  {
+   "case": "t_escalation_tr",
+   "repeat": 0,
+   "seconds": 41.3,
+   "error": null,
+   "checks": {
+    "mentions_specialist": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "İki teklifi de reddeden ve iptal isteyen müşteri için ne yapmalıyım?",
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "1. Müşterinin deneyimini öncelikle ele alarak konuşmaya başlayın: \"Son zamanlarda hizmetiniz nasıl?\" şeklinde sorabilirsiniz.\n2. Müşterinin belirttiği rahatsızlık noktalarını onaylayarak daha sonra çözüm önerilerinizi sunun.\n3. Tek seferde iki seçenek sunun, fazla seçeneğin sunulması kabul olasılığını azaltabilir.\n4. Aktif kampanyalardan dışındaki herhangi bir söz verme veya garantisi verme yapmayın.\n\nBu adımları takip ederek müşteri ile daha etkili bir şekilde iletişim kurabilirsiniz.\n\n_Kaynak: [retention_playbook.md]_\n\n> **Kaynak metin** (retention_playbook.md › 4. Escalation): - The customer explicitly requests cancellation and declines two offers: transfer to the Retention Specialist queue. - A regulatory complaint is mentioned: transfer to the Compliance team and do not make offers. - An offer requires more than a 35% total discount: Retention…",
+   "tool_results": [
+    {
+     "results": [
+      {
+       "rank": 1,
+       "source": "retention_playbook.md",
+       "section": "Customer Retention Playbook > 4. Escalation",
+       "text": "- The customer explicitly requests cancellation and declines two offers: transfer to\n  the Retention Specialist queue.\n- A regulatory complaint is mentioned: transfer to the Compliance team and do not make\n  offers.\n- An offer requires more than a 35% total discount: Retention Manager approval is required."
+      },
+      {
+       "rank": 2,
+       "source": "retention_playbook.md",
+       "section": "Customer Retention Playbook > 3. Conversation guidelines",
+       "text": "1. Open with the customer's experience, not the offer: \"How has your service been lately?\"\n2. Confirm the pain point before proposing a solution.\n3. Present at most two options. Too many choices reduce acceptance.\n4. Never promise anything outside the active campaign list.\n5. Log the outcome (accepted, declined, callback) and the campaign code in the CRM."
+      },
+      {
+       "rank": 3,
+       "source": "retention_campaigns.md",
+       "section": "Active Retention Campaigns (Q3–Q4 2026) > RET-LOCK12: Upgrade to one-year contract",
+       "text": "- **Eligible:** month-to-month customers.\n- **Offer:** 15% off the monthly fee for 12 months.\n- **Best for:** customers who refuse a two-year commitment."
+      }
+     ],
+     "instruction": "Answer ONLY the question that was asked, using the most relevant passage (usually rank 1). Ignore passages about other topics. For a problem, give the concrete steps from the document in order. Copy numbers and currencies ($) exactly; never convert them. If no passage answers the question, say so."
+    }
+   ]
+  },
+  {
+   "case": "t_top5_twoyear_en",
+   "repeat": 0,
+   "seconds": 61.2,
+   "error": null,
+   "checks": {
+    "lists_correct_ids": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "Show me the 5 riskiest customers on a two-year contract.",
+   "tools": [
+    "find_high_risk_customers"
+   ],
+   "answer": "- **Tenure:** 43 months  \n\n  - **Tenure:** 52 months  \n\n  - **Tenure:** 53 months  \n\n  - **Tenure:** 35 months  \n\n  - **Tenure:** 69 months\n\n| Customer | Churn probability | Contract | Tenure (mo) | Monthly charge |\n|---|---|---|---|---|\n| 6680-NENYN | 52% | Two year | 43 | $104.60 |\n| 1428-IEDPR | 49% | Two year | 52 | $109.30 |\n| 0678-RLHVP | 45% | Two year | 53 | $105.55 |\n| 6733-LRIZX | 45% | Two year | 35 | $108.95 |\n| 5748-RNCJT | 44% | Two year | 69 | $106.50 |",
+   "tool_results": [
+    {
+     "customers": [
+      {
+       "customer_id": "6680-NENYN",
+       "churn_probability": 0.5168,
+       "contract": "Two year",
+       "tenure": 43,
+       "monthly_charges": 104.6
+      },
+      {
+       "customer_id": "1428-IEDPR",
+       "churn_probability": 0.4872,
+       "contract": "Two year",
+       "tenure": 52,
+       "monthly_charges": 109.3
+      },
+      {
+       "customer_id": "0678-RLHVP",
+       "churn_probability": 0.4463,
+       "contract": "Two year",
+       "tenure": 53,
+       "monthly_charges": 105.55
+      },
+      {
+       "customer_id": "6733-LRIZX",
+       "churn_probability": 0.4457,
+       "contract": "Two year",
+       "tenure": 35,
+       "monthly_charges": 108.95
+      },
+      {
+       "customer_id": "5748-RNCJT",
+       "churn_probability": 0.4424,
+       "contract": "Two year",
+       "tenure": 69,
+       "monthly_charges": 106.5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "case": "t_streaming_dsl_tr",
+   "repeat": 0,
+   "seconds": 51.6,
+   "error": null,
+   "checks": {
+    "mentions_fiber_or_speed": true,
+    "no_invented_codes": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "Müşteri DSL kullanıyor ve Streaming TV sürekli takılıyor, ne önerirsin?",
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "1. Streaming TV, en az 25 Mbps hızda çalışan bir internet bağlantısı gerektirir. MüşterinizinDSL hizası bu seviyeye ulaşmıyorsa, bir光纤升级可能是推荐的解决方案。对于DSL速度低于广告速度的情况，如果线路测试显示同步率低于计划速度的60%，请检查地址处是否有光纤可用，并提供带有首月免费的光纤升级方案。\n\n2. 考虑到客户使用的是基础DSL套餐并订阅了Streaming TV和Streaming Movies，建议进行光纤升级。此外，可以考虑推荐一些附加服务以增加客户粘性，如Online Security、Tech Support等。\n3. 为客户提供一个综合解决方案：光纤升级，并提供首月免费优惠；同时推荐Online Security（网络级别的恶意软件和钓鱼保护）作为附加服务。\n\n这样既能解决当前问题，又能通过增加附加值服务来降低客户流失风险。\n\n_Kaynak: [support_troubleshooting.md]_\n\n> **Kaynak metin** (support_troubleshooting.md › Streaming TV buffering): Streaming TV requires at least 25 Mbps per 4K stream. Customers on Basic DSL with Streaming TV and Streaming Movies often experience buffering, so recommend a Fiber upgrade.",
+   "tool_results": [
+    {
+     "results": [
+      {
+       "rank": 1,
+       "source": "support_troubleshooting.md",
+       "section": "Technical Support: Common Issues > Streaming TV buffering",
+       "text": "Streaming TV requires at least 25 Mbps per 4K stream. Customers on Basic DSL with\nStreaming TV and Streaming Movies often experience buffering, so recommend a Fiber upgrade."
+      },
+      {
+       "rank": 2,
+       "source": "support_troubleshooting.md",
+       "section": "Technical Support: Common Issues > DSL speed lower than advertised",
+       "text": "DSL speed depends on distance from the street cabinet. If the line test shows a sync\nrate below 60% of the plan speed, check Fiber availability at the address and\noffer a Fiber upgrade with the first month free."
+      },
+      {
+       "rank": 3,
+       "source": "tariffs.md",
+       "section": "NovaTel Tariff Catalogue (2026) > Add-on services ($5–10/month each)",
+       "text": "- **Online Security**: network-level malware and phishing protection.\n- **Online Backup**: 1 TB of cloud backup.\n- **Device Protection**: repair or replacement of covered home devices.\n- **Tech Support**: priority 24/7 support line with a 15-minute callback guarantee.\n- **Streaming TV** and **Streaming Movies**: content bundles delivered over the internet line.\n\nCustomers with more add-on services are more tied into the NovaTel ecosystem and\nchurn less often. Customers with none of Online Security, Tech Support, Online Backup\nor Device Protection churn noticeably more."
+      }
+     ],
+     "instruction": "Answer ONLY the question that was asked, using the most relevant passage (usually rank 1). Ignore passages about other topics. For a problem, give the concrete steps from the document in order. Copy numbers and currencies ($) exactly; never convert them. If no passage answers the question, say so."
+    }
+   ]
+  }
+ ]
+}

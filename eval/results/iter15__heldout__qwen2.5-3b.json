@@ -1,0 +1,1502 @@
+{
+ "summary": {
+  "model": "qwen2.5:3b",
+  "tag": "iter15",
+  "set": "heldout",
+  "repeats": 3,
+  "case_pass_rate": 1.0,
+  "check_pass_rate": 1.0,
+  "median_seconds": 5.85,
+  "prompt_temperature": 0.2
+ },
+ "records": [
+  {
+   "case": "h_retain_nokeyword",
+   "repeat": 0,
+   "seconds": 13.7,
+   "error": null,
+   "checks": {
+    "only_recommended_codes": true,
+    "mentions_a_recommended_code": true,
+    "offer_details_faithful": true,
+    "states_probability": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "6023-YEBUP numaralı müşteriyi kaybetmemek için ne yapabilirim?",
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** yüksek (%94 ayrılma olasılığı)\n\n- Müşterinin aylık sözleşme kullandığından, daha uzun süreli bir sözleşme ile başa çıkmak zorunda kaldığı için kaybı artırıyor.\n- Müşteri yeni müşteri olduğu için birkaç bakiye almadığından, bu da kaybı arttıyor.\n- İnternet hizmeti Fiber optic olarak belirtilmiş, bu da kaybı artırıyor.\n\nBu kampanyaların özellikleriyle müşterinin kaybı riskini düşürebilir.\n\n**Önerilen kampanyalar**\n- **RET-LOCK24**: 2 yıllık sözleşmeye geçişte 24 ay boyunca aylık ücrette %25 indirim + ücretsiz Tech Support\n  - Neden: sözleşme tipi: aylık, aylık ücret: 100.95, yeni müşteri (az sayıda fatura)\n- **RET-SECURE**: Online Security + Tech Support 6 ay ücretsiz, sonraki 6 ay %50 indirimli\n  - Neden: Online Security ek hizmeti: yok, Tech Support ek hizmeti: yok, internet hizmeti: Fiber optic\n\n_Kaynak: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "customer_id": "6023-YEBUP",
+     "risk_level": "high",
+     "churn_probability_pct": "94%",
+     "drivers_increasing_risk": [
+      "contract type: Month-to-month",
+      "new customer (few bills so far)",
+      "monthly charge: 100.95",
+      "internet service: Fiber optic",
+      "tenure (months): 3"
+     ],
+     "driver_features": [
+      {
+       "feature": "Contract",
+       "value": "Month-to-month"
+      },
+      {
+       "feature": "monthly_to_total_ratio",
+       "value": "0.31"
+      },
+      {
+       "feature": "MonthlyCharges",
+       "value": "100.95"
+      },
+      {
+       "feature": "InternetService",
+       "value": "Fiber optic"
+      },
+      {
+       "feature": "tenure",
+       "value": "3"
+      }
+     ],
+     "drivers_decreasing_risk": [],
+     "recommended_campaigns": [
+      {
+       "code": "RET-LOCK24",
+       "title": "Upgrade to two-year contract",
+       "customer_gets": "25% off the monthly fee for 24 months + free Tech Support",
+       "why_it_fits": [
+        "contract type: Month-to-month",
+        "monthly charge: 100.95",
+        "new customer (few bills so far)"
+       ],
+       "why_features": [
+        {
+         "feature": "Contract",
+         "value": "Month-to-month"
+        },
+        {
+         "feature": "MonthlyCharges",
+         "value": "100.95"
+        },
+        {
+         "feature": "monthly_to_total_ratio",
+         "value": "0.31"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      },
+      {
+       "code": "RET-SECURE",
+       "title": "Free security & support bundle",
+       "customer_gets": "Online Security + Tech Support free for 6 months, then 50% off for 6 months",
+       "why_it_fits": [
+        "Online Security add-on: No",
+        "Tech Support add-on: No",
+        "internet service: Fiber optic"
+       ],
+       "why_features": [
+        {
+         "feature": "OnlineSecurity",
+         "value": "No"
+        },
+        {
+         "feature": "TechSupport",
+         "value": "No"
+        },
+        {
+         "feature": "InternetService",
+         "value": "Fiber optic"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      }
+     ],
+     "instruction": "Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language. Do NOT list, name or describe campaigns: the risk line and the exact campaign list are added automatically below your text."
+    }
+   ]
+  },
+  {
+   "case": "h_retain_nokeyword",
+   "repeat": 1,
+   "seconds": 9.5,
+   "error": null,
+   "checks": {
+    "only_recommended_codes": true,
+    "mentions_a_recommended_code": true,
+    "offer_details_faithful": true,
+    "states_probability": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "6023-YEBUP numaralı müşteriyi kaybetmemek için ne yapabilirim?",
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** yüksek (%94 ayrılma olasılığı)\n\n- Aylık sözleşme (aylık müşteri)\n- Yeni müşteri (sadece birkaç fatura olduğu için)\n- İnternet hizmeti: Fiber optic\n- Müşterinin ağırlığı: 3 ay\n\nBu kampanyalar, müşterinin kaybı riskini azaltmayı amaçlamaktadır.\n\n**Önerilen kampanyalar**\n- **RET-LOCK24**: 2 yıllık sözleşmeye geçişte 24 ay boyunca aylık ücrette %25 indirim + ücretsiz Tech Support\n  - Neden: sözleşme tipi: aylık, aylık ücret: 100.95, yeni müşteri (az sayıda fatura)\n- **RET-SECURE**: Online Security + Tech Support 6 ay ücretsiz, sonraki 6 ay %50 indirimli\n  - Neden: Online Security ek hizmeti: yok, Tech Support ek hizmeti: yok, internet hizmeti: Fiber optic\n\n_Kaynak: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "customer_id": "6023-YEBUP",
+     "risk_level": "high",
+     "churn_probability_pct": "94%",
+     "drivers_increasing_risk": [
+      "contract type: Month-to-month",
+      "new customer (few bills so far)",
+      "monthly charge: 100.95",
+      "internet service: Fiber optic",
+      "tenure (months): 3"
+     ],
+     "driver_features": [
+      {
+       "feature": "Contract",
+       "value": "Month-to-month"
+      },
+      {
+       "feature": "monthly_to_total_ratio",
+       "value": "0.31"
+      },
+      {
+       "feature": "MonthlyCharges",
+       "value": "100.95"
+      },
+      {
+       "feature": "InternetService",
+       "value": "Fiber optic"
+      },
+      {
+       "feature": "tenure",
+       "value": "3"
+      }
+     ],
+     "drivers_decreasing_risk": [],
+     "recommended_campaigns": [
+      {
+       "code": "RET-LOCK24",
+       "title": "Upgrade to two-year contract",
+       "customer_gets": "25% off the monthly fee for 24 months + free Tech Support",
+       "why_it_fits": [
+        "contract type: Month-to-month",
+        "monthly charge: 100.95",
+        "new customer (few bills so far)"
+       ],
+       "why_features": [
+        {
+         "feature": "Contract",
+         "value": "Month-to-month"
+        },
+        {
+         "feature": "MonthlyCharges",
+         "value": "100.95"
+        },
+        {
+         "feature": "monthly_to_total_ratio",
+         "value": "0.31"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      },
+      {
+       "code": "RET-SECURE",
+       "title": "Free security & support bundle",
+       "customer_gets": "Online Security + Tech Support free for 6 months, then 50% off for 6 months",
+       "why_it_fits": [
+        "Online Security add-on: No",
+        "Tech Support add-on: No",
+        "internet service: Fiber optic"
+       ],
+       "why_features": [
+        {
+         "feature": "OnlineSecurity",
+         "value": "No"
+        },
+        {
+         "feature": "TechSupport",
+         "value": "No"
+        },
+        {
+         "feature": "InternetService",
+         "value": "Fiber optic"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      }
+     ],
+     "instruction": "Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language. Do NOT list, name or describe campaigns: the risk line and the exact campaign list are added automatically below your text."
+    }
+   ]
+  },
+  {
+   "case": "h_retain_nokeyword",
+   "repeat": 2,
+   "seconds": 13.6,
+   "error": null,
+   "checks": {
+    "only_recommended_codes": true,
+    "mentions_a_recommended_code": true,
+    "offer_details_faithful": true,
+    "states_probability": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "6023-YEBUP numaralı müşteriyi kaybetmemek için ne yapabilirim?",
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** yüksek (%94 ayrılma olasılığı)\n\n- Bu kampanya, müşteri'nin aylık sözleşme tipi (aylık), aylık ücreti ve yeni müşteri durumuyla uyumludur.\n\n   - Bu kampanya, müşteri'nin internet hizmeti (fiber optic), online güvenlik ve teknik destek add-on'larının bulunmadığından uyumludur.\n\n**Önerilen kampanyalar**\n- **RET-LOCK24**: 2 yıllık sözleşmeye geçişte 24 ay boyunca aylık ücrette %25 indirim + ücretsiz Tech Support\n  - Neden: sözleşme tipi: aylık, aylık ücret: 100.95, yeni müşteri (az sayıda fatura)\n- **RET-SECURE**: Online Security + Tech Support 6 ay ücretsiz, sonraki 6 ay %50 indirimli\n  - Neden: Online Security ek hizmeti: yok, Tech Support ek hizmeti: yok, internet hizmeti: Fiber optic\n\n_Kaynak: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "customer_id": "6023-YEBUP",
+     "risk_level": "high",
+     "churn_probability_pct": "94%",
+     "drivers_increasing_risk": [
+      "contract type: Month-to-month",
+      "new customer (few bills so far)",
+      "monthly charge: 100.95",
+      "internet service: Fiber optic",
+      "tenure (months): 3"
+     ],
+     "driver_features": [
+      {
+       "feature": "Contract",
+       "value": "Month-to-month"
+      },
+      {
+       "feature": "monthly_to_total_ratio",
+       "value": "0.31"
+      },
+      {
+       "feature": "MonthlyCharges",
+       "value": "100.95"
+      },
+      {
+       "feature": "InternetService",
+       "value": "Fiber optic"
+      },
+      {
+       "feature": "tenure",
+       "value": "3"
+      }
+     ],
+     "drivers_decreasing_risk": [],
+     "recommended_campaigns": [
+      {
+       "code": "RET-LOCK24",
+       "title": "Upgrade to two-year contract",
+       "customer_gets": "25% off the monthly fee for 24 months + free Tech Support",
+       "why_it_fits": [
+        "contract type: Month-to-month",
+        "monthly charge: 100.95",
+        "new customer (few bills so far)"
+       ],
+       "why_features": [
+        {
+         "feature": "Contract",
+         "value": "Month-to-month"
+        },
+        {
+         "feature": "MonthlyCharges",
+         "value": "100.95"
+        },
+        {
+         "feature": "monthly_to_total_ratio",
+         "value": "0.31"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      },
+      {
+       "code": "RET-SECURE",
+       "title": "Free security & support bundle",
+       "customer_gets": "Online Security + Tech Support free for 6 months, then 50% off for 6 months",
+       "why_it_fits": [
+        "Online Security add-on: No",
+        "Tech Support add-on: No",
+        "internet service: Fiber optic"
+       ],
+       "why_features": [
+        {
+         "feature": "OnlineSecurity",
+         "value": "No"
+        },
+        {
+         "feature": "TechSupport",
+         "value": "No"
+        },
+        {
+         "feature": "InternetService",
+         "value": "Fiber optic"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      }
+     ],
+     "instruction": "Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language. Do NOT list, name or describe campaigns: the risk line and the exact campaign list are added automatically below your text."
+    }
+   ]
+  },
+  {
+   "case": "h_offer_conditions_en",
+   "repeat": 0,
+   "seconds": 10.7,
+   "error": null,
+   "checks": {
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "mentions_competitor_condition": true,
+    "states_probability": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "What should I offer customer 3932-CMDTD?",
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** high (70% churn probability)\n\n- The lack of an Online Security add-on, which might be important for this customer.\n- The use of Fiber optic internet service, which could be seen as a benefit but also a potential risk if the customer is not satisfied.\n\nPlease review these recommendations carefully.\n\n**Recommended campaigns**\n- **RET-LOCK24**: 25% off the monthly fee for 24 months + free Tech Support\n  - Why: monthly charge: 105.65, new customer (few bills so far)\n- **RET-FIBERVALUE**: $15/month off for 12 months (requires one-year contract)\n  - Why: internet service: Fiber optic, monthly charge: 105.65\n  - Confirm: Customer must have received a competitor offer; Requires a one-year contract; Team Lead approval if combined with another campaign\n\n_Sources: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "customer_id": "3932-CMDTD",
+     "risk_level": "high",
+     "churn_probability_pct": "70%",
+     "drivers_increasing_risk": [
+      "monthly charge: 105.65",
+      "new customer (few bills so far)",
+      "Online Security add-on: No",
+      "internet service: Fiber optic"
+     ],
+     "driver_features": [
+      {
+       "feature": "MonthlyCharges",
+       "value": "105.65"
+      },
+      {
+       "feature": "monthly_to_total_ratio",
+       "value": "0.24"
+      },
+      {
+       "feature": "OnlineSecurity",
+       "value": "No"
+      },
+      {
+       "feature": "InternetService",
+       "value": "Fiber optic"
+      }
+     ],
+     "drivers_decreasing_risk": [
+      "contract type: One year"
+     ],
+     "recommended_campaigns": [
+      {
+       "code": "RET-LOCK24",
+       "title": "Upgrade to two-year contract",
+       "customer_gets": "25% off the monthly fee for 24 months + free Tech Support",
+       "why_it_fits": [
+        "monthly charge: 105.65",
+        "new customer (few bills so far)"
+       ],
+       "why_features": [
+        {
+         "feature": "MonthlyCharges",
+         "value": "105.65"
+        },
+        {
+         "feature": "monthly_to_total_ratio",
+         "value": "0.24"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      },
+      {
+       "code": "RET-FIBERVALUE",
+       "title": "Fiber price match",
+       "customer_gets": "$15/month off for 12 months (requires one-year contract)",
+       "why_it_fits": [
+        "internet service: Fiber optic",
+        "monthly charge: 105.65"
+       ],
+       "why_features": [
+        {
+         "feature": "InternetService",
+         "value": "Fiber optic"
+        },
+        {
+         "feature": "MonthlyCharges",
+         "value": "105.65"
+        }
+       ],
+       "conditions_to_confirm": [
+        "Customer must have received a competitor offer",
+        "Requires a one-year contract",
+        "Team Lead approval if combined with another campaign"
+       ],
+       "source": "retention_campaigns.md"
+      }
+     ],
+     "instruction": "Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language. Do NOT list, name or describe campaigns: the risk line and the exact campaign list are added automatically below your text."
+    }
+   ]
+  },
+  {
+   "case": "h_offer_conditions_en",
+   "repeat": 1,
+   "seconds": 11.6,
+   "error": null,
+   "checks": {
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "mentions_competitor_condition": true,
+    "states_probability": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "What should I offer customer 3932-CMDTD?",
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** high (70% churn probability)\n\n- As a new customer with only a few bills, the customer's tenure is short and may not yet reflect their true satisfaction level.\n- There is no Online Security add-on, which could be seen as an opportunity to improve service offerings.\n- The internet service is Fiber optic, which might be considered a premium offering but also comes at a higher cost.\n\nPlease review these recommendations and confirm any conditions required by the campaigns.\n\n**Recommended campaigns**\n- **RET-LOCK24**: 25% off the monthly fee for 24 months + free Tech Support\n  - Why: monthly charge: 105.65, new customer (few bills so far)\n- **RET-FIBERVALUE**: $15/month off for 12 months (requires one-year contract)\n  - Why: internet service: Fiber optic, monthly charge: 105.65\n  - Confirm: Customer must have received a competitor offer; Requires a one-year contract; Team Lead approval if combined with another campaign\n\n_Sources: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "customer_id": "3932-CMDTD",
+     "risk_level": "high",
+     "churn_probability_pct": "70%",
+     "drivers_increasing_risk": [
+      "monthly charge: 105.65",
+      "new customer (few bills so far)",
+      "Online Security add-on: No",
+      "internet service: Fiber optic"
+     ],
+     "driver_features": [
+      {
+       "feature": "MonthlyCharges",
+       "value": "105.65"
+      },
+      {
+       "feature": "monthly_to_total_ratio",
+       "value": "0.24"
+      },
+      {
+       "feature": "OnlineSecurity",
+       "value": "No"
+      },
+      {
+       "feature": "InternetService",
+       "value": "Fiber optic"
+      }
+     ],
+     "drivers_decreasing_risk": [
+      "contract type: One year"
+     ],
+     "recommended_campaigns": [
+      {
+       "code": "RET-LOCK24",
+       "title": "Upgrade to two-year contract",
+       "customer_gets": "25% off the monthly fee for 24 months + free Tech Support",
+       "why_it_fits": [
+        "monthly charge: 105.65",
+        "new customer (few bills so far)"
+       ],
+       "why_features": [
+        {
+         "feature": "MonthlyCharges",
+         "value": "105.65"
+        },
+        {
+         "feature": "monthly_to_total_ratio",
+         "value": "0.24"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      },
+      {
+       "code": "RET-FIBERVALUE",
+       "title": "Fiber price match",
+       "customer_gets": "$15/month off for 12 months (requires one-year contract)",
+       "why_it_fits": [
+        "internet service: Fiber optic",
+        "monthly charge: 105.65"
+       ],
+       "why_features": [
+        {
+         "feature": "InternetService",
+         "value": "Fiber optic"
+        },
+        {
+         "feature": "MonthlyCharges",
+         "value": "105.65"
+        }
+       ],
+       "conditions_to_confirm": [
+        "Customer must have received a competitor offer",
+        "Requires a one-year contract",
+        "Team Lead approval if combined with another campaign"
+       ],
+       "source": "retention_campaigns.md"
+      }
+     ],
+     "instruction": "Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language. Do NOT list, name or describe campaigns: the risk line and the exact campaign list are added automatically below your text."
+    }
+   ]
+  },
+  {
+   "case": "h_offer_conditions_en",
+   "repeat": 2,
+   "seconds": 9.9,
+   "error": null,
+   "checks": {
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "mentions_competitor_condition": true,
+    "states_probability": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "What should I offer customer 3932-CMDTD?",
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** high (70% churn probability)\n\n- Being a new customer with only a few bills, which may lead to higher churn probability.\n- Not having Online Security as an add-on service.\n- Internet Service being Fiber optic.\n\nPlease review these recommendations carefully and contact the customer to discuss the best options.\n\n**Recommended campaigns**\n- **RET-LOCK24**: 25% off the monthly fee for 24 months + free Tech Support\n  - Why: monthly charge: 105.65, new customer (few bills so far)\n- **RET-FIBERVALUE**: $15/month off for 12 months (requires one-year contract)\n  - Why: internet service: Fiber optic, monthly charge: 105.65\n  - Confirm: Customer must have received a competitor offer; Requires a one-year contract; Team Lead approval if combined with another campaign\n\n_Sources: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "customer_id": "3932-CMDTD",
+     "risk_level": "high",
+     "churn_probability_pct": "70%",
+     "drivers_increasing_risk": [
+      "monthly charge: 105.65",
+      "new customer (few bills so far)",
+      "Online Security add-on: No",
+      "internet service: Fiber optic"
+     ],
+     "driver_features": [
+      {
+       "feature": "MonthlyCharges",
+       "value": "105.65"
+      },
+      {
+       "feature": "monthly_to_total_ratio",
+       "value": "0.24"
+      },
+      {
+       "feature": "OnlineSecurity",
+       "value": "No"
+      },
+      {
+       "feature": "InternetService",
+       "value": "Fiber optic"
+      }
+     ],
+     "drivers_decreasing_risk": [
+      "contract type: One year"
+     ],
+     "recommended_campaigns": [
+      {
+       "code": "RET-LOCK24",
+       "title": "Upgrade to two-year contract",
+       "customer_gets": "25% off the monthly fee for 24 months + free Tech Support",
+       "why_it_fits": [
+        "monthly charge: 105.65",
+        "new customer (few bills so far)"
+       ],
+       "why_features": [
+        {
+         "feature": "MonthlyCharges",
+         "value": "105.65"
+        },
+        {
+         "feature": "monthly_to_total_ratio",
+         "value": "0.24"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      },
+      {
+       "code": "RET-FIBERVALUE",
+       "title": "Fiber price match",
+       "customer_gets": "$15/month off for 12 months (requires one-year contract)",
+       "why_it_fits": [
+        "internet service: Fiber optic",
+        "monthly charge: 105.65"
+       ],
+       "why_features": [
+        {
+         "feature": "InternetService",
+         "value": "Fiber optic"
+        },
+        {
+         "feature": "MonthlyCharges",
+         "value": "105.65"
+        }
+       ],
+       "conditions_to_confirm": [
+        "Customer must have received a competitor offer",
+        "Requires a one-year contract",
+        "Team Lead approval if combined with another campaign"
+       ],
+       "source": "retention_campaigns.md"
+      }
+     ],
+     "instruction": "Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language. Do NOT list, name or describe campaigns: the risk line and the exact campaign list are added automatically below your text."
+    }
+   ]
+  },
+  {
+   "case": "h_ineligible_autopay",
+   "repeat": 0,
+   "seconds": 5.3,
+   "error": null,
+   "checks": {
+    "called_check": true,
+    "says_not_eligible": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "1215-FIGMP için RET-AUTOPAY uygun mu?",
+   "tools": [
+    "check_campaign_eligibility"
+   ],
+   "answer": "**Karar: HAYIR.** RET-AUTOPAY bu müşteriye verilemez. (Kural: Elektronik çek veya posta çeki ile ödeme)\n\nRET-AUTOPAY kampanyası 1215-FIGMP müşteriye sunulamaz. Bu müşteri elektronik çek veya posta çeki ile ödeme yapıyor olup, RET-AUTOPAY kampanyasını sunmak için bu koşulların sağlandığından emin olmak gerekmektedir.\n\n_Kaynak: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "campaign": "RET-AUTOPAY",
+     "eligible": false,
+     "verdict": "NO, RET-AUTOPAY cannot be offered to this customer.",
+     "rule": "Pays by electronic check or mailed check",
+     "rule_tr": "Elektronik çek veya posta çeki ile ödeme",
+     "customer_facts": {
+      "Contract": "Month-to-month",
+      "tenure": 60,
+      "InternetService": "Fiber optic",
+      "MonthlyCharges": 89.9,
+      "PaymentMethod": "Bank transfer (automatic)",
+      "OnlineSecurity": "No",
+      "TechSupport": "No"
+     },
+     "offer": "$5/month credit for 12 months after switching to automatic payment",
+     "conditions_to_confirm": []
+    }
+   ]
+  },
+  {
+   "case": "h_ineligible_autopay",
+   "repeat": 1,
+   "seconds": 7.1,
+   "error": null,
+   "checks": {
+    "called_check": true,
+    "says_not_eligible": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "1215-FIGMP için RET-AUTOPAY uygun mu?",
+   "tools": [
+    "check_campaign_eligibility"
+   ],
+   "answer": "**Karar: HAYIR.** RET-AUTOPAY bu müşteriye verilemez. (Kural: Elektronik çek veya posta çeki ile ödeme)\n\nRET-AUTOPAY kampanyası 1215-FIGMP müşterine ödediğinde (elektronik çek veya posta çeki ile ödeme) verilemez. Bu müşteri, aylık sözleşme içinde ve Fiber optic internet hizmeti kullanıyor. Elektronik transfer (otomatik) ödeme yöntemi kullanıyorsunuz. Her ne kadar kampanyanın koşullarına uygun görünüyor gibi görünse de, ödediğiniz ödeme yöntemine göre bu kampanya verilemez. Ödeme yöntemini doğrulayın ve tekrar deneyin.\n\n_Kaynak: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "campaign": "RET-AUTOPAY",
+     "eligible": false,
+     "verdict": "NO, RET-AUTOPAY cannot be offered to this customer.",
+     "rule": "Pays by electronic check or mailed check",
+     "rule_tr": "Elektronik çek veya posta çeki ile ödeme",
+     "customer_facts": {
+      "Contract": "Month-to-month",
+      "tenure": 60,
+      "InternetService": "Fiber optic",
+      "MonthlyCharges": 89.9,
+      "PaymentMethod": "Bank transfer (automatic)",
+      "OnlineSecurity": "No",
+      "TechSupport": "No"
+     },
+     "offer": "$5/month credit for 12 months after switching to automatic payment",
+     "conditions_to_confirm": []
+    }
+   ]
+  },
+  {
+   "case": "h_ineligible_autopay",
+   "repeat": 2,
+   "seconds": 5.6,
+   "error": null,
+   "checks": {
+    "called_check": true,
+    "says_not_eligible": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "1215-FIGMP için RET-AUTOPAY uygun mu?",
+   "tools": [
+    "check_campaign_eligibility"
+   ],
+   "answer": "**Karar: HAYIR.** RET-AUTOPAY bu müşteriye verilemez. (Kural: Elektronik çek veya posta çeki ile ödeme)\n\nRET-AUTOPAY kampanyası 1215-FIGMP müşterine önceden belirtilen koşullar altında sunulamaz. Bu müşteri, elektronik çek veya posta çeki ile ödeme yapıyor olup, bu nedenle RET-AUTOPAY kampanyasını sunulamaz. Ödeme yöntemi için uygun olan kampanyaların listesi bulunmamaktadır.\n\n_Kaynak: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "campaign": "RET-AUTOPAY",
+     "eligible": false,
+     "verdict": "NO, RET-AUTOPAY cannot be offered to this customer.",
+     "rule": "Pays by electronic check or mailed check",
+     "rule_tr": "Elektronik çek veya posta çeki ile ödeme",
+     "customer_facts": {
+      "Contract": "Month-to-month",
+      "tenure": 60,
+      "InternetService": "Fiber optic",
+      "MonthlyCharges": 89.9,
+      "PaymentMethod": "Bank transfer (automatic)",
+      "OnlineSecurity": "No",
+      "TechSupport": "No"
+     },
+     "offer": "$5/month credit for 12 months after switching to automatic payment",
+     "conditions_to_confirm": []
+    }
+   ]
+  },
+  {
+   "case": "h_why_medium_en",
+   "repeat": 0,
+   "seconds": 5.4,
+   "error": null,
+   "checks": {
+    "states_probability": true,
+    "says_medium": true,
+    "no_invented_codes": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "Why is 6572-ADKRS flagged as risky?",
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** medium (47% churn probability)\n\nMain risk drivers:\n- contract type: Month-to-month\n- internet service: Fiber optic\n\n**Recommended campaigns**\n- **RET-SECURE**: Online Security + Tech Support free for 6 months, then 50% off for 6 months\n  - Why: Online Security add-on: No, Tech Support add-on: No, internet service: Fiber optic\n- **RET-LOCK24**: 25% off the monthly fee for 24 months + free Tech Support\n  - Why: contract type: Month-to-month\n\n_Sources: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "customer_id": "6572-ADKRS",
+     "risk_level": "medium",
+     "churn_probability_pct": "47%",
+     "drivers_increasing_risk": [
+      "contract type: Month-to-month",
+      "internet service: Fiber optic"
+     ],
+     "driver_features": [
+      {
+       "feature": "Contract",
+       "value": "Month-to-month"
+      },
+      {
+       "feature": "InternetService",
+       "value": "Fiber optic"
+      }
+     ],
+     "drivers_decreasing_risk": [
+      "tenure (months): 46",
+      "payment method: Credit card (automatic)"
+     ],
+     "recommended_campaigns": [
+      {
+       "code": "RET-SECURE",
+       "title": "Free security & support bundle",
+       "customer_gets": "Online Security + Tech Support free for 6 months, then 50% off for 6 months",
+       "why_it_fits": [
+        "Online Security add-on: No",
+        "Tech Support add-on: No",
+        "internet service: Fiber optic"
+       ],
+       "why_features": [
+        {
+         "feature": "OnlineSecurity",
+         "value": "No"
+        },
+        {
+         "feature": "TechSupport",
+         "value": "No"
+        },
+        {
+         "feature": "InternetService",
+         "value": "Fiber optic"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      },
+      {
+       "code": "RET-LOCK24",
+       "title": "Upgrade to two-year contract",
+       "customer_gets": "25% off the monthly fee for 24 months + free Tech Support",
+       "why_it_fits": [
+        "contract type: Month-to-month"
+       ],
+       "why_features": [
+        {
+         "feature": "Contract",
+         "value": "Month-to-month"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      }
+     ],
+     "instruction": "Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language. Do NOT list, name or describe campaigns: the risk line and the exact campaign list are added automatically below your text."
+    }
+   ]
+  },
+  {
+   "case": "h_why_medium_en",
+   "repeat": 1,
+   "seconds": 8.0,
+   "error": null,
+   "checks": {
+    "states_probability": true,
+    "says_medium": true,
+    "no_invented_codes": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "Why is 6572-ADKRS flagged as risky?",
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** medium (47% churn probability)\n\nCustomer 6572-ADKRS is flagged as risky due to:\n- The customer has a month-to-month contract which increases churn risk.\n- They have Fiber optic internet service, another factor that contributes to higher churn probability. \n\nThe system will provide more detailed information and recommendations based on these insights.\n\n**Recommended campaigns**\n- **RET-SECURE**: Online Security + Tech Support free for 6 months, then 50% off for 6 months\n  - Why: Online Security add-on: No, Tech Support add-on: No, internet service: Fiber optic\n- **RET-LOCK24**: 25% off the monthly fee for 24 months + free Tech Support\n  - Why: contract type: Month-to-month\n\n_Sources: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "customer_id": "6572-ADKRS",
+     "risk_level": "medium",
+     "churn_probability_pct": "47%",
+     "drivers_increasing_risk": [
+      "contract type: Month-to-month",
+      "internet service: Fiber optic"
+     ],
+     "driver_features": [
+      {
+       "feature": "Contract",
+       "value": "Month-to-month"
+      },
+      {
+       "feature": "InternetService",
+       "value": "Fiber optic"
+      }
+     ],
+     "drivers_decreasing_risk": [
+      "tenure (months): 46",
+      "payment method: Credit card (automatic)"
+     ],
+     "recommended_campaigns": [
+      {
+       "code": "RET-SECURE",
+       "title": "Free security & support bundle",
+       "customer_gets": "Online Security + Tech Support free for 6 months, then 50% off for 6 months",
+       "why_it_fits": [
+        "Online Security add-on: No",
+        "Tech Support add-on: No",
+        "internet service: Fiber optic"
+       ],
+       "why_features": [
+        {
+         "feature": "OnlineSecurity",
+         "value": "No"
+        },
+        {
+         "feature": "TechSupport",
+         "value": "No"
+        },
+        {
+         "feature": "InternetService",
+         "value": "Fiber optic"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      },
+      {
+       "code": "RET-LOCK24",
+       "title": "Upgrade to two-year contract",
+       "customer_gets": "25% off the monthly fee for 24 months + free Tech Support",
+       "why_it_fits": [
+        "contract type: Month-to-month"
+       ],
+       "why_features": [
+        {
+         "feature": "Contract",
+         "value": "Month-to-month"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      }
+     ],
+     "instruction": "Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language. Do NOT list, name or describe campaigns: the risk line and the exact campaign list are added automatically below your text."
+    }
+   ]
+  },
+  {
+   "case": "h_why_medium_en",
+   "repeat": 2,
+   "seconds": 5.0,
+   "error": null,
+   "checks": {
+    "states_probability": true,
+    "says_medium": true,
+    "no_invented_codes": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "Why is 6572-ADKRS flagged as risky?",
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** medium (47% churn probability)\n\nMain risk drivers:\n- contract type: Month-to-month\n- internet service: Fiber optic\n\n**Recommended campaigns**\n- **RET-SECURE**: Online Security + Tech Support free for 6 months, then 50% off for 6 months\n  - Why: Online Security add-on: No, Tech Support add-on: No, internet service: Fiber optic\n- **RET-LOCK24**: 25% off the monthly fee for 24 months + free Tech Support\n  - Why: contract type: Month-to-month\n\n_Sources: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "customer_id": "6572-ADKRS",
+     "risk_level": "medium",
+     "churn_probability_pct": "47%",
+     "drivers_increasing_risk": [
+      "contract type: Month-to-month",
+      "internet service: Fiber optic"
+     ],
+     "driver_features": [
+      {
+       "feature": "Contract",
+       "value": "Month-to-month"
+      },
+      {
+       "feature": "InternetService",
+       "value": "Fiber optic"
+      }
+     ],
+     "drivers_decreasing_risk": [
+      "tenure (months): 46",
+      "payment method: Credit card (automatic)"
+     ],
+     "recommended_campaigns": [
+      {
+       "code": "RET-SECURE",
+       "title": "Free security & support bundle",
+       "customer_gets": "Online Security + Tech Support free for 6 months, then 50% off for 6 months",
+       "why_it_fits": [
+        "Online Security add-on: No",
+        "Tech Support add-on: No",
+        "internet service: Fiber optic"
+       ],
+       "why_features": [
+        {
+         "feature": "OnlineSecurity",
+         "value": "No"
+        },
+        {
+         "feature": "TechSupport",
+         "value": "No"
+        },
+        {
+         "feature": "InternetService",
+         "value": "Fiber optic"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      },
+      {
+       "code": "RET-LOCK24",
+       "title": "Upgrade to two-year contract",
+       "customer_gets": "25% off the monthly fee for 24 months + free Tech Support",
+       "why_it_fits": [
+        "contract type: Month-to-month"
+       ],
+       "why_features": [
+        {
+         "feature": "Contract",
+         "value": "Month-to-month"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      }
+     ],
+     "instruction": "Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language. Do NOT list, name or describe campaigns: the risk line and the exact campaign list are added automatically below your text."
+    }
+   ]
+  },
+  {
+   "case": "h_billing_late_fee",
+   "repeat": 0,
+   "seconds": 6.1,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "states_fee": true,
+    "states_days": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "Fatura geç ödenirse ne olur?",
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "Faturayı geç ödemesi durumuyla ilgili olarak, 10 günlük ödemeden sonra $7 ek latedüzen eklenecektir. 30 günlük bir süre sonra hizmetler durdurulacaktır. Hesapta 60 günlük bir süre içinde ödeme yapıldıysa, yeniden bağlanma ücreti ödenmeyecek [billing_faq.md].\n\n> **Kaynak metin** (billing_faq.md › What happens if a payment is late?): A $7 late fee is added 10 days after the due date. After 30 days, services are suspended. A reconnection fee is not charged if the balance is settled within 60 days.",
+   "tool_results": [
+    {
+     "results": [
+      {
+       "rank": 1,
+       "source": "billing_faq.md",
+       "section": "Billing & Payments FAQ > What happens if a payment is late?",
+       "text": "A $7 late fee is added 10 days after the due date. After 30 days, services are\nsuspended. A reconnection fee is not charged if the balance is settled within 60 days."
+      }
+     ],
+     "instruction": "Answer ONLY the question that was asked, using the most relevant passage (usually rank 1). Ignore passages about other topics. Keep it short: at most 4 sentences, or the steps from the document in order for a problem. Do not add related information that was not asked. Copy numbers and currencies ($) exactly; never convert them. If no passage answers the question, say so."
+    }
+   ]
+  },
+  {
+   "case": "h_billing_late_fee",
+   "repeat": 1,
+   "seconds": 5.5,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "states_fee": true,
+    "states_days": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "Fatura geç ödenirse ne olur?",
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "Fatura geç ödemesi durumunda, 10 günlük ödeme tarihi sonraki günlerde $7 ek ücret eklenecektir. 30 günlük ödeme tarihinden sonra hizmetler kapatılacaktır. Aylık ödeme süresinin 60 günlük bir süre içinde ödemeleri tamamlanırsa, yeniden bağlanma ücreti ödenmeyecek.\n\n_Kaynak: [billing_faq.md]_\n\n> **Kaynak metin** (billing_faq.md › What happens if a payment is late?): A $7 late fee is added 10 days after the due date. After 30 days, services are suspended. A reconnection fee is not charged if the balance is settled within 60 days.",
+   "tool_results": [
+    {
+     "results": [
+      {
+       "rank": 1,
+       "source": "billing_faq.md",
+       "section": "Billing & Payments FAQ > What happens if a payment is late?",
+       "text": "A $7 late fee is added 10 days after the due date. After 30 days, services are\nsuspended. A reconnection fee is not charged if the balance is settled within 60 days."
+      }
+     ],
+     "instruction": "Answer ONLY the question that was asked, using the most relevant passage (usually rank 1). Ignore passages about other topics. Keep it short: at most 4 sentences, or the steps from the document in order for a problem. Do not add related information that was not asked. Copy numbers and currencies ($) exactly; never convert them. If no passage answers the question, say so."
+    }
+   ]
+  },
+  {
+   "case": "h_billing_late_fee",
+   "repeat": 2,
+   "seconds": 5.4,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "states_fee": true,
+    "states_days": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "Fatura geç ödenirse ne olur?",
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "Fatura geç ödemesi durumunda, 10 günlük ödeme tarihi sonraki 10 gün içinde $7 ek ücret eklenecektir. 30 günlük ödeme tarihinden sonra hizmetler kapatılacaktır. Aylık ödemeyi 60 günlük bir süre içinde ödemesi durumunda, yeniden bağlanma ücreti ödenmeyecek.\n\n_Kaynak: [billing_faq.md]_\n\n> **Kaynak metin** (billing_faq.md › What happens if a payment is late?): A $7 late fee is added 10 days after the due date. After 30 days, services are suspended. A reconnection fee is not charged if the balance is settled within 60 days.",
+   "tool_results": [
+    {
+     "results": [
+      {
+       "rank": 1,
+       "source": "billing_faq.md",
+       "section": "Billing & Payments FAQ > What happens if a payment is late?",
+       "text": "A $7 late fee is added 10 days after the due date. After 30 days, services are\nsuspended. A reconnection fee is not charged if the balance is settled within 60 days."
+      }
+     ],
+     "instruction": "Answer ONLY the question that was asked, using the most relevant passage (usually rank 1). Ignore passages about other topics. Keep it short: at most 4 sentences, or the steps from the document in order for a problem. Do not add related information that was not asked. Copy numbers and currencies ($) exactly; never convert them. If no passage answers the question, say so."
+    }
+   ]
+  },
+  {
+   "case": "h_fiber_troubleshoot",
+   "repeat": 0,
+   "seconds": 12.2,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "gives_steps": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "Müşterinin fiber interneti sürekli kopuyor, ne yapmalıyım?",
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "Müşterinin fiber interneti sürekli kopuyor diye düşünüldüğünde, ilk adım olarak Network Status dashboard'ında active outage durumunu kontrol edebilirsiniz. Ayrıca, müşteriye ONT ve routeru 30 saniye kadar kapatıp yeniden başlatmanızı öneririm. Eğer Wi-Fi bir sınırlama olursa, mesh ekansını ($4/month) sunabilirsiniz.\n\nBu durumu teşhis ettiğinde, 90 günlük 3 veya daha fazla bağlantılı sorun talebi (müşterinin fiber interneti sürekli kopuyor) yüksek kayb riski bir işaret olarak görülebilir. Bu durumda, RET-FIBERVALUE kampanyasını sunabilirsiniz. Ancak bu kampanya bir yıllık sözleşme gerektirir ve başka kampanyalarla birlikte kullanılamaz.\n\nBu tür sorunlar için teknik yardım talepleri de değerlendirilmeli; bunlar genellikle 12 aylık sözleşme ile birlikte RET-SECURE kampanyasıyla da sunulabilir.\n\n_Kaynak: [support_troubleshooting.md], [retention_campaigns.md]_\n\n> **Kaynak metin** (support_troubleshooting.md › Slow or unstable Fiber connection): 1. Check for an active outage in the Network Status dashboard (by postal code). 2. Ask the customer to restart the ONT and router (unplug for 30 seconds). 3. Run a remote line test from the support console. Signal below -27 dBm indicates a fibre fault: book a technician visit…",
+   "tool_results": [
+    {
+     "results": [
+      {
+       "rank": 1,
+       "source": "support_troubleshooting.md",
+       "section": "Technical Support: Common Issues > Slow or unstable Fiber connection",
+       "text": "1. Check for an active outage in the Network Status dashboard (by postal code).\n2. Ask the customer to restart the ONT and router (unplug for 30 seconds).\n3. Run a remote line test from the support console. Signal below -27 dBm indicates a\n   fibre fault: book a technician visit (free of charge).\n4. If Wi-Fi is the bottleneck, offer a mesh extender ($4/month, free with Tech Support).\n\nRepeated connectivity complaints (3 or more in 90 days) are a strong churn signal. Flag\nthe account for the Retention team and consider RET-SECURE, which includes Tech Support."
+      },
+      {
+       "rank": 2,
+       "source": "retention_campaigns.md",
+       "section": "Active Retention Campaigns (Q3–Q4 2026) > RET-FIBERVALUE: Fiber price match",
+       "text": "- **Eligible:** Fiber optic customers with a monthly charge above $80 who received a\n  competitor offer.\n- **Offer:** a $15/month discount for 12 months. It requires a one-year contract.\n- **Approval:** Team Lead approval is required when combined with any other campaign."
+      },
+      {
+       "rank": 3,
+       "source": "support_troubleshooting.md",
+       "section": "Technical Support: Common Issues > Streaming TV buffering",
+       "text": "Streaming TV requires at least 25 Mbps per 4K stream. Customers on Basic DSL with\nStreaming TV and Streaming Movies often experience buffering, so recommend a Fiber upgrade."
+      }
+     ],
+     "instruction": "Answer ONLY the question that was asked, using the most relevant passage (usually rank 1). Ignore passages about other topics. Keep it short: at most 4 sentences, or the steps from the document in order for a problem. Do not add related information that was not asked. Copy numbers and currencies ($) exactly; never convert them. If no passage answers the question, say so."
+    }
+   ]
+  },
+  {
+   "case": "h_fiber_troubleshoot",
+   "repeat": 1,
+   "seconds": 8.7,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "gives_steps": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "Müşterinin fiber interneti sürekli kopuyor, ne yapmalıyım?",
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "Müşterinin fiber interneti sürekli kopuyor diye düşünüldüğünde, ilk adım olarak Network Status dashboard'ından active outage durumunu kontrol edebilirsiniz. Ayrıca, müşteriyi ONT ve routeru tekrar başlatmasını sağlayabilirsiniz. Eğer Wi-Fi bir sınırlama olduğunu düşündüğünüzde, mesh ekstender ($4/month) sunulabilir. Daha fazla sorun varsa, Fiber upgrade önerilebilir. Ancak bu durum, müşteri kaybı riskini artırabilir. Bu nedenle, RET-FIBERVALUE kampanyası (bir yıllık sözleşme gerekliliği) sunulabilir. Eğer başka bir kampanya ile aynı zamanda kullanılırsa, bunun için ek teşkilat izni gerekebilir.\n\n_Kaynak: [support_troubleshooting.md], [retention_campaigns.md]_\n\n> **Kaynak metin** (support_troubleshooting.md › Slow or unstable Fiber connection): 1. Check for an active outage in the Network Status dashboard (by postal code). 2. Ask the customer to restart the ONT and router (unplug for 30 seconds). 3. Run a remote line test from the support console. Signal below -27 dBm indicates a fibre fault: book a technician visit…",
+   "tool_results": [
+    {
+     "results": [
+      {
+       "rank": 1,
+       "source": "support_troubleshooting.md",
+       "section": "Technical Support: Common Issues > Slow or unstable Fiber connection",
+       "text": "1. Check for an active outage in the Network Status dashboard (by postal code).\n2. Ask the customer to restart the ONT and router (unplug for 30 seconds).\n3. Run a remote line test from the support console. Signal below -27 dBm indicates a\n   fibre fault: book a technician visit (free of charge).\n4. If Wi-Fi is the bottleneck, offer a mesh extender ($4/month, free with Tech Support).\n\nRepeated connectivity complaints (3 or more in 90 days) are a strong churn signal. Flag\nthe account for the Retention team and consider RET-SECURE, which includes Tech Support."
+      },
+      {
+       "rank": 2,
+       "source": "retention_campaigns.md",
+       "section": "Active Retention Campaigns (Q3–Q4 2026) > RET-FIBERVALUE: Fiber price match",
+       "text": "- **Eligible:** Fiber optic customers with a monthly charge above $80 who received a\n  competitor offer.\n- **Offer:** a $15/month discount for 12 months. It requires a one-year contract.\n- **Approval:** Team Lead approval is required when combined with any other campaign."
+      },
+      {
+       "rank": 3,
+       "source": "support_troubleshooting.md",
+       "section": "Technical Support: Common Issues > Streaming TV buffering",
+       "text": "Streaming TV requires at least 25 Mbps per 4K stream. Customers on Basic DSL with\nStreaming TV and Streaming Movies often experience buffering, so recommend a Fiber upgrade."
+      }
+     ],
+     "instruction": "Answer ONLY the question that was asked, using the most relevant passage (usually rank 1). Ignore passages about other topics. Keep it short: at most 4 sentences, or the steps from the document in order for a problem. Do not add related information that was not asked. Copy numbers and currencies ($) exactly; never convert them. If no passage answers the question, say so."
+    }
+   ]
+  },
+  {
+   "case": "h_fiber_troubleshoot",
+   "repeat": 2,
+   "seconds": 9.2,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "gives_steps": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "Müşterinin fiber interneti sürekli kopuyor, ne yapmalıyım?",
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "Müşterinin fiber interneti sürekli kopuyor gibi bir sorun olduğunu belirttiğinizde, ilk adım olarak Network Status dashboard'ını kontrol etmektir. Eğer active outage varsa, bu durumu iptal eder ve müşteriye ONT ve routeru 30 saniye kadar kapatarak tekrar denemesi önerilir. Ayrıca, remote line testi de yapmak isteyebilirsiniz. Eğer Wi-Fi birimi yetersizse, mesh ekstender ($4/month) sunulabilir. Bu durumun (3 veya daha fazla 90 günlük) tekrarlı bağlantı sorunları, kaybın riskini artıracak. Teknik destek için RET-SECURE kampanyasıyla birlikte kullanmanız önerilir. Ayrıca, Fiber interneti yükseltmek de olası bir çözüm olabilir.\n\n_Kaynak: [support_troubleshooting.md], [retention_campaigns.md]_\n\n> **Kaynak metin** (support_troubleshooting.md › Slow or unstable Fiber connection): 1. Check for an active outage in the Network Status dashboard (by postal code). 2. Ask the customer to restart the ONT and router (unplug for 30 seconds). 3. Run a remote line test from the support console. Signal below -27 dBm indicates a fibre fault: book a technician visit…",
+   "tool_results": [
+    {
+     "results": [
+      {
+       "rank": 1,
+       "source": "support_troubleshooting.md",
+       "section": "Technical Support: Common Issues > Slow or unstable Fiber connection",
+       "text": "1. Check for an active outage in the Network Status dashboard (by postal code).\n2. Ask the customer to restart the ONT and router (unplug for 30 seconds).\n3. Run a remote line test from the support console. Signal below -27 dBm indicates a\n   fibre fault: book a technician visit (free of charge).\n4. If Wi-Fi is the bottleneck, offer a mesh extender ($4/month, free with Tech Support).\n\nRepeated connectivity complaints (3 or more in 90 days) are a strong churn signal. Flag\nthe account for the Retention team and consider RET-SECURE, which includes Tech Support."
+      },
+      {
+       "rank": 2,
+       "source": "retention_campaigns.md",
+       "section": "Active Retention Campaigns (Q3–Q4 2026) > RET-FIBERVALUE: Fiber price match",
+       "text": "- **Eligible:** Fiber optic customers with a monthly charge above $80 who received a\n  competitor offer.\n- **Offer:** a $15/month discount for 12 months. It requires a one-year contract.\n- **Approval:** Team Lead approval is required when combined with any other campaign."
+      },
+      {
+       "rank": 3,
+       "source": "support_troubleshooting.md",
+       "section": "Technical Support: Common Issues > Streaming TV buffering",
+       "text": "Streaming TV requires at least 25 Mbps per 4K stream. Customers on Basic DSL with\nStreaming TV and Streaming Movies often experience buffering, so recommend a Fiber upgrade."
+      }
+     ],
+     "instruction": "Answer ONLY the question that was asked, using the most relevant passage (usually rank 1). Ignore passages about other topics. Keep it short: at most 4 sentences, or the steps from the document in order for a problem. Do not add related information that was not asked. Copy numbers and currencies ($) exactly; never convert them. If no passage answers the question, say so."
+    }
+   ]
+  },
+  {
+   "case": "h_unknown_customer",
+   "repeat": 0,
+   "seconds": 0.0,
+   "error": null,
+   "checks": {
+    "no_codes": true,
+    "says_not_found": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "9999-ZZZZZ numaralı müşteriye hangi kampanyayı önerirsin?",
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**9999-ZZZZZ** numaralı müşteri sistemde bulunamadı. Müşteri numarasını kontrol edin (biçim: 1234-ABCDE). Müşteri bilgisi olmadan kampanya önerisi yapılamaz.",
+   "tool_results": [
+    {
+     "error": "Customer '9999-ZZZZZ' not found. Customer IDs look like '9237-HQITU'. For general policy or campaign-rule questions without a customer, use search_knowledge_base instead."
+    }
+   ]
+  },
+  {
+   "case": "h_unknown_customer",
+   "repeat": 1,
+   "seconds": 0.0,
+   "error": null,
+   "checks": {
+    "no_codes": true,
+    "says_not_found": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "9999-ZZZZZ numaralı müşteriye hangi kampanyayı önerirsin?",
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**9999-ZZZZZ** numaralı müşteri sistemde bulunamadı. Müşteri numarasını kontrol edin (biçim: 1234-ABCDE). Müşteri bilgisi olmadan kampanya önerisi yapılamaz.",
+   "tool_results": [
+    {
+     "error": "Customer '9999-ZZZZZ' not found. Customer IDs look like '9237-HQITU'. For general policy or campaign-rule questions without a customer, use search_knowledge_base instead."
+    }
+   ]
+  },
+  {
+   "case": "h_unknown_customer",
+   "repeat": 2,
+   "seconds": 0.0,
+   "error": null,
+   "checks": {
+    "no_codes": true,
+    "says_not_found": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "9999-ZZZZZ numaralı müşteriye hangi kampanyayı önerirsin?",
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**9999-ZZZZZ** numaralı müşteri sistemde bulunamadı. Müşteri numarasını kontrol edin (biçim: 1234-ABCDE). Müşteri bilgisi olmadan kampanya önerisi yapılamaz.",
+   "tool_results": [
+    {
+     "error": "Customer '9999-ZZZZZ' not found. Customer IDs look like '9237-HQITU'. For general policy or campaign-rule questions without a customer, use search_knowledge_base instead."
+    }
+   ]
+  },
+  {
+   "case": "h_discount_cap_en",
+   "repeat": 0,
+   "seconds": 5.2,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "states_35": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "What is the maximum total discount allowed without manager approval?",
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "The maximum total discount allowed without manager approval is 35% of the monthly fee. This rule applies when an offer requires more than a 35% total discount. No other discounts or offers are explicitly mentioned for month-to-month contracts in this context.\n\n_Sources: [retention_playbook.md], [tariffs.md]_\n\n> **Source excerpt** (retention_playbook.md › 4. Escalation): - The customer explicitly requests cancellation and declines two offers: transfer to the Retention Specialist queue. - A regulatory complaint is mentioned: transfer to the Compliance team and do not make offers. - An offer requires more than a 35% total discount: Retention…",
+   "tool_results": [
+    {
+     "results": [
+      {
+       "rank": 1,
+       "source": "retention_playbook.md",
+       "section": "Customer Retention Playbook > 4. Escalation",
+       "text": "- The customer explicitly requests cancellation and declines two offers: transfer to\n  the Retention Specialist queue.\n- A regulatory complaint is mentioned: transfer to the Compliance team and do not make\n  offers.\n- An offer requires more than a 35% total discount: Retention Manager approval is required."
+      },
+      {
+       "rank": 2,
+       "source": "tariffs.md",
+       "section": "NovaTel Tariff Catalogue (2026) > Contract types > Month-to-month",
+       "text": "No commitment; the customer can cancel at any time without a fee. List prices apply\nwith no discount. Historically this is the segment with the highest churn: roughly\nfour in ten month-to-month customers leave, compared with about one in ten on one-year\nand fewer than one in thirty on two-year contracts."
+      },
+      {
+       "rank": 3,
+       "source": "retention_campaigns.md",
+       "section": "Active Retention Campaigns (Q3–Q4 2026) > Stacking rules",
+       "text": "- At most **two** campaigns can be combined for one customer.\n- RET-LOCK24 and RET-LOCK12 cannot be combined.\n- The total discount must not exceed **35%** of the monthly fee without Retention\n  Manager approval."
+      }
+     ],
+     "instruction": "Answer ONLY the question that was asked, using the most relevant passage (usually rank 1). Ignore passages about other topics. Keep it short: at most 4 sentences, or the steps from the document in order for a problem. Do not add related information that was not asked. Copy numbers and currencies ($) exactly; never convert them. If no passage answers the question, say so."
+    }
+   ]
+  },
+  {
+   "case": "h_discount_cap_en",
+   "repeat": 1,
+   "seconds": 3.4,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "states_35": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "What is the maximum total discount allowed without manager approval?",
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "The maximum total discount allowed without manager approval is 35% of the monthly fee. This limit applies when offering more than one retention campaign to a customer.\n\n_Sources: [retention_playbook.md], [tariffs.md]_\n\n> **Source excerpt** (retention_playbook.md › 4. Escalation): - The customer explicitly requests cancellation and declines two offers: transfer to the Retention Specialist queue. - A regulatory complaint is mentioned: transfer to the Compliance team and do not make offers. - An offer requires more than a 35% total discount: Retention…",
+   "tool_results": [
+    {
+     "results": [
+      {
+       "rank": 1,
+       "source": "retention_playbook.md",
+       "section": "Customer Retention Playbook > 4. Escalation",
+       "text": "- The customer explicitly requests cancellation and declines two offers: transfer to\n  the Retention Specialist queue.\n- A regulatory complaint is mentioned: transfer to the Compliance team and do not make\n  offers.\n- An offer requires more than a 35% total discount: Retention Manager approval is required."
+      },
+      {
+       "rank": 2,
+       "source": "tariffs.md",
+       "section": "NovaTel Tariff Catalogue (2026) > Contract types > Month-to-month",
+       "text": "No commitment; the customer can cancel at any time without a fee. List prices apply\nwith no discount. Historically this is the segment with the highest churn: roughly\nfour in ten month-to-month customers leave, compared with about one in ten on one-year\nand fewer than one in thirty on two-year contracts."
+      },
+      {
+       "rank": 3,
+       "source": "retention_campaigns.md",
+       "section": "Active Retention Campaigns (Q3–Q4 2026) > Stacking rules",
+       "text": "- At most **two** campaigns can be combined for one customer.\n- RET-LOCK24 and RET-LOCK12 cannot be combined.\n- The total discount must not exceed **35%** of the monthly fee without Retention\n  Manager approval."
+      }
+     ],
+     "instruction": "Answer ONLY the question that was asked, using the most relevant passage (usually rank 1). Ignore passages about other topics. Keep it short: at most 4 sentences, or the steps from the document in order for a problem. Do not add related information that was not asked. Copy numbers and currencies ($) exactly; never convert them. If no passage answers the question, say so."
+    }
+   ]
+  },
+  {
+   "case": "h_discount_cap_en",
+   "repeat": 2,
+   "seconds": 4.1,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "states_35": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "What is the maximum total discount allowed without manager approval?",
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "The maximum total discount allowed without manager approval is 35% of the monthly fee. This rule applies to offers requiring more than a 35% total discount. No other discounts or campaigns are explicitly mentioned for month-to-month contracts in this context.\n\n_Sources: [retention_playbook.md], [tariffs.md]_\n\n> **Source excerpt** (retention_playbook.md › 4. Escalation): - The customer explicitly requests cancellation and declines two offers: transfer to the Retention Specialist queue. - A regulatory complaint is mentioned: transfer to the Compliance team and do not make offers. - An offer requires more than a 35% total discount: Retention…",
+   "tool_results": [
+    {
+     "results": [
+      {
+       "rank": 1,
+       "source": "retention_playbook.md",
+       "section": "Customer Retention Playbook > 4. Escalation",
+       "text": "- The customer explicitly requests cancellation and declines two offers: transfer to\n  the Retention Specialist queue.\n- A regulatory complaint is mentioned: transfer to the Compliance team and do not make\n  offers.\n- An offer requires more than a 35% total discount: Retention Manager approval is required."
+      },
+      {
+       "rank": 2,
+       "source": "tariffs.md",
+       "section": "NovaTel Tariff Catalogue (2026) > Contract types > Month-to-month",
+       "text": "No commitment; the customer can cancel at any time without a fee. List prices apply\nwith no discount. Historically this is the segment with the highest churn: roughly\nfour in ten month-to-month customers leave, compared with about one in ten on one-year\nand fewer than one in thirty on two-year contracts."
+      },
+      {
+       "rank": 3,
+       "source": "retention_campaigns.md",
+       "section": "Active Retention Campaigns (Q3–Q4 2026) > Stacking rules",
+       "text": "- At most **two** campaigns can be combined for one customer.\n- RET-LOCK24 and RET-LOCK12 cannot be combined.\n- The total discount must not exceed **35%** of the monthly fee without Retention\n  Manager approval."
+      }
+     ],
+     "instruction": "Answer ONLY the question that was asked, using the most relevant passage (usually rank 1). Ignore passages about other topics. Keep it short: at most 4 sentences, or the steps from the document in order for a problem. Do not add related information that was not asked. Copy numbers and currencies ($) exactly; never convert them. If no passage answers the question, say so."
+    }
+   ]
+  }
+ ]
+}

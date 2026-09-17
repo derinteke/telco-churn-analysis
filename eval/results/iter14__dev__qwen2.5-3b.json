@@ -1,0 +1,1181 @@
+{
+ "summary": {
+  "model": "qwen2.5:3b",
+  "tag": "iter14",
+  "set": "dev",
+  "repeats": 3,
+  "case_pass_rate": 1.0,
+  "check_pass_rate": 1.0,
+  "median_seconds": 8.75,
+  "prompt_temperature": 0.2
+ },
+ "records": [
+  {
+   "case": "offer_9237-HQITU",
+   "repeat": 0,
+   "seconds": 12.5,
+   "error": null,
+   "checks": {
+    "called_recommend_campaigns": true,
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "no_invented_codes": true,
+    "offer_details_faithful": true,
+    "states_probability": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "9237-HQITU numaralı müşteri neden riskli ve ona hangi kampanyayı önermeliyim?",
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** yüksek (%84 ayrılma olasılığı)\n\n- Aylık sözleşme (müşteri yeni ve birkaç fatura olduğu için)\n- Fiber optic internet hizmeti\n- Online Güvenlik eklentisi bulunmamaktadır\n\n   - Bu kampanya, müşteri aylık sözleşme ve yeni müşteri etkili olur.\n\n   - Bu kampanya, müşterinin Online Güvenlik eklentisini bulunmamaktadır ve Fiber optic internet hizmeti etkili olur.\n\nBu kampanyaların uygulanması, müşteriyi daha fazla etkileşime geçerek kaybını önlemeye yardımcı olacaktır.\n\n**Önerilen kampanyalar**\n- **RET-LOCK12**: 1 yıllık sözleşmeye geçişte 12 ay boyunca aylık ücrette %15 indirim\n  - Neden: sözleşme tipi: aylık, yeni müşteri (az sayıda fatura)\n- **RET-SECURE**: Online Security + Tech Support 6 ay ücretsiz, sonraki 6 ay %50 indirimli\n  - Neden: Online Security ek hizmeti: yok, Tech Support ek hizmeti: yok, internet hizmeti: Fiber optic\n\n_Kaynak: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "customer_id": "9237-HQITU",
+     "risk_level": "high",
+     "churn_probability_pct": "84%",
+     "drivers_increasing_risk": [
+      "contract type: Month-to-month",
+      "new customer (few bills so far)",
+      "internet service: Fiber optic",
+      "Online Security add-on: No",
+      "payment method: Electronic check"
+     ],
+     "driver_features": [
+      {
+       "feature": "Contract",
+       "value": "Month-to-month"
+      },
+      {
+       "feature": "monthly_to_total_ratio",
+       "value": "0.46"
+      },
+      {
+       "feature": "InternetService",
+       "value": "Fiber optic"
+      },
+      {
+       "feature": "OnlineSecurity",
+       "value": "No"
+      },
+      {
+       "feature": "PaymentMethod",
+       "value": "Electronic check"
+      }
+     ],
+     "drivers_decreasing_risk": [],
+     "recommended_campaigns": [
+      {
+       "code": "RET-LOCK12",
+       "title": "Upgrade to one-year contract",
+       "customer_gets": "15% off the monthly fee for 12 months",
+       "why_it_fits": [
+        "contract type: Month-to-month",
+        "new customer (few bills so far)"
+       ],
+       "why_features": [
+        {
+         "feature": "Contract",
+         "value": "Month-to-month"
+        },
+        {
+         "feature": "monthly_to_total_ratio",
+         "value": "0.46"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      },
+      {
+       "code": "RET-SECURE",
+       "title": "Free security & support bundle",
+       "customer_gets": "Online Security + Tech Support free for 6 months, then 50% off for 6 months",
+       "why_it_fits": [
+        "Online Security add-on: No",
+        "Tech Support add-on: No",
+        "internet service: Fiber optic"
+       ],
+       "why_features": [
+        {
+         "feature": "OnlineSecurity",
+         "value": "No"
+        },
+        {
+         "feature": "TechSupport",
+         "value": "No"
+        },
+        {
+         "feature": "InternetService",
+         "value": "Fiber optic"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      }
+     ],
+     "instruction": "Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language. Do NOT list, name or describe campaigns: the risk line and the exact campaign list are added automatically below your text."
+    }
+   ]
+  },
+  {
+   "case": "offer_9237-HQITU",
+   "repeat": 1,
+   "seconds": 14.5,
+   "error": null,
+   "checks": {
+    "called_recommend_campaigns": true,
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "no_invented_codes": true,
+    "offer_details_faithful": true,
+    "states_probability": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "9237-HQITU numaralı müşteri neden riskli ve ona hangi kampanyayı önermeliyim?",
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** yüksek (%84 ayrılma olasılığı)\n\n- Aylık sözleşme (aylık sözleşmeli müşteri)\n- Yeni müşteri (farklı maliyetler için birkaç fatura)\n- İnternet hizmeti: Fiks optic internet (Fiber optic)\n- E-kart ödemeli (elektronik çek)\n\nBu müşterinin kaybı riskini artıran faktörleri incelediğimizde, aylık sözleşme ve yeni müşteri etken oldu. Ayrıca, internet hizmeti ve e-kart ödemesi de kaybı riskini artırıyor. Kaybı riskini azaltacak faktörlere dair bilgi bulunmamaktadır. \n\n   - Bu kampanya, müşteri için aylık sözleşme ve aylık maliyet oranını etkileyebilir.\n\n   - Bu kampanya, müşteri için Online Güvenlik ve Destek add-on'larını etkileyebilir.\n\n**Önerilen kampanyalar**\n- **RET-LOCK12**: 1 yıllık sözleşmeye geçişte 12 ay boyunca aylık ücrette %15 indirim\n  - Neden: sözleşme tipi: aylık, yeni müşteri (az sayıda fatura)\n- **RET-SECURE**: Online Security + Tech Support 6 ay ücretsiz, sonraki 6 ay %50 indirimli\n  - Neden: Online Security ek hizmeti: yok, Tech Support ek hizmeti: yok, internet hizmeti: Fiber optic\n\n_Kaynak: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "customer_id": "9237-HQITU",
+     "risk_level": "high",
+     "churn_probability_pct": "84%",
+     "drivers_increasing_risk": [
+      "contract type: Month-to-month",
+      "new customer (few bills so far)",
+      "internet service: Fiber optic",
+      "Online Security add-on: No",
+      "payment method: Electronic check"
+     ],
+     "driver_features": [
+      {
+       "feature": "Contract",
+       "value": "Month-to-month"
+      },
+      {
+       "feature": "monthly_to_total_ratio",
+       "value": "0.46"
+      },
+      {
+       "feature": "InternetService",
+       "value": "Fiber optic"
+      },
+      {
+       "feature": "OnlineSecurity",
+       "value": "No"
+      },
+      {
+       "feature": "PaymentMethod",
+       "value": "Electronic check"
+      }
+     ],
+     "drivers_decreasing_risk": [],
+     "recommended_campaigns": [
+      {
+       "code": "RET-LOCK12",
+       "title": "Upgrade to one-year contract",
+       "customer_gets": "15% off the monthly fee for 12 months",
+       "why_it_fits": [
+        "contract type: Month-to-month",
+        "new customer (few bills so far)"
+       ],
+       "why_features": [
+        {
+         "feature": "Contract",
+         "value": "Month-to-month"
+        },
+        {
+         "feature": "monthly_to_total_ratio",
+         "value": "0.46"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      },
+      {
+       "code": "RET-SECURE",
+       "title": "Free security & support bundle",
+       "customer_gets": "Online Security + Tech Support free for 6 months, then 50% off for 6 months",
+       "why_it_fits": [
+        "Online Security add-on: No",
+        "Tech Support add-on: No",
+        "internet service: Fiber optic"
+       ],
+       "why_features": [
+        {
+         "feature": "OnlineSecurity",
+         "value": "No"
+        },
+        {
+         "feature": "TechSupport",
+         "value": "No"
+        },
+        {
+         "feature": "InternetService",
+         "value": "Fiber optic"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      }
+     ],
+     "instruction": "Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language. Do NOT list, name or describe campaigns: the risk line and the exact campaign list are added automatically below your text."
+    }
+   ]
+  },
+  {
+   "case": "offer_9237-HQITU",
+   "repeat": 2,
+   "seconds": 11.4,
+   "error": null,
+   "checks": {
+    "called_recommend_campaigns": true,
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "no_invented_codes": true,
+    "offer_details_faithful": true,
+    "states_probability": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "9237-HQITU numaralı müşteri neden riskli ve ona hangi kampanyayı önermeliyim?",
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** yüksek (%84 ayrılma olasılığı)\n\n- Aylık sözleşme kullanıyor.\n- Yeni müşteridir ve şu anda sadece birkaç fatura bulunmaktadır.\n- İnternet hizmeti Fiber optic olarak belirlenmiştir.\n- Online Güvenlik ekibi bulunmamaktadır.\n\n   - Bu kampanya, aylık sözleşme kullanmayı ve yeni müşteridir ve sadece birkaç fatura bulunmaktadır nedeniyle uygun görünüyor.\n\n   - Bu kampanya, Online Güvenlik ekibi bulunmamaktadır ve internet hizmeti Fiber optic olarak belirlenmiştir nedeniyle uygun görünüyor.\n\n**Önerilen kampanyalar**\n- **RET-LOCK12**: 1 yıllık sözleşmeye geçişte 12 ay boyunca aylık ücrette %15 indirim\n  - Neden: sözleşme tipi: aylık, yeni müşteri (az sayıda fatura)\n- **RET-SECURE**: Online Security + Tech Support 6 ay ücretsiz, sonraki 6 ay %50 indirimli\n  - Neden: Online Security ek hizmeti: yok, Tech Support ek hizmeti: yok, internet hizmeti: Fiber optic\n\n_Kaynak: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "customer_id": "9237-HQITU",
+     "risk_level": "high",
+     "churn_probability_pct": "84%",
+     "drivers_increasing_risk": [
+      "contract type: Month-to-month",
+      "new customer (few bills so far)",
+      "internet service: Fiber optic",
+      "Online Security add-on: No",
+      "payment method: Electronic check"
+     ],
+     "driver_features": [
+      {
+       "feature": "Contract",
+       "value": "Month-to-month"
+      },
+      {
+       "feature": "monthly_to_total_ratio",
+       "value": "0.46"
+      },
+      {
+       "feature": "InternetService",
+       "value": "Fiber optic"
+      },
+      {
+       "feature": "OnlineSecurity",
+       "value": "No"
+      },
+      {
+       "feature": "PaymentMethod",
+       "value": "Electronic check"
+      }
+     ],
+     "drivers_decreasing_risk": [],
+     "recommended_campaigns": [
+      {
+       "code": "RET-LOCK12",
+       "title": "Upgrade to one-year contract",
+       "customer_gets": "15% off the monthly fee for 12 months",
+       "why_it_fits": [
+        "contract type: Month-to-month",
+        "new customer (few bills so far)"
+       ],
+       "why_features": [
+        {
+         "feature": "Contract",
+         "value": "Month-to-month"
+        },
+        {
+         "feature": "monthly_to_total_ratio",
+         "value": "0.46"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      },
+      {
+       "code": "RET-SECURE",
+       "title": "Free security & support bundle",
+       "customer_gets": "Online Security + Tech Support free for 6 months, then 50% off for 6 months",
+       "why_it_fits": [
+        "Online Security add-on: No",
+        "Tech Support add-on: No",
+        "internet service: Fiber optic"
+       ],
+       "why_features": [
+        {
+         "feature": "OnlineSecurity",
+         "value": "No"
+        },
+        {
+         "feature": "TechSupport",
+         "value": "No"
+        },
+        {
+         "feature": "InternetService",
+         "value": "Fiber optic"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      }
+     ],
+     "instruction": "Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language. Do NOT list, name or describe campaigns: the risk line and the exact campaign list are added automatically below your text."
+    }
+   ]
+  },
+  {
+   "case": "offer_7590-VHVEG",
+   "repeat": 0,
+   "seconds": 10.1,
+   "error": null,
+   "checks": {
+    "called_recommend_campaigns": true,
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "no_invented_codes": true,
+    "offer_details_faithful": true,
+    "states_probability": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "Why is customer 7590-VHVEG at risk and which campaign should I offer?",
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** high (84% churn probability)\n\n- The customer is a new subscriber with only one bill so far.\n- Their contract type is month-to-month, which increases churn probability.\n- They have been with the company for just one month (low tenure).\n- No add-on services are currently in use.\n\nThese campaigns align with the identified risk factors and can help stabilize the customer's situation.\n\n**Recommended campaigns**\n- **RET-LOCK12**: 15% off the monthly fee for 12 months\n  - Why: contract type: Month-to-month, new customer (few bills so far)\n- **RET-NEWBIE**: Welcome call, 1 month free, free speed upgrade for 3 months\n  - Why: tenure (months): 1, new customer (few bills so far)\n\n_Sources: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "customer_id": "7590-VHVEG",
+     "risk_level": "high",
+     "churn_probability_pct": "84%",
+     "drivers_increasing_risk": [
+      "new customer (few bills so far)",
+      "contract type: Month-to-month",
+      "tenure (months): 1",
+      "Online Security add-on: No"
+     ],
+     "driver_features": [
+      {
+       "feature": "monthly_to_total_ratio",
+       "value": "0.97"
+      },
+      {
+       "feature": "Contract",
+       "value": "Month-to-month"
+      },
+      {
+       "feature": "tenure",
+       "value": "1"
+      },
+      {
+       "feature": "OnlineSecurity",
+       "value": "No"
+      }
+     ],
+     "drivers_decreasing_risk": [
+      "internet service: DSL"
+     ],
+     "recommended_campaigns": [
+      {
+       "code": "RET-LOCK12",
+       "title": "Upgrade to one-year contract",
+       "customer_gets": "15% off the monthly fee for 12 months",
+       "why_it_fits": [
+        "contract type: Month-to-month",
+        "new customer (few bills so far)"
+       ],
+       "why_features": [
+        {
+         "feature": "Contract",
+         "value": "Month-to-month"
+        },
+        {
+         "feature": "monthly_to_total_ratio",
+         "value": "0.97"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      },
+      {
+       "code": "RET-NEWBIE",
+       "title": "First-year care package",
+       "customer_gets": "Welcome call, 1 month free, free speed upgrade for 3 months",
+       "why_it_fits": [
+        "tenure (months): 1",
+        "new customer (few bills so far)"
+       ],
+       "why_features": [
+        {
+         "feature": "tenure",
+         "value": "1"
+        },
+        {
+         "feature": "monthly_to_total_ratio",
+         "value": "0.97"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      }
+     ],
+     "instruction": "Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language. Do NOT list, name or describe campaigns: the risk line and the exact campaign list are added automatically below your text."
+    }
+   ]
+  },
+  {
+   "case": "offer_7590-VHVEG",
+   "repeat": 1,
+   "seconds": 8.5,
+   "error": null,
+   "checks": {
+    "called_recommend_campaigns": true,
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "no_invented_codes": true,
+    "offer_details_faithful": true,
+    "states_probability": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "Why is customer 7590-VHVEG at risk and which campaign should I offer?",
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** high (84% churn probability)\n\n- The customer is a new subscriber with only one bill so far.\n- The contract type is month-to-month, which increases churn risk for this segment.\n- The tenure (months) is just 1, indicating the customer has been with the company for a short period.\n\nPlease review these recommendations and proceed accordingly.\n\n**Recommended campaigns**\n- **RET-LOCK12**: 15% off the monthly fee for 12 months\n  - Why: contract type: Month-to-month, new customer (few bills so far)\n- **RET-NEWBIE**: Welcome call, 1 month free, free speed upgrade for 3 months\n  - Why: tenure (months): 1, new customer (few bills so far)\n\n_Sources: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "customer_id": "7590-VHVEG",
+     "risk_level": "high",
+     "churn_probability_pct": "84%",
+     "drivers_increasing_risk": [
+      "new customer (few bills so far)",
+      "contract type: Month-to-month",
+      "tenure (months): 1",
+      "Online Security add-on: No"
+     ],
+     "driver_features": [
+      {
+       "feature": "monthly_to_total_ratio",
+       "value": "0.97"
+      },
+      {
+       "feature": "Contract",
+       "value": "Month-to-month"
+      },
+      {
+       "feature": "tenure",
+       "value": "1"
+      },
+      {
+       "feature": "OnlineSecurity",
+       "value": "No"
+      }
+     ],
+     "drivers_decreasing_risk": [
+      "internet service: DSL"
+     ],
+     "recommended_campaigns": [
+      {
+       "code": "RET-LOCK12",
+       "title": "Upgrade to one-year contract",
+       "customer_gets": "15% off the monthly fee for 12 months",
+       "why_it_fits": [
+        "contract type: Month-to-month",
+        "new customer (few bills so far)"
+       ],
+       "why_features": [
+        {
+         "feature": "Contract",
+         "value": "Month-to-month"
+        },
+        {
+         "feature": "monthly_to_total_ratio",
+         "value": "0.97"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      },
+      {
+       "code": "RET-NEWBIE",
+       "title": "First-year care package",
+       "customer_gets": "Welcome call, 1 month free, free speed upgrade for 3 months",
+       "why_it_fits": [
+        "tenure (months): 1",
+        "new customer (few bills so far)"
+       ],
+       "why_features": [
+        {
+         "feature": "tenure",
+         "value": "1"
+        },
+        {
+         "feature": "monthly_to_total_ratio",
+         "value": "0.97"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      }
+     ],
+     "instruction": "Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language. Do NOT list, name or describe campaigns: the risk line and the exact campaign list are added automatically below your text."
+    }
+   ]
+  },
+  {
+   "case": "offer_7590-VHVEG",
+   "repeat": 2,
+   "seconds": 8.9,
+   "error": null,
+   "checks": {
+    "called_recommend_campaigns": true,
+    "mentions_all_recommended": true,
+    "no_non_recommended_codes": true,
+    "no_invented_codes": true,
+    "offer_details_faithful": true,
+    "states_probability": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "Why is customer 7590-VHVEG at risk and which campaign should I offer?",
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** high (84% churn probability)\n\n- The customer is a new account with only one bill so far.\n- Their contract type is month-to-month, which increases churn risk.\n- They have been with the company for just one month (low tenure).\n- No add-on services are currently being used.\n\nPlease review these recommendations and let me know if you need any further assistance.\n\n**Recommended campaigns**\n- **RET-LOCK12**: 15% off the monthly fee for 12 months\n  - Why: contract type: Month-to-month, new customer (few bills so far)\n- **RET-NEWBIE**: Welcome call, 1 month free, free speed upgrade for 3 months\n  - Why: tenure (months): 1, new customer (few bills so far)\n\n_Sources: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "customer_id": "7590-VHVEG",
+     "risk_level": "high",
+     "churn_probability_pct": "84%",
+     "drivers_increasing_risk": [
+      "new customer (few bills so far)",
+      "contract type: Month-to-month",
+      "tenure (months): 1",
+      "Online Security add-on: No"
+     ],
+     "driver_features": [
+      {
+       "feature": "monthly_to_total_ratio",
+       "value": "0.97"
+      },
+      {
+       "feature": "Contract",
+       "value": "Month-to-month"
+      },
+      {
+       "feature": "tenure",
+       "value": "1"
+      },
+      {
+       "feature": "OnlineSecurity",
+       "value": "No"
+      }
+     ],
+     "drivers_decreasing_risk": [
+      "internet service: DSL"
+     ],
+     "recommended_campaigns": [
+      {
+       "code": "RET-LOCK12",
+       "title": "Upgrade to one-year contract",
+       "customer_gets": "15% off the monthly fee for 12 months",
+       "why_it_fits": [
+        "contract type: Month-to-month",
+        "new customer (few bills so far)"
+       ],
+       "why_features": [
+        {
+         "feature": "Contract",
+         "value": "Month-to-month"
+        },
+        {
+         "feature": "monthly_to_total_ratio",
+         "value": "0.97"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      },
+      {
+       "code": "RET-NEWBIE",
+       "title": "First-year care package",
+       "customer_gets": "Welcome call, 1 month free, free speed upgrade for 3 months",
+       "why_it_fits": [
+        "tenure (months): 1",
+        "new customer (few bills so far)"
+       ],
+       "why_features": [
+        {
+         "feature": "tenure",
+         "value": "1"
+        },
+        {
+         "feature": "monthly_to_total_ratio",
+         "value": "0.97"
+        }
+       ],
+       "conditions_to_confirm": [],
+       "source": "retention_campaigns.md"
+      }
+     ],
+     "instruction": "Write 2-4 short bullets explaining WHY this customer is at risk, using drivers_increasing_risk in plain language. Do NOT list, name or describe campaigns: the risk line and the exact campaign list are added automatically below your text."
+    }
+   ]
+  },
+  {
+   "case": "lowrisk_1293-BSEUN",
+   "repeat": 0,
+   "seconds": 8.6,
+   "error": null,
+   "checks": {
+    "no_invented_codes": true,
+    "only_recommended_codes": true,
+    "says_low_risk": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "1293-BSEUN numaralı müşteriye bir kampanya teklif etmeli miyim?",
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** düşük (%2 ayrılma olasılığı)\n\n- sözleşme türü: 2 yıllık\n- abonelik süresi (aylar): 72 aylık\n- Online Security ek hizmeti: internet servisi yok\n- Tech Support ek hizmeti: internet servisi yok\n\n- Yüksek kaybı riski olmamaktadır (yükseliyor olan risk faktörler bulunmamakta)\n- Kayıp riskini azaltacak bir kampanya varsa, bu risk faktörlerine uygun olmayacaktır.\n\n_Kaynak: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "customer_id": "1293-BSEUN",
+     "risk_level": "low",
+     "churn_probability_pct": "2%",
+     "drivers_increasing_risk": [],
+     "driver_features": [],
+     "drivers_decreasing_risk": [
+      "contract type: Two year",
+      "tenure (months): 72",
+      "Online Security add-on: No internet service",
+      "Tech Support add-on: No internet service"
+     ],
+     "recommended_campaigns": [],
+     "instruction": "No campaign is recommended: the customer is low risk and no eligible campaign addresses their risk drivers. Say this clearly. Do NOT suggest any campaign, discount or free service."
+    }
+   ]
+  },
+  {
+   "case": "lowrisk_1293-BSEUN",
+   "repeat": 1,
+   "seconds": 8.3,
+   "error": null,
+   "checks": {
+    "no_invented_codes": true,
+    "only_recommended_codes": true,
+    "says_low_risk": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "1293-BSEUN numaralı müşteriye bir kampanya teklif etmeli miyim?",
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** düşük (%2 ayrılma olasılığı)\n\n1293-BSEUN numaralı müşteri, yüksek bir ayrılma olasılığına sahip değil. Şu anda kampanya teklif etmek için uygun bir kampanya bulunmamaktadır. Kaybın risk faktörlerini incelediğimizde, sözleşme türü (2 yıllık), aboneliğin süresi (72 ay) ve ek hizmetlerin kullanımı (Online Security ve Tech Support) düşük olasılıkta kaybedilmesine neden olabilir. Kaybın risk faktörlerini azaltmak için önerilen strateji: sözleşme türü'nü ayarlamanız veya aboneliğinizin süresi daha kısa olan bir sözleşme ile değiştirme.\n\n_Kaynak: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "customer_id": "1293-BSEUN",
+     "risk_level": "low",
+     "churn_probability_pct": "2%",
+     "drivers_increasing_risk": [],
+     "driver_features": [],
+     "drivers_decreasing_risk": [
+      "contract type: Two year",
+      "tenure (months): 72",
+      "Online Security add-on: No internet service",
+      "Tech Support add-on: No internet service"
+     ],
+     "recommended_campaigns": [],
+     "instruction": "No campaign is recommended: the customer is low risk and no eligible campaign addresses their risk drivers. Say this clearly. Do NOT suggest any campaign, discount or free service."
+    }
+   ]
+  },
+  {
+   "case": "lowrisk_1293-BSEUN",
+   "repeat": 2,
+   "seconds": 9.6,
+   "error": null,
+   "checks": {
+    "no_invented_codes": true,
+    "only_recommended_codes": true,
+    "says_low_risk": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "1293-BSEUN numaralı müşteriye bir kampanya teklif etmeli miyim?",
+   "tools": [
+    "recommend_campaigns"
+   ],
+   "answer": "**Risk:** düşük (%2 ayrılma olasılığı)\n\n- İki yıllık sözleşme\n- 72 ay kira süresi\n- Online Güvenlik ek hizmeti: internet servisi yok\n- Teknoloji destek ek hizmeti: internet servisi yok\n\n- Müşterinin risk seviyesi düşük.\n- Müşterinin risk seviyesini artırmak için önerilen kampanyalar bulunmamaktadır.\n\nElbette, bu müşteri için daha fazla destek ve biraz farklı yaklaşım gerekebilir. Örneğin, teknoloji destek ek hizmetiye kaydedilebilir veya internet servisi ile ilgili başka bir ek hizmete kaydolabilir.\n\n_Kaynak: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "customer_id": "1293-BSEUN",
+     "risk_level": "low",
+     "churn_probability_pct": "2%",
+     "drivers_increasing_risk": [],
+     "driver_features": [],
+     "drivers_decreasing_risk": [
+      "contract type: Two year",
+      "tenure (months): 72",
+      "Online Security add-on: No internet service",
+      "Tech Support add-on: No internet service"
+     ],
+     "recommended_campaigns": [],
+     "instruction": "No campaign is recommended: the customer is low risk and no eligible campaign addresses their risk drivers. Say this clearly. Do NOT suggest any campaign, discount or free service."
+    }
+   ]
+  },
+  {
+   "case": "ineligible_fibervalue",
+   "repeat": 0,
+   "seconds": 11.0,
+   "error": null,
+   "checks": {
+    "grounded": true,
+    "says_not_eligible": true,
+    "no_invented_codes": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "7590-VHVEG numaralı müşteriye RET-FIBERVALUE verebilir miyim?",
+   "tools": [
+    "check_campaign_eligibility"
+   ],
+   "answer": "**Karar: HAYIR.** RET-FIBERVALUE bu müşteriye verilemez. (Kural: Aylık ücreti $80 üzerinde olan ve rakip teklif almış fiber müşterisi)\n\n- Müşterinin bir rakip teklif aldığını\n- Bir yıllık sözleşme gerektiği\n- Diğer kampanyalarla kombinasyonunda kullanılabilirse, ek tekliflendirme gerektirir\n\n_Kaynak: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "campaign": "RET-FIBERVALUE",
+     "eligible": false,
+     "verdict": "NO, RET-FIBERVALUE cannot be offered to this customer.",
+     "rule": "Fiber optic customer with monthly charge above $80 who received a competitor offer",
+     "rule_tr": "Aylık ücreti $80 üzerinde olan ve rakip teklif almış fiber müşterisi",
+     "customer_facts": {
+      "Contract": "Month-to-month",
+      "tenure": 1,
+      "InternetService": "DSL",
+      "MonthlyCharges": 29.85,
+      "PaymentMethod": "Electronic check",
+      "OnlineSecurity": "No",
+      "TechSupport": "No"
+     },
+     "offer": "$15/month off for 12 months (requires one-year contract)",
+     "conditions_to_confirm": [
+      "Customer must have received a competitor offer",
+      "Requires a one-year contract",
+      "Team Lead approval if combined with another campaign"
+     ]
+    }
+   ]
+  },
+  {
+   "case": "ineligible_fibervalue",
+   "repeat": 1,
+   "seconds": 5.9,
+   "error": null,
+   "checks": {
+    "grounded": true,
+    "says_not_eligible": true,
+    "no_invented_codes": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "7590-VHVEG numaralı müşteriye RET-FIBERVALUE verebilir miyim?",
+   "tools": [
+    "check_campaign_eligibility"
+   ],
+   "answer": "**Karar: HAYIR.** RET-FIBERVALUE bu müşteriye verilemez. (Kural: Aylık ücreti $80 üzerinde olan ve rakip teklif almış fiber müşterisi)\n\n_Kaynak: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "campaign": "RET-FIBERVALUE",
+     "eligible": false,
+     "verdict": "NO, RET-FIBERVALUE cannot be offered to this customer.",
+     "rule": "Fiber optic customer with monthly charge above $80 who received a competitor offer",
+     "rule_tr": "Aylık ücreti $80 üzerinde olan ve rakip teklif almış fiber müşterisi",
+     "customer_facts": {
+      "Contract": "Month-to-month",
+      "tenure": 1,
+      "InternetService": "DSL",
+      "MonthlyCharges": 29.85,
+      "PaymentMethod": "Electronic check",
+      "OnlineSecurity": "No",
+      "TechSupport": "No"
+     },
+     "offer": "$15/month off for 12 months (requires one-year contract)",
+     "conditions_to_confirm": [
+      "Customer must have received a competitor offer",
+      "Requires a one-year contract",
+      "Team Lead approval if combined with another campaign"
+     ]
+    }
+   ]
+  },
+  {
+   "case": "ineligible_fibervalue",
+   "repeat": 2,
+   "seconds": 5.6,
+   "error": null,
+   "checks": {
+    "grounded": true,
+    "says_not_eligible": true,
+    "no_invented_codes": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "7590-VHVEG numaralı müşteriye RET-FIBERVALUE verebilir miyim?",
+   "tools": [
+    "check_campaign_eligibility"
+   ],
+   "answer": "**Karar: HAYIR.** RET-FIBERVALUE bu müşteriye verilemez. (Kural: Aylık ücreti $80 üzerinde olan ve rakip teklif almış fiber müşterisi)\n\n_Kaynak: [retention_campaigns.md]_",
+   "tool_results": [
+    {
+     "campaign": "RET-FIBERVALUE",
+     "eligible": false,
+     "verdict": "NO, RET-FIBERVALUE cannot be offered to this customer.",
+     "rule": "Fiber optic customer with monthly charge above $80 who received a competitor offer",
+     "rule_tr": "Aylık ücreti $80 üzerinde olan ve rakip teklif almış fiber müşterisi",
+     "customer_facts": {
+      "Contract": "Month-to-month",
+      "tenure": 1,
+      "InternetService": "DSL",
+      "MonthlyCharges": 29.85,
+      "PaymentMethod": "Electronic check",
+      "OnlineSecurity": "No",
+      "TechSupport": "No"
+     },
+     "offer": "$15/month off for 12 months (requires one-year contract)",
+     "conditions_to_confirm": [
+      "Customer must have received a competitor offer",
+      "Requires a one-year contract",
+      "Team Lead approval if combined with another campaign"
+     ]
+    }
+   ]
+  },
+  {
+   "case": "policy_stacking",
+   "repeat": 0,
+   "seconds": 11.5,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "says_no": true,
+    "cites_source": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "RET-LOCK24 ve RET-LOCK12 aynı müşteriye birlikte verilebilir mi?",
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "RET-LOCK24 ve RET-LOCK12 aynı müşteriye birlikte verilebilir mi? Bu konuda retention_campaigns.md ve retention_playbook.md kaynaklarından bilgi edinebildim. \n\nretention_campaigns.md kayıtlarına göre, bu iki kampanya aynı müşteriye aynı anda eklenememektedir. Retention Manager onay olmadan toplam indirim %35'den fazla olmamalıdır.\n\nretention_playbook.md kayıtlarından ise, bu iki kampanya aynı müşteriye birlikte verilebilir ve bunun için %35'den az toplam indirim gerekmektedir. Ancak Retention Manager onay olmadan toplam indirim %35'den fazla olmamalıdır.\n\nBu nedenle, RET-LOCK24 ve RET-LOCK12 aynı müşteriye birlikte verilebilir ancak Retention Manager onayını almalıdır.\n\n> **Kaynak metin** (retention_campaigns.md › Stacking rules): - At most **two** campaigns can be combined for one customer. - RET-LOCK24 and RET-LOCK12 cannot be combined. - The total discount must not exceed **35%** of the monthly fee without Retention Manager approval.",
+   "tool_results": [
+    {
+     "results": [
+      {
+       "rank": 1,
+       "source": "retention_campaigns.md",
+       "section": "Active Retention Campaigns (Q3–Q4 2026) > Stacking rules",
+       "text": "- At most **two** campaigns can be combined for one customer.\n- RET-LOCK24 and RET-LOCK12 cannot be combined.\n- The total discount must not exceed **35%** of the monthly fee without Retention\n  Manager approval."
+      },
+      {
+       "rank": 2,
+       "source": "retention_playbook.md",
+       "section": "Customer Retention Playbook > 2. Mapping drivers to actions",
+       "text": "| Main driver | Interpretation | Recommended action |\n|-------------|---------------|--------------------|\n| Contract = Month-to-month | No commitment, easy to leave | RET-LOCK24, or RET-LOCK12 as a fallback |\n| Low tenure (tenure_group 0-1yr) | Customer has not yet built loyalty | RET-NEWBIE |\n| InternetService = Fiber optic combined with high MonthlyCharges | Price sensitivity on a premium plan | RET-FIBERVALUE, or RET-LOCK24 |\n| OnlineSecurity = No / TechSupport = No | Weak ecosystem ties; problems go unresolved | RET-SECURE |\n| PaymentMethod = Electronic check | Payment friction; strongly"
+      },
+      {
+       "rank": 3,
+       "source": "retention_playbook.md",
+       "section": "Customer Retention Playbook > 2. Mapping drivers to actions (part 2)",
+       "text": "oblems go unresolved | RET-SECURE |\n| PaymentMethod = Electronic check | Payment friction; strongly associated with churn | RET-AUTOPAY |\n| Few services (num_services low) | Weak product engagement | RET-SECURE, plus a bundle conversation |\n| PaperlessBilling = Yes, with billing complaints | Bill shock | Walk the customer through the bill, then RET-AUTOPAY |"
+      }
+     ],
+     "instruction": "Answer ONLY the question that was asked, using the most relevant passage (usually rank 1). Ignore passages about other topics. For a problem, give the concrete steps from the document in order. Copy numbers and currencies ($) exactly; never convert them. If no passage answers the question, say so."
+    }
+   ]
+  },
+  {
+   "case": "policy_stacking",
+   "repeat": 1,
+   "seconds": 4.8,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "says_no": true,
+    "cites_source": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "RET-LOCK24 ve RET-LOCK12 aynı müşteriye birlikte verilebilir mi?",
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "RET-LOCK24 ve RET-LOCK12 aynı müşteriye birlikte verilebilir mi? Bu konuda retention_playbook.md kaynaklı olarak belirtildi ki: \"RET-LOCK24 ve RET-LOCK12 cannot be combined.\" Yani bu kampanyalar bir müşteriye aynı anda verilemez.\n\n> **Kaynak metin** (retention_campaigns.md › Stacking rules): - At most **two** campaigns can be combined for one customer. - RET-LOCK24 and RET-LOCK12 cannot be combined. - The total discount must not exceed **35%** of the monthly fee without Retention Manager approval.",
+   "tool_results": [
+    {
+     "results": [
+      {
+       "rank": 1,
+       "source": "retention_campaigns.md",
+       "section": "Active Retention Campaigns (Q3–Q4 2026) > Stacking rules",
+       "text": "- At most **two** campaigns can be combined for one customer.\n- RET-LOCK24 and RET-LOCK12 cannot be combined.\n- The total discount must not exceed **35%** of the monthly fee without Retention\n  Manager approval."
+      },
+      {
+       "rank": 2,
+       "source": "retention_playbook.md",
+       "section": "Customer Retention Playbook > 2. Mapping drivers to actions",
+       "text": "| Main driver | Interpretation | Recommended action |\n|-------------|---------------|--------------------|\n| Contract = Month-to-month | No commitment, easy to leave | RET-LOCK24, or RET-LOCK12 as a fallback |\n| Low tenure (tenure_group 0-1yr) | Customer has not yet built loyalty | RET-NEWBIE |\n| InternetService = Fiber optic combined with high MonthlyCharges | Price sensitivity on a premium plan | RET-FIBERVALUE, or RET-LOCK24 |\n| OnlineSecurity = No / TechSupport = No | Weak ecosystem ties; problems go unresolved | RET-SECURE |\n| PaymentMethod = Electronic check | Payment friction; strongly"
+      },
+      {
+       "rank": 3,
+       "source": "retention_playbook.md",
+       "section": "Customer Retention Playbook > 2. Mapping drivers to actions (part 2)",
+       "text": "oblems go unresolved | RET-SECURE |\n| PaymentMethod = Electronic check | Payment friction; strongly associated with churn | RET-AUTOPAY |\n| Few services (num_services low) | Weak product engagement | RET-SECURE, plus a bundle conversation |\n| PaperlessBilling = Yes, with billing complaints | Bill shock | Walk the customer through the bill, then RET-AUTOPAY |"
+      }
+     ],
+     "instruction": "Answer ONLY the question that was asked, using the most relevant passage (usually rank 1). Ignore passages about other topics. For a problem, give the concrete steps from the document in order. Copy numbers and currencies ($) exactly; never convert them. If no passage answers the question, say so."
+    }
+   ]
+  },
+  {
+   "case": "policy_stacking",
+   "repeat": 2,
+   "seconds": 5.0,
+   "error": null,
+   "checks": {
+    "called_search": true,
+    "says_no": true,
+    "cites_source": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "RET-LOCK24 ve RET-LOCK12 aynı müşteriye birlikte verilebilir mi?",
+   "tools": [
+    "search_knowledge_base"
+   ],
+   "answer": "RET-LOCK24 ve RET-LOCK12 aynı müşteriye birlikte verilebilir mi? Bu konuda retention_playbook.md kaynaklı olarak belirtildiği üzere, bu iki kampanya birlikte verilemez. Her ikisi de ayrı olarak kullanılabilir ancak birlikte verilmesi yasaktır.\n\n> **Kaynak metin** (retention_campaigns.md › Stacking rules): - At most **two** campaigns can be combined for one customer. - RET-LOCK24 and RET-LOCK12 cannot be combined. - The total discount must not exceed **35%** of the monthly fee without Retention Manager approval.",
+   "tool_results": [
+    {
+     "results": [
+      {
+       "rank": 1,
+       "source": "retention_campaigns.md",
+       "section": "Active Retention Campaigns (Q3–Q4 2026) > Stacking rules",
+       "text": "- At most **two** campaigns can be combined for one customer.\n- RET-LOCK24 and RET-LOCK12 cannot be combined.\n- The total discount must not exceed **35%** of the monthly fee without Retention\n  Manager approval."
+      },
+      {
+       "rank": 2,
+       "source": "retention_playbook.md",
+       "section": "Customer Retention Playbook > 2. Mapping drivers to actions",
+       "text": "| Main driver | Interpretation | Recommended action |\n|-------------|---------------|--------------------|\n| Contract = Month-to-month | No commitment, easy to leave | RET-LOCK24, or RET-LOCK12 as a fallback |\n| Low tenure (tenure_group 0-1yr) | Customer has not yet built loyalty | RET-NEWBIE |\n| InternetService = Fiber optic combined with high MonthlyCharges | Price sensitivity on a premium plan | RET-FIBERVALUE, or RET-LOCK24 |\n| OnlineSecurity = No / TechSupport = No | Weak ecosystem ties; problems go unresolved | RET-SECURE |\n| PaymentMethod = Electronic check | Payment friction; strongly"
+      },
+      {
+       "rank": 3,
+       "source": "retention_playbook.md",
+       "section": "Customer Retention Playbook > 2. Mapping drivers to actions (part 2)",
+       "text": "oblems go unresolved | RET-SECURE |\n| PaymentMethod = Electronic check | Payment friction; strongly associated with churn | RET-AUTOPAY |\n| Few services (num_services low) | Weak product engagement | RET-SECURE, plus a bundle conversation |\n| PaperlessBilling = Yes, with billing complaints | Bill shock | Walk the customer through the bill, then RET-AUTOPAY |"
+      }
+     ],
+     "instruction": "Answer ONLY the question that was asked, using the most relevant passage (usually rank 1). Ignore passages about other topics. For a problem, give the concrete steps from the document in order. Copy numbers and currencies ($) exactly; never convert them. If no passage answers the question, say so."
+    }
+   ]
+  },
+  {
+   "case": "top_risk_list",
+   "repeat": 0,
+   "seconds": 9.0,
+   "error": null,
+   "checks": {
+    "called_find": true,
+    "lists_correct_ids": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "Aylık sözleşmeli en riskli 3 müşteriyi listele.",
+   "tools": [
+    "find_high_risk_customers"
+   ],
+   "answer": "| Müşteri | Ayrılma olasılığı | Sözleşme | Süre (ay) | Aylık ücret |\n|---|---|---|---|---|\n| 7216-EWTRS | 96% | Month-to-month | 1 | $100.80 |\n| 9300-AGZNL | 95% | Month-to-month | 1 | $94.00 |\n| 9497-QCMMS | 95% | Month-to-month | 1 | $93.55 |",
+   "tool_results": [
+    {
+     "customers": [
+      {
+       "customer_id": "7216-EWTRS",
+       "churn_probability": 0.9551,
+       "contract": "Month-to-month",
+       "tenure": 1,
+       "monthly_charges": 100.8
+      },
+      {
+       "customer_id": "9300-AGZNL",
+       "churn_probability": 0.9519,
+       "contract": "Month-to-month",
+       "tenure": 1,
+       "monthly_charges": 94.0
+      },
+      {
+       "customer_id": "9497-QCMMS",
+       "churn_probability": 0.9515,
+       "contract": "Month-to-month",
+       "tenure": 1,
+       "monthly_charges": 93.55
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "case": "top_risk_list",
+   "repeat": 1,
+   "seconds": 8.6,
+   "error": null,
+   "checks": {
+    "called_find": true,
+    "lists_correct_ids": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "Aylık sözleşmeli en riskli 3 müşteriyi listele.",
+   "tools": [
+    "find_high_risk_customers"
+   ],
+   "answer": "| Müşteri | Ayrılma olasılığı | Sözleşme | Süre (ay) | Aylık ücret |\n|---|---|---|---|---|\n| 7216-EWTRS | 96% | Month-to-month | 1 | $100.80 |\n| 9300-AGZNL | 95% | Month-to-month | 1 | $94.00 |\n| 9497-QCMMS | 95% | Month-to-month | 1 | $93.55 |",
+   "tool_results": [
+    {
+     "customers": [
+      {
+       "customer_id": "7216-EWTRS",
+       "churn_probability": 0.9551,
+       "contract": "Month-to-month",
+       "tenure": 1,
+       "monthly_charges": 100.8
+      },
+      {
+       "customer_id": "9300-AGZNL",
+       "churn_probability": 0.9519,
+       "contract": "Month-to-month",
+       "tenure": 1,
+       "monthly_charges": 94.0
+      },
+      {
+       "customer_id": "9497-QCMMS",
+       "churn_probability": 0.9515,
+       "contract": "Month-to-month",
+       "tenure": 1,
+       "monthly_charges": 93.55
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "case": "top_risk_list",
+   "repeat": 2,
+   "seconds": 8.1,
+   "error": null,
+   "checks": {
+    "called_find": true,
+    "lists_correct_ids": true,
+    "no_bad_turkish_terms": true,
+    "no_reasoning_leak": true,
+    "language_matches": true,
+    "numbers_grounded": true
+   },
+   "passed": true,
+   "question": "Aylık sözleşmeli en riskli 3 müşteriyi listele.",
+   "tools": [
+    "find_high_risk_customers"
+   ],
+   "answer": "| Müşteri | Ayrılma olasılığı | Sözleşme | Süre (ay) | Aylık ücret |\n|---|---|---|---|---|\n| 7216-EWTRS | 96% | Month-to-month | 1 | $100.80 |\n| 9300-AGZNL | 95% | Month-to-month | 1 | $94.00 |\n| 9497-QCMMS | 95% | Month-to-month | 1 | $93.55 |",
+   "tool_results": [
+    {
+     "customers": [
+      {
+       "customer_id": "7216-EWTRS",
+       "churn_probability": 0.9551,
+       "contract": "Month-to-month",
+       "tenure": 1,
+       "monthly_charges": 100.8
+      },
+      {
+       "customer_id": "9300-AGZNL",
+       "churn_probability": 0.9519,
+       "contract": "Month-to-month",
+       "tenure": 1,
+       "monthly_charges": 94.0
+      },
+      {
+       "customer_id": "9497-QCMMS",
+       "churn_probability": 0.9515,
+       "contract": "Month-to-month",
+       "tenure": 1,
+       "monthly_charges": 93.55
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
