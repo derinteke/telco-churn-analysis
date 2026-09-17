@@ -4,6 +4,12 @@ Predict which telecom customers are likely to **churn**, explain *why*, and give
 agents an **LLM assistant** that turns the model's output plus internal policy documents into
 a concrete, compliant action plan.
 
+**TR —** Bir telekom operatöründe hangi müşterilerin aboneliğini bırakmaya (churn) yakın
+olduğunu tahmin eden, bunun *nedenini* açıklayan ve elde tutma ekibine bir **LLM asistanı**
+veren uçtan uca bir proje. Asistan, modelin çıktısını ve şirket içi politika belgelerini alıp
+müşteri temsilcisine somut ve kurallara uygun bir aksiyon planına dönüştürüyor. Kısaca: skoru
+kod hesaplar, nedenini SHAP açıklar, ne yapılacağını da asistan söyler.
+
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![XGBoost](https://img.shields.io/badge/XGBoost-tuned-red)
 ![Ollama](https://img.shields.io/badge/LLM-Ollama%20(local)-black)
